@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Discuss a Partnership — Josh Wood Racing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;900&family=Inter:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --bg:#0d0d0d;
+    --bg2:#141414;
+    --card:#1a1a1a;
+    --purple:#7b2fbe;
+    --purple2:#a855f7;
+    --white:#ffffff;
+    --muted:#888;
+    --border:#2a2a2a;
+    --font-h:'Barlow Condensed',sans-serif;
+    --font-b:'Inter',sans-serif;
+  }
+  html,body{background:var(--bg);color:var(--white);font-family:var(--font-b);min-height:100vh}
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:24px 48px;background:linear-gradient(to bottom,rgba(13,13,13,0.95),transparent)}
+  .nav-logo{font-family:var(--font-h);font-weight:900;font-size:20px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;color:var(--white)}
+  .nav-logo span{color:var(--purple2)}
+  .nav-back{font-family:var(--font-h);font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s}
+  .nav-back:hover{color:var(--white)}
+  .nav-back::before{content:"← "}
+
+  /* HERO */
+  .page-hero{padding:160px 80px 80px;max-width:1200px;margin:0 auto}
+  .section-label{font-family:var(--font-h);font-size:11px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--purple2);margin-bottom:20px}
+  .page-title{font-family:var(--font-h);font-weight:900;font-size:clamp(48px,7vw,96px);line-height:0.9;text-transform:uppercase;letter-spacing:-1px}
+  .page-title span{color:var(--purple2)}
+  .divider{width:48px;height:3px;background:var(--purple);margin:24px 0}
+  .page-subtitle{font-size:16px;line-height:1.7;color:var(--muted);max-width:640px}
+
+  /* WHY IT MATTERS */
+  .why-section{padding:0 80px 100px;max-width:1200px;margin:0 auto}
+  .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+  .why-left{}
+  .why-title{font-family:var(--font-h);font-weight:900;font-size:clamp(36px,5vw,64px);line-height:0.9;text-transform:uppercase;letter-spacing:-1px;margin-bottom:24px}
+  .why-title span{color:var(--purple2)}
+  .why-body{font-size:15px;line-height:1.8;color:var(--muted);margin-bottom:20px}
+  .why-body strong{color:var(--white)}
+  .why-right{}
+  .why-stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:2px}
+  .why-stat-card{background:var(--card);padding:32px 24px}
+  .why-stat-num{font-family:var(--font-h);font-size:48px;font-weight:900;line-height:1;color:var(--white);margin-bottom:4px}
+  .why-stat-num span{color:var(--purple2)}
+  .why-stat-label{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);line-height:1.5}
+  .why-quote{background:var(--card);padding:32px 24px;border-left:3px solid var(--purple);margin-top:2px}
+  .why-quote p{font-family:var(--font-h);font-size:20px;font-weight:700;text-transform:uppercase;line-height:1.3;color:var(--white);letter-spacing:0.5px}
+  .why-quote p span{color:var(--purple2)}
+
+  /* TIERS */
+  .tiers-section{background:var(--bg2);padding:100px 80px}
+  .tiers-inner{max-width:1200px;margin:0 auto}
+  .tiers-header{margin-bottom:60px}
+  .tiers-title{font-family:var(--font-h);font-weight:900;font-size:clamp(36px,5vw,64px);line-height:0.9;text-transform:uppercase;letter-spacing:-1px;margin-bottom:12px}
+  .tiers-title span{color:var(--purple2)}
+  .tiers-sub{font-size:15px;color:var(--muted);max-width:560px;line-height:1.7;margin-top:16px}
+  .tiers-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px}
+  .tier-card{background:var(--card);padding:40px 28px;position:relative;overflow:hidden;transition:transform 0.2s}
+  .tier-card:hover{transform:translateY(-4px)}
+  .tier-card.featured{background:var(--purple)}
+  .tier-num{font-family:var(--font-h);font-size:64px;font-weight:900;line-height:1;color:rgba(255,255,255,0.08);margin-bottom:16px}
+  .tier-card.featured .tier-num{color:rgba(255,255,255,0.15)}
+  .tier-name{font-family:var(--font-h);font-weight:700;font-size:22px;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;color:var(--white)}
+  .tier-price{font-family:var(--font-h);font-size:18px;font-weight:600;color:var(--purple2);margin-bottom:20px;letter-spacing:0.5px}
+  .tier-card.featured .tier-price{color:rgba(255,255,255,0.8)}
+  .tier-divider{width:32px;height:2px;background:var(--purple);margin-bottom:20px}
+  .tier-card.featured .tier-divider{background:rgba(255,255,255,0.4)}
+  .tier-benefits{list-style:none;padding:0}
+  .tier-benefits li{font-size:13px;line-height:1.7;color:var(--muted);padding:6px 0;border-bottom:1px solid var(--border);display:flex;gap:10px;align-items:flex-start}
+  .tier-card.featured .tier-benefits li{color:rgba(255,255,255,0.8);border-bottom-color:rgba(255,255,255,0.15)}
+  .tier-benefits li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--purple2);flex-shrink:0;margin-top:7px}
+  .tier-card.featured .tier-benefits li::before{background:rgba(255,255,255,0.6)}
+  .tier-benefits li:last-child{border-bottom:none}
+
+  /* FORM */
+  .form-section{padding:100px 80px;max-width:1200px;margin:0 auto}
+  .form-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:start}
+  .form-info-title{font-family:var(--font-h);font-weight:900;font-size:clamp(32px,4vw,56px);line-height:0.9;text-transform:uppercase;letter-spacing:-1px;margin-bottom:24px}
+  .form-info-title span{color:var(--purple2)}
+  .form-info-body{font-size:14px;line-height:1.8;color:var(--muted);margin-bottom:32px}
+  .contact-details{margin-top:40px;padding-top:40px;border-top:1px solid var(--border)}
+  .contact-detail{display:flex;flex-direction:column;gap:4px;margin-bottom:20px}
+  .contact-detail-label{font-family:var(--font-h);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+  .contact-detail-value{font-family:var(--font-h);font-size:18px;font-weight:700;color:var(--purple2)}
+  .form-card{background:var(--card);padding:48px 40px}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+  .form-group{margin-bottom:16px}
+  .form-group label{display:block;font-family:var(--font-h);font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+  .form-group input,
+  .form-group textarea,
+  .form-group select{width:100%;background:var(--bg);border:1px solid var(--border);color:var(--white);padding:14px 16px;font-family:var(--font-b);font-size:14px;outline:none;transition:border-color 0.2s;resize:none;appearance:none;-webkit-appearance:none}
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus{border-color:var(--purple)}
+  .form-group textarea{height:120px}
+  .form-group select option{background:var(--bg2);color:var(--white)}
+  .submit-btn{display:inline-flex;align-items:center;gap:12px;background:var(--purple);padding:16px 40px;font-family:var(--font-h);font-weight:700;font-size:14px;letter-spacing:2px;text-transform:uppercase;color:var(--white);border:none;cursor:pointer;transition:background 0.2s;width:100%;justify-content:center;margin-top:8px}
+  .submit-btn:hover{background:var(--purple2)}
+  .submit-btn::after{content:"→"}
+  .form-note{font-size:12px;color:var(--muted);margin-top:12px;text-align:center;letter-spacing:0.5px}
+  .success-msg{display:none;text-align:center;padding:40px}
+  .success-msg h3{font-family:var(--font-h);font-size:32px;font-weight:900;text-transform:uppercase;margin-bottom:12px}
+  .success-msg h3 span{color:var(--purple2)}
+  .success-msg p{color:var(--muted);font-size:14px;line-height:1.7}
+
+  /* FOOTER */
+  footer{border-top:1px solid var(--border);padding:32px 80px;display:flex;align-items:center;justify-content:space-between}
+  .footer-name{font-family:var(--font-h);font-weight:900;font-size:16px;letter-spacing:2px;text-transform:uppercase}
+  .footer-name span{color:var(--purple2)}
+  .footer-copy{font-size:12px;color:var(--muted);letter-spacing:1px}
+
+  @media(max-width:900px){
+    nav{padding:20px 24px}
+    .page-hero,.why-section,.form-section{padding-left:24px;padding-right:24px}
+    .tiers-section{padding:80px 24px}
+    .why-grid,.form-grid{grid-template-columns:1fr;gap:40px}
+    .tiers-grid{grid-template-columns:1fr 1fr}
+    .form-card{padding:32px 24px}
+    .form-row{grid-template-columns:1fr}
+    footer{padding:24px;flex-direction:column;gap:8px;text-align:center}
+  }
+  @media(max-width:600px){
+    .tiers-grid{grid-template-columns:1fr}
+    .why-stat-grid{grid-template-columns:1fr 1fr}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://josh36wood.com" class="nav-logo">Josh<span>#</span>36Wood</a>
+  <a href="https://josh36wood.com" class="nav-back">Back to site</a>
+</nav>
+
+<div class="page-hero">
+  <div class="section-label">2026 Season</div>
+  <h1 class="page-title">Discuss A<br><span>Partnership</span></h1>
+  <div class="divider"></div>
+  <p class="page-subtitle">Joshua Wood is 17, American, and competing at the highest junior level in European motorsport. This is not a hobby. This is a MotoGP pathway — and the window to get on board is now.</p>
+</div>
+
+<div class="why-section">
+  <div class="why-grid">
+    <div class="why-left">
+      <h2 class="why-title">Why This<br><span>Matters</span></h2>
+      <p class="why-body"><strong>The talent is there. The drive is undeniable.</strong> Joshua Wood is 17, American, and competing at the highest junior level in European motorsport. Selected for the Red Bull Rookies Cup tryout from 120 candidates. Training full-time at SPN Academy under coach Nico Ferreira, preparing for a season that puts him directly on the MotoGP radar.</p>
+      <p class="why-body">This is not a development story. This is a rider already on the pathway, already proving himself against Europe's best, already turning heads at the sport's most prestigious junior level.</p>
+      <p class="why-body"><strong>The brands that commit now are not sponsoring potential. They are backing a rider already in motion.</strong> Seven races. Fourteen broadcast platforms. Three million viewers per race. Logo on the bike, the suit, the helmet — visible every time Joshua is on screen, every corner he takes, every position he gains.</p>
+      <p class="why-body">The window to partner at this level, at this price, with this trajectory, does not stay open. <strong>The riders who make MotoGP take their partners with them.</strong></p>
+    </div>
+    <div class="why-right">
+      <div class="why-stat-grid">
+        <div class="why-stat-card">
+          <div class="why-stat-label" style="color:var(--purple2);font-size:11px;font-weight:600;margin-bottom:10px;text-transform:uppercase;letter-spacing:2px">American in Europe</div>
+          <div class="why-stat-label" style="font-size:13px;line-height:1.6;color:var(--muted)">Almost no American riders compete at this level in European junior motorsport.</div>
+        </div>
+        <div class="why-stat-card">
+          <div class="why-stat-label" style="color:var(--purple2);font-size:11px;font-weight:600;margin-bottom:10px;text-transform:uppercase;letter-spacing:2px">Built in Spain</div>
+          <div class="why-stat-label" style="font-size:13px;line-height:1.6;color:var(--muted)">Full-time training at SPN Academy in Marbella under professional coaching.</div>
+        </div>
+        <div class="why-stat-card">
+          <div class="why-stat-label" style="color:var(--purple2);font-size:11px;font-weight:600;margin-bottom:10px;text-transform:uppercase;letter-spacing:2px">The Red Bull Standard</div>
+          <div class="why-stat-label" style="font-size:13px;line-height:1.6;color:var(--muted)">Selected from 120 riders worldwide for the Red Bull Rookies Cup tryout.</div>
+        </div>
+        <div class="why-stat-card">
+          <div class="why-stat-label" style="color:var(--purple2);font-size:11px;font-weight:600;margin-bottom:10px;text-transform:uppercase;letter-spacing:2px">The Early Bet</div>
+          <div class="why-stat-label" style="font-size:13px;line-height:1.6;color:var(--muted)">The greatest riders had sponsors who believed early. Those brands went with them.</div>
+        </div>
+      </div>
+      <div class="why-quote" style="margin-top:24px">
+        <p>The brands that <span>commit now</span> carry forward as Joshua progresses. Early partners grow with the rider.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="tiers-section">
+  <div class="tiers-inner">
+    <div class="tiers-header">
+      <div class="section-label">Partnership Tiers</div>
+      <h2 class="tiers-title">Choose Your<br><span>Level</span></h2>
+      <p class="tiers-sub">Partnership structures from €500 to €25,000+. Every tier delivers real brand exposure across the JuniorGP broadcast network and Joshua's social platforms. Product partnerships are considered alongside financial sponsorship.</p>
+    </div>
+    <div class="tiers-grid">
+      <div class="tier-card">
+        <div class="tier-num">01</div>
+        <div class="tier-name">Micro Sponsor</div>
+        <div class="tier-price">€500 – €1,000</div>
+        <div class="tier-divider"></div>
+        <ul class="tier-benefits">
+          <li>Regular updates on progress via email and newsletters</li>
+          <li>Shout out on social media platforms</li>
+          <li>Invitations to local races</li>
+          <li>Virtual meet and greets</li>
+          <li>Share in Joshua's plans for the future</li>
+        </ul>
+      </div>
+      <div class="tier-card featured">
+        <div class="tier-num">02</div>
+        <div class="tier-name">Support Sponsor</div>
+        <div class="tier-price">€1,500 – €4,500</div>
+        <div class="tier-divider"></div>
+        <ul class="tier-benefits">
+          <li>Updates via email and newsletters</li>
+          <li>Mentions on social media platforms</li>
+          <li>Logo placement on suit</li>
+          <li>Invitation to local races</li>
+          <li>Custom social media campaigns</li>
+        </ul>
+      </div>
+      <div class="tier-card">
+        <div class="tier-num">03</div>
+        <div class="tier-name">Macro Sponsor</div>
+        <div class="tier-price">€5,000 – €10,000</div>
+        <div class="tier-divider"></div>
+        <ul class="tier-benefits">
+          <li>Logo placement on suit and bike (secondary position)</li>
+          <li>Behind the scenes content</li>
+          <li>Custom social media campaigns</li>
+          <li>Collaborative content creation</li>
+          <li>Event day presence</li>
+        </ul>
+      </div>
+      <div class="tier-card featured">
+        <div class="tier-num">04</div>
+        <div class="tier-name">Race Sponsor</div>
+        <div class="tier-price">€10,000 – €25,000+</div>
+        <div class="tier-divider"></div>
+        <ul class="tier-benefits">
+          <li>Logo placement on bike, suit and helmet</li>
+          <li>Digital and social media promotion</li>
+          <li>Event and race day presence</li>
+          <li>Media collaborations</li>
+          <li>Corporate events and product integration</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="form-section">
+  <div class="form-grid">
+    <div>
+      <h2 class="form-info-title">Get In<br><span>Touch</span></h2>
+      <p class="form-info-body">Tell us about your brand and which tier interests you. We will come back to you within 24 hours with a tailored proposal. Product partnerships are welcome alongside or instead of financial sponsorship.</p>
+      <p class="form-info-body">All partnerships are structured around your brand's goals. If none of the tiers above fit exactly, get in touch anyway — we will put together the right package.</p>
+      <div class="contact-details">
+        <div class="contact-detail">
+          <span class="contact-detail-label">Email</span>
+          <span class="contact-detail-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="224f434b56474e434c4662484d514a1114554d4d460c414d4f">[email&#160;protected]</a></span>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-detail-label">Instagram</span>
+          <span class="contact-detail-value">@joshua36</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-card">
+      <form id="partner-form" action="https://formspree.io/f/mzdjveyz" method="POST">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name" name="first_name" required placeholder="First name"/>
+          </div>
+          <div class="form-group">
+            <label for="last-name">Last Name</label>
+            <input type="text" id="last-name" name="last_name" required placeholder="Last name"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="company">Company</label>
+          <input type="text" id="company" name="company" required placeholder="Company name"/>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required placeholder="your@email.com"/>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="phone" placeholder="+34 000 000 000"/>
+        </div>
+        <div class="form-group">
+          <label for="tier">Partnership Tier</label>
+          <select id="tier" name="tier">
+            <option value="" disabled selected>Select a tier</option>
+            <option value="micro">01 — Micro Sponsor (€500–€1,000)</option>
+            <option value="support">02 — Support Sponsor (€1,500–€4,500)</option>
+            <option value="macro">03 — Macro Sponsor (€5,000–€10,000)</option>
+            <option value="race">04 — Race Sponsor (€10,000–€25,000+)</option>
+            <option value="product">Product Partnership</option>
+            <option value="discuss">Not sure — let's discuss</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Tell us about your brand</label>
+          <textarea id="message" name="message" placeholder="What does your brand do, what are your marketing goals, and what kind of partnership are you looking for?"></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Start the Conversation</button>
+        <p class="form-note">We respond within 24 hours</p>
+      </form>
+      <div class="success-msg" id="success-msg">
+        <h3>Message <span>Received</span></h3>
+        <p>Thank you. We will be in touch within 24 hours with a tailored partnership proposal for your brand.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-name">Josh<span>#</span>36Wood</div>
+  <div class="footer-copy">© 2026 Joshua Wood Racing</div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  const form = document.getElementById('partner-form');
+  const success = document.getElementById('success-msg');
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    const data = new FormData(form);
+    const res = await 
