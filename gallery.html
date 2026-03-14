@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gallery — Joshua Wood Racing</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;900&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0d0d0d;
+      --purple: #7b2fbe;
+      --purple-light: #a855f7;
+      --border: rgba(255,255,255,0.07);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: #fff;
+      font-family: 'Barlow Condensed', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 48px;
+      background: rgba(13,13,13,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-weight: 900;
+      font-size: 1.4rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #fff;
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--purple-light); }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a {
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--purple-light); }
+
+    /* PAGE */
+    .gw { padding: 120px 48px 80px; }
+
+    .gh { margin-bottom: 32px; }
+    .gt {
+      color: var(--purple-light);
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .gtitle {
+      color: #fff;
+      font-size: 56px;
+      font-weight: 900;
+      line-height: 0.9;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+    }
+    .gtitle span { color: var(--purple-light); }
+    .gdiv { width: 48px; height: 3px; background: var(--purple); margin: 16px 0 24px; }
+
+    /* FILTERS */
+    .gfilters { display: flex; gap: 8px; margin-bottom: 32px; flex-wrap: wrap; }
+    .gf {
+      background: transparent;
+      border: 1px solid #2a2a2a;
+      color: #888;
+      padding: 7px 18px;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-family: 'Barlow Condensed', sans-serif;
+      transition: all 0.18s;
+    }
+    .gf:hover { border-color: var(--purple-light); color: #fff; }
+    .gf.on { background: var(--purple); border-color: var(--purple); color: #fff; }
+
+    /* PHOTO TILE */
+    .item {
+      position: relative;
+      overflow: hidden;
+      background: #111;
+      cursor: pointer;
+    }
+    .item img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      transition: transform 0.4s;
+      filter: brightness(0.88);
+    }
+    .item:hover img { transform: scale(1.04); filter: brightness(1); }
+    .cap {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+      padding: 28px 14px 12px;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .item:hover .cap { opacity: 1; }
+    .ct { color: #fff; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; }
+    .cs { color: var(--purple-light); font-size: 9px; letter-spacing: 1px; text-transform: uppercase; margin-top: 2px; }
+
+    .gap { margin-top: 6px; }
+
+    /* EDITORIAL LAYOUT */
+    #editorial-view { display: block; }
+    .r1 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; height: 520px; }
+    .r1-mid { display: grid; grid-template-rows: 1fr 1fr; gap: 6px; }
+    .r2 { height: 320px; }
+    .r3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; height: 320px; }
+    .r4 { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 6px; height: 400px; }
+    .r4-right { display: grid; grid-template-rows: 1fr 1fr; gap: 6px; }
+    .r5 { display: grid; grid-template-columns: 1fr 1.4fr 1fr; gap: 6px; height: 260px; }
+
+    /* PAGINATED GRID — appended in 9-photo batches */
+    #more-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+      margin-top: 6px;
+    }
+    #more-grid .item { height: 280px; }
+
+    /* FILTER GRID VIEW */
+    #filter-view { display: none; }
+    .filter-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+    }
+    .filter-grid .item { height: 280px; }
+
+    /* SHOW MORE BUTTON */
+    .show-more-wrap {
+      display: none;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 32px;
+    }
+    .show-more-wrap.visible { display: flex; }
+    #showMoreBtn {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #fff;
+      background: transparent;
+      border: 1px solid var(--purple);
+      padding: 14px 40px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    #showMoreBtn:hover { background: var(--purple); }
+    #photoCount {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #555;
+    }
+
+    /* VIDEO */
+    .vsec { margin-top: 48px; padding-top: 32px; border-top: 1px solid #1a1a1a; }
+    .vt { color: var(--purple-light); font-size: 11px; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 20px; }
+    .vgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .vcard { background: #111; border: 1px solid #1a1a1a; border-radius: 3px; overflow: hidden; }
+    .vcard-hdr { padding: 16px 18px 12px; border-bottom: 1px solid #1a1a1a; }
+    .vcard-tag { color: var(--purple-light); font-size: 10px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 4px; }
+    .vcard-hdr h3 { color: #fff; font-size: 18px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
+    .vembed { background: #000; display: flex; justify-content: center; min-height: 380px; }
+    .vembed blockquote { width: 100% !important; max-width: 100% !important; margin: 0 !important; border: none !important; box-shadow: none !important; background: #000 !important; }
+
+    /* LIGHTBOX */
+    .lb { display: none; position: fixed; inset: 0; z-index: 999; background: rgba(0,0,0,0.94); align-items: center; justify-content: center; backdrop-filter: blur(8px); }
+    .lb.open { display: flex; }
+    .lb-inner { position: relative; display: flex; flex-direction: column; align-items: center; }
+    .lb-inner img { max-width: 88vw; max-height: 80vh; object-fit: contain; display: block; }
+    .lb-close { position: absolute; top: -44px; right: 0; background: none; border: none; color: rgba(255,255,255,0.6); font-size: 1.8rem; cursor: pointer; font-family: 'Barlow Condensed', sans-serif; transition: color 0.2s; }
+    .lb-close:hover { color: #fff; }
+    .lb-nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(123,47,190,0.55); border: none; color: #fff; font-size: 1.4rem; width: 42px; height: 42px; cursor: pointer; display: flex; align-items: center; justify-content: center; border-radius: 2px; transition: background 0.2s; }
+    .lb-nav:hover { background: var(--purple); }
+    .lb-prev { right: calc(100% + 14px); }
+    .lb-next { left: calc(100% + 14px); }
+    .lb-cap { margin-top: 14px; font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--purple-light); }
+
+    /* FOOTER */
+    footer { border-top: 1px solid var(--border); padding: 36px 48px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .f-logo { font-weight: 900; font-size: 1.1rem; letter-spacing: 0.08em; text-transform: uppercase; color: #fff; }
+    .f-logo span { color: var(--purple-light); }
+    footer p { font-size: 0.78rem; color: #888; letter-spacing: 0.06em; }
+    footer a { font-size: 0.78rem; color: var(--purple-light); text-decoration: none; }
+
+    @media (max-width: 768px) {
+      nav { padding: 16px 24px; }
+      .nav-links { gap: 18px; }
+      .gw { padding: 100px 20px 60px; }
+      .gtitle { font-size: 38px; }
+      .r1 { grid-template-columns: 1fr; height: auto; }
+      .r1 > .item { height: 260px; }
+      .r1-mid { grid-template-rows: 200px 200px; }
+      .r2 { height: 200px; }
+      .r3 { grid-template-columns: 1fr; height: auto; }
+      .r3 > .item { height: 220px; }
+      .r4 { grid-template-columns: 1fr; height: auto; }
+      .r4 > .item { height: 240px; }
+      .r4-right { grid-template-rows: 200px 200px; }
+      .r5 { grid-template-columns: 1fr; height: auto; }
+      .r5 > .item { height: 200px; }
+      #more-grid, .filter-grid { grid-template-columns: 1fr 1fr; }
+      #more-grid .item, .filter-grid .item { height: 200px; }
+      .vgrid { grid-template-columns: 1fr; }
+      footer { padding: 24px; }
+    }
+    @media (max-width: 480px) {
+      #more-grid, .filter-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Josh <span>#36</span> Wood</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="gallery.html" class="active">Gallery</a></li>
+    <li><a href="partner.html">Partner</a></li>
+    <li><a href="request-deck.html">Deck</a></li>
+  </ul>
+</nav>
+
+<div class="gw">
+
+  <div class="gh">
+    <div class="gt">2026 Season</div>
+    <div class="gtitle">In The<br><span>Frame</span></div>
+    <div class="gdiv"></div>
+  </div>
+
+  <div class="gfilters">
+    <button class="gf on" data-filter="all">All</button>
+    <button class="gf" data-filter="training">Training</button>
+    <button class="gf" data-filter="redbull">Red Bull Rookies</button>
+    <button class="gf" data-filter="race">Race Day</button>
+    <button class="gf" data-filter="behind">Behind The Scenes</button>
+    <button class="gf" data-filter="media">Media</button>
+  </div>
+
+  <!-- EDITORIAL VIEW -->
+  <div id="editorial-view">
+
+    <div class="r1">
+      <div class="item" data-src="redbull3.jpeg" data-title="Riders Walk" data-sub="Red Bull Rookies">
+        <img src="redbull3.jpeg" alt="Riders Walk" loading="lazy"/>
+        <div class="cap"><div class="ct">Riders Walk</div><div class="cs">Red Bull Rookies</div></div>
+      </div>
+      <div class="r1-mid">
+        <div class="item" data-src="race1.jpeg" data-title="On The Limit" data-sub="Race Day">
+          <img src="race1.jpeg" alt="On The Limit" loading="lazy"/>
+          <div class="cap"><div class="ct">On The Limit</div><div class="cs">Race Day</div></div>
+        </div>
+        <div class="item" data-src="training2.jpeg" data-title="Sunset Session" data-sub="Training">
+          <img src="training2.jpeg" alt="Sunset Session" loading="lazy"/>
+          <div class="cap"><div class="ct">Sunset Session</div><div class="cs">Training</div></div>
+        </div>
+      </div>
+      <div class="item" data-src="redbull5.jpeg" data-title="Pit Lane Briefing" data-sub="Red Bull Rookies">
+        <img src="redbull5.jpeg" alt="Pit Lane Briefing" loading="lazy"/>
+        <div class="cap"><div class="ct">Pit Lane Briefing</div><div class="cs">Red Bull Rookies</div></div>
+      </div>
+    </div>
+
+    <div class="item r2 gap" data-src="race5.jpeg" data-title="Race Start" data-sub="Race Day">
+      <img src="race5.jpeg" alt="Race Start" loading="lazy"/>
+      <div class="cap"><div class="ct">Race Start</div><div class="cs">Race Day</div></div>
+    </div>
+
+    <div class="r3 gap">
+      <div class="item" data-src="trackwalk4.jpeg" data-title="Track Walk" data-sub="Red Bull Rookies">
+        <img src="trackwalk4.jpeg" alt="Track Walk" loading="lazy"/>
+        <div class="cap"><div class="ct">Track Walk</div><div class="cs">Red Bull Rookies</div></div>
+      </div>
+      <div class="item" data-src="behindscene2.jpeg" data-title="Marc Marquez Monument" data-sub="Behind The Scenes">
+        <img src="behindscene2.jpeg" alt="Marc Marquez Monument" loading="lazy"/>
+        <div class="cap"><div class="ct">Marc Marquez Monument</div><div class="cs">Behind The Scenes</div></div>
+      </div>
+      <div class="item" data-src="training4.jpeg" data-title="Corner Speed" data-sub="Training">
+        <img src="training4.jpeg" alt="Corner Speed" loading="lazy"/>
+        <div class="cap"><div class="ct">Corner Speed</div><div class="cs">Training</div></div>
+      </div>
+    </div>
+
+    <div class="r4 gap">
+      <div class="item" data-src="redbull6.jpeg" data-title="120 Selectees" data-sub="Red Bull Rookies">
+        <img src="redbull6.jpeg" alt="120 Selectees" loading="lazy"/>
+        <div class="cap"><div class="ct">120 Selectees</div><div class="cs">Red Bull Rookies</div></div>
+      </div>
+      <div class="item" data-src="behindscene3.jpeg" data-title="Garage" data-sub="Behind The Scenes">
+        <img src="behindscene3.jpeg" alt="Garage" loading="lazy"/>
+        <div class="cap"><div class="ct">Garage</div><div class="cs">Behind The Scenes</div></div>
+      </div>
+      <div class="r4-right">
+        <div class="item" data-src="race4.jpeg" data-title="Pack Racing" data-sub="Race Day">
+          <img src="race4.jpeg" alt="Pack Racing" loading="lazy"/>
+          <div class="cap"><div class="ct">Pack Racing</div><div class="cs">Race Day</div></div>
+        </div>
+        <div class="item" data-src="trackwalk2.jpeg" data-title="Track Walk" data-sub="Portimao">
+          <img src="trackwalk2.jpeg" alt="Track Walk Portimao" loading="lazy"/>
+          <div class="cap"><div class="ct">Track Walk</div><div class="cs">Portimao</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="r5 gap">
+      <div class="item" data-src="media1.png" data-title="FTV Interview" data-sub="Media">
+        <img src="media1.png" alt="FTV Interview" loading="lazy"/>
+        <div class="cap"><div class="ct">FTV Interview</div><div class="cs">Media</div></div>
+      </div>
+      <div class="item" data-src="media.jpeg" data-title="Talk Radio Europe" data-sub="Media">
+        <img src="media.jpeg" alt="Talk Radio Europe" loading="lazy"/>
+        <div class="cap"><div class="ct">Talk Radio Europe</div><div class="cs">Media</div></div>
+      </div>
+      <div class="item" data-src="media2.png" data-title="FTV Panel" data-sub="Media">
+        <img src="media2.png" alt="FTV Panel" loading="lazy"/>
+        <div class="cap"><div class="ct">FTV Panel</div><div class="cs">Media</div></div>
+      </div>
+    </div>
+
+  </div><!-- /editorial-view -->
+
+  <!-- PAGINATED GRID (Show More batches appear here) -->
+  <div id="more-grid"></div>
+
+  <!-- SHOW MORE BUTTON -->
+  <div class="show-more-wrap" id="showMoreWrap">
+    <button id="showMoreBtn">Show More</button>
+    <span id="photoCount"></span>
+  </div>
+
+  <!-- FILTER GRID VIEW -->
+  <div id="filter-view">
+    <div class="filter-grid" id="filterGrid"></div>
+  </div>
+
+  <!-- VIDEO SECTION -->
+  <div class="vsec">
+    <div class="vt">On Camera</div>
+    <div class="vgrid">
+      <div class="vcard">
+        <div class="vcard-hdr">
+          <p class="vcard-tag">Red Bull Rookies Cup</p>
+          <h3>Tryout Selection</h3>
+        </div>
+        <div class="vembed">
+          <blockquote class="instagram-media"
+            data-instgrm-permalink="https://www.instagram.com/reel/DAnf_5TtEoG/"
+            data-instgrm-version="14"
+            style="background:#000;border:0;margin:0;padding:0;width:100%;min-width:100%;">
+          </blockquote>
+        </div>
+      </div>
+      <div class="vcard">
+        <div class="vcard-hdr">
+          <p class="vcard-tag">MirCup</p>
+          <h3>Race Footage</h3>
+        </div>
+        <div class="vembed">
+          <blockquote class="instagram-media"
+            data-instgrm-permalink="https://www.instagram.com/reel/DOQW3g0jPKL/"
+            data-instgrm-version="14"
+            style="background:#000;border:0;margin:0;padding:0;width:100%;min-width:100%;">
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="f-logo">Josh <span>#36</span> Wood</div>
+  <p>Season opens Barcelona · 24 May 2026</p>
+  <a href="mailto:Maiteland@belallure.travel">Maiteland@belallure.travel</a>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb">
+  <div class="lb-inner">
+    <button class="lb-close" id="lbClose">&#x2715; Close</button>
+    <button class="lb-nav lb-prev" id="lbPrev">&#8592;</button>
+    <img src="" alt="" id="lbImg"/>
+    <button class="lb-nav lb-next" id="lbNext">&#8594;</button>
+    <p class="lb-cap" id="lbCap"></p>
+  </div>
+</div>
+
+<script async src="https://www.instagram.com/embed.js"></script>
+<script>
+  // ── PHOTO DATA ───────────────────────────────────────────────────────────────
+  // HOW TO ADD PHOTOS:
+  // 1. Upload the image file to the GitHub repo root
+  // 2. Add an entry to PHOTOS below with: src, cat, title, sub
+  //    cat options: 'redbull' | 'training' | 'race' | 'behind' | 'media'
+  // 3. The first 23 entries match the editorial layout above — do not reorder those.
+  //    New photos go at the bottom and will appear in Show More batches of 9.
+
+  const PHOTOS = [
+    // Editorial block — indices 0–22 (match the HTML layout above, do not reorder)
+    { src:'redbull3.jpeg',    cat:'redbull', title:'Riders Walk',           sub:'Red Bull Rookies' },
+    { src:'race1.jpeg',       cat:'race',    title:'On The Limit',          sub:'Race Day' },
+    { src:'training2.jpeg',   cat:'training',title:'Sunset Session',        sub:'Training' },
+    { src:'redbull5.jpeg',    cat:'redbull', title:'Pit Lane Briefing',     sub:'Red Bull Rookies' },
+    { src:'race5.jpeg',       cat:'race',    title:'Race Start',            sub:'Race Day' },
+    { src:'trackwalk4.jpeg',  cat:'redbull', title:'Track Walk',            sub:'Red Bull Rookies' },
+    { src:'behindscene2.jpeg',cat:'behind',  title:'Marc Marquez Monument', sub:'Behind The Scenes' },
+    { src:'training4.jpeg',   cat:'training',title:'Corner Speed',          sub:'Training' },
+    { src:'redbull6.jpeg',    cat:'redbull', title:'120 Selectees',         sub:'Red Bull Rookies' },
+    { src:'behindscene3.jpeg',cat:'behind',  title:'Garage',                sub:'Behind The Scenes' },
+    { src:'race4.jpeg',       cat:'race',    title:'Pack Racing',           sub:'Race Day' },
+    { src:'trackwalk2.jpeg',  cat:'behind',  title:'Track Walk',            sub:'Portimao' },
+    { src:'media1.png',       cat:'media',   title:'FTV Interview',         sub:'Media' },
+    { src:'media.jpeg',       cat:'media',   title:'Talk Radio Europe',     sub:'Media' },
+    { src:'media2.png',       cat:'media',   title:'FTV Panel',             sub:'Media' },
+    { src:'redbull2.jpeg',    cat:'redbull', title:'Selection Day',         sub:'Red Bull Rookies' },
+    { src:'redbull4.jpeg',    cat:'redbull', title:'On Track',              sub:'Red Bull Rookies' },
+    { src:'training1.jpeg',   cat:'training',title:'SPN Academy',           sub:'Training' },
+    { src:'training3.jpeg',   cat:'training',title:'On The Brakes',         sub:'Training' },
+    { src:'training5.jpeg',   cat:'training',title:'Track Time',            sub:'Training' },
+    { src:'race2.jpeg',       cat:'race',    title:'Full Lean',             sub:'Race Day' },
+    { src:'behindscene1.jpeg',cat:'behind',  title:'Pit Lane',              sub:'Behind The Scenes' },
+    { src:'race3.jpeg',       cat:'race',    title:'Mid Corner',            sub:'Race Day' },
+
+    // ── ADD NEW PHOTOS BELOW THIS LINE ──
+    { src:'behindscene4.jpeg',cat:'behind',  title:'Team Debrief',          sub:'Behind The Scenes' },
+    { src:'behindscene5.jpeg',cat:'behind',  title:'Race Day Prep',         sub:'Behind The Scenes' },
+    { src:'behindscene6.jpeg',cat:'behind',  title:'With The Team',         sub:'Behind The Scenes' },
+    { src:'trackwalk1.jpeg',  cat:'behind',  title:'Track Walk',            sub:'Circuit de Catalunya' },
+    { src:'trackwalk3.jpeg',  cat:'behind',  title:'Track Walk',            sub:'Jerez' },
+  ];
+
+  const EDITORIAL_COUNT = 23; // number of photos in the editorial HTML above
+  const PAGE_SIZE       = 9;  // photos loaded per Show More click
+
+  // ── STATE ────────────────────────────────────────────────────────────────────
+  const editorialView = document.getElementById('editorial-view');
+  const filterView    = document.getElementById('filter-view');
+  const filterGrid    = document.getElementById('filterGrid');
+  const moreGrid      = document.getElementById('more-grid');
+  const showMoreWrap  = document.getElementById('showMoreWrap');
+  const showMoreBtn   = document.getElementById('showMoreBtn');
+  const photoCount    = document.getElementById('photoCount');
+  const lb            = document.getElementById('lb');
+  const lbImg         = document.getElementById('lbImg');
+  const lbCap         = document.getElementById('lbCap');
+
+  let activePhotos  = [];   // pool for lightbox navigation
+  let loadedUpTo    = EDITORIAL_COUNT; // how many photos shown so far in All view
+  let cur           = 0;
+  let currentFilter = 'all';
+
+  // ── HELPERS ──────────────────────────────────────────────────────────────────
+  function makeTile(photo, lbIndex) {
+    const div = document.createElement('div');
+    div.className = 'item';
+    div.innerHTML = `
+      <img src="${photo.src}" alt="${photo.title}" loading="lazy"/>
+      <div class="cap">
+        <div class="ct">${photo.title}</div>
+        <div class="cs">${photo.sub}</div>
+      </div>`;
+    div.addEventListener('click', () => openLb(lbIndex));
+    return div;
+  }
+
+  function updateCountLabel() {
+    const remaining = PHOTOS.length - loadedUpTo;
+    if (remaining <= 0) {
+      showMoreWrap.classList.remove('visible');
+    } else {
+      showMoreWrap.classList.add('visible');
+      const next = Math.min(remaining, PAGE_SIZE);
+      photoCount.textContent = next + ' of ' + remaining + ' remaining';
+    }
+  }
+
+  // ── INITIAL STATE ─────────────────────────────────────────────────────────────
+  // Wire editorial items to lightbox
+  function wireEditorial() {
+    const editItems = [...document.querySelectorAll('#editorial-view .item')];
+    editItems.forEach((el, i) => {
+      el.addEventListener('click', () => {
+        activePhotos = PHOTOS.slice(0, loadedUpTo);
+        openLb(i);
+      });
+    });
+  }
+  wireEditorial();
+
+  // Wire more-grid items (delegated — tiles added later)
+  moreGrid.addEventListener('click', e => {
+    const tile = e.target.closest('.item');
+    if (!tile) return;
+    const idx = parseInt(tile.dataset.lbindex, 10);
+    activePhotos = PHOTOS.slice(0, loadedUpTo);
+    openLb(idx);
+  });
+
+  // Show More button
+  if (PHOTOS.length > EDITORIAL_COUNT) updateCountLabel();
+
+  showMoreBtn.addEventListener('click', () => {
+    const batch = PHOTOS.slice(loadedUpTo, loadedUpTo + PAGE_SIZE);
+    batch.forEach((photo, i) => {
+      const tile = makeTile(photo, loadedUpTo + i);
+      tile.dataset.lbindex = loadedUpTo + i;
+      moreGrid.appendChild(tile);
+    });
+    loadedUpTo = Math.min(loadedUpTo + PAGE_SIZE, PHOTOS.length);
+    activePhotos = PHOTOS.slice(0, loadedUpTo);
+    updateCountLabel();
+  });
+
+  // ── FILTERS ───────────────────────────────────────────────────────────────────
+  document.querySelectorAll('.gf').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.gf').forEach(b => b.classList.remove('on'));
+      btn.classList.add('on');
+      currentFilter = btn.dataset.filter;
+
+      if (currentFilter === 'all') {
+        editorialView.style.display = 'block';
+        moreGrid.style.display = loadedUpTo > EDITORIAL_COUNT ? 'grid' : 'none';
+        filterView.style.display = 'none';
+        if (PHOTOS.length > loadedUpTo) updateCountLabel();
+        else showMoreWrap.classList.remove('visible');
+        activePhotos = PHOTOS.slice(0, loadedUpTo);
+      } else {
+        editorialView.style.display = 'none';
+        moreGrid.style.display = 'none';
+        showMoreWrap.classList.remove('visible');
+        filterView.style.display = 'block';
+
+        activePhotos = PHOTOS.filter(p => p.cat === currentFilter);
+        filterGrid.innerHTML = '';
+        activePhotos.forEach((photo, i) => filterGrid.appendChild(makeTile(photo, i)));
+      }
+    });
+  });
+
+  // ── LIGHTBOX ──────────────────────────────────────────────────────────────────
+  function openLb(index) {
+    cur = index;
+    lbImg.src = activePhotos[cur].src;
+    lbCap.textContent = activePhotos[cur].title + ' — ' + activePhotos[cur].sub;
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLb() {
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('lbClose').onclick = closeLb;
+  lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+
+  document.getElementById('lbPrev').onclick = () => {
+    cur = (cur - 1 + activePhotos.length) % activePhotos.length;
+    lbImg.src = activePhotos[cur].src;
+    lbCap.textContent = activePhotos[cur].title + ' — ' + activePhotos[cur].sub;
+  };
+  document.getElementById('lbNext').onclick = () => {
+    cur = (cur + 1) % activePhotos.length;
+    lbImg.src = activePhotos[cur].src;
+    lbCap.textContent = activePhotos[cur].title + ' — ' + activePhotos[cur].sub;
+  };
+  document.addEventListener('keydown', e => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLb();
+    if (e.key === 'ArrowLeft') document.getElementById('lbPrev').click();
+    if (e.key === 'ArrowRight') document.getElementById('lbNext').click();
+  });
+</script>
+</body>
+</html>
