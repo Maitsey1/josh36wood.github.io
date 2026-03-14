@@ -4,7 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Gallery — Joshua Wood Racing</title>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;900&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;900&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -15,13 +15,10 @@
       --border: rgba(255,255,255,0.07);
     }
 
-    html { scroll-behavior: smooth; }
-
     body {
       background: var(--bg);
       color: #fff;
       font-family: 'Barlow Condensed', sans-serif;
-      min-height: 100vh;
       overflow-x: hidden;
     }
 
@@ -34,65 +31,42 @@
       align-items: center;
       justify-content: space-between;
       padding: 18px 48px;
-      background: rgba(13,13,13,0.92);
+      background: rgba(13,13,13,0.95);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
     .nav-logo {
-      font-weight: 900;
-      font-size: 1.4rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #fff;
-      text-decoration: none;
+      font-weight: 900; font-size: 1.4rem;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: #fff; text-decoration: none;
     }
     .nav-logo span { color: var(--purple-light); }
     .nav-links { display: flex; gap: 36px; list-style: none; }
     .nav-links a {
-      font-weight: 600;
-      font-size: 0.85rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.55);
-      text-decoration: none;
+      font-weight: 600; font-size: 0.85rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(255,255,255,0.55); text-decoration: none;
       transition: color 0.2s;
     }
     .nav-links a:hover, .nav-links a.active { color: var(--purple-light); }
 
-    /* PAGE */
-    .gw { padding: 120px 48px 80px; }
+    /* PAGE WRAP */
+    .gw { padding: 110px 48px 80px; }
 
-    .gh { margin-bottom: 32px; }
-    .gt {
-      color: var(--purple-light);
-      font-size: 11px;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-    }
-    .gtitle {
-      color: #fff;
-      font-size: 56px;
-      font-weight: 900;
-      line-height: 0.9;
-      text-transform: uppercase;
-      letter-spacing: -1px;
-    }
+    /* HEADER */
+    .gh { margin-bottom: 28px; }
+    .gt { color: var(--purple-light); font-size: 11px; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 8px; }
+    .gtitle { color: #fff; font-size: 52px; font-weight: 900; line-height: 0.9; text-transform: uppercase; letter-spacing: -1px; }
     .gtitle span { color: var(--purple-light); }
-    .gdiv { width: 48px; height: 3px; background: var(--purple); margin: 16px 0 24px; }
+    .gdiv { width: 48px; height: 3px; background: var(--purple); margin: 14px 0 22px; }
 
     /* FILTERS */
-    .gfilters { display: flex; gap: 8px; margin-bottom: 32px; flex-wrap: wrap; }
+    .gfilters { display: flex; gap: 8px; margin-bottom: 28px; flex-wrap: wrap; }
     .gf {
-      background: transparent;
-      border: 1px solid #2a2a2a;
-      color: #888;
-      padding: 7px 18px;
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      cursor: pointer;
-      font-family: 'Barlow Condensed', sans-serif;
+      background: transparent; border: 1px solid #2a2a2a;
+      color: #888; padding: 7px 18px; font-size: 11px;
+      letter-spacing: 2px; text-transform: uppercase;
+      cursor: pointer; font-family: 'Barlow Condensed', sans-serif;
       transition: all 0.18s;
     }
     .gf:hover { border-color: var(--purple-light); color: #fff; }
@@ -104,110 +78,114 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 6px;
     }
-
-    /* PHOTO TILE — natural height, no cropping */
-    .item {
+    .photo-grid .item {
       position: relative;
       overflow: hidden;
       background: #111;
       cursor: pointer;
+      height: 280px;
     }
-    .item img {
-      width: 100%;
-      height: auto;
-      display: block;
+    .photo-grid .item img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
       transition: transform 0.4s;
       filter: brightness(0.88);
     }
-    .item:hover img { transform: scale(1.04); filter: brightness(1); }
+    .photo-grid .item:hover img { transform: scale(1.04); filter: brightness(1); }
     .cap {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
+      position: absolute; bottom: 0; left: 0; right: 0;
       background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
-      padding: 28px 14px 12px;
-      opacity: 0;
-      transition: opacity 0.2s;
+      padding: 28px 12px 10px; opacity: 0; transition: opacity 0.2s;
     }
-    .item:hover .cap { opacity: 1; }
+    .photo-grid .item:hover .cap { opacity: 1; }
     .ct { color: #fff; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; }
     .cs { color: var(--purple-light); font-size: 9px; letter-spacing: 1px; text-transform: uppercase; margin-top: 2px; }
 
     /* SHOW MORE */
     .show-more-wrap {
-      display: none;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      gap: 12px;
-      margin-top: 32px;
+      display: none; justify-content: center;
+      align-items: center; flex-direction: column;
+      gap: 10px; margin-top: 28px;
     }
     .show-more-wrap.visible { display: flex; }
     #showMoreBtn {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: #fff;
-      background: transparent;
-      border: 1px solid var(--purple);
-      padding: 14px 40px;
-      cursor: pointer;
-      transition: all 0.2s;
+      font-size: 11px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: #fff;
+      background: transparent; border: 1px solid var(--purple);
+      padding: 12px 36px; cursor: pointer; transition: all 0.2s;
     }
     #showMoreBtn:hover { background: var(--purple); }
-    #photoCount {
-      font-size: 10px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #555;
+    #photoCount { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #555; }
+
+    /* REELS */
+    .vsec { margin-top: 56px; padding-top: 28px; border-top: 1px solid #1a1a1a; }
+    .vt { color: var(--purple-light); font-size: 11px; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 20px; }
+
+    .vrow-top { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+    .vrow-bottom { display: flex; justify-content: center; }
+    .vrow-bottom .vcard { width: calc(50% - 8px); }
+
+    .vcard { background: #111; border: 1px solid #1a1a1a; border-radius: 3px; overflow: hidden; }
+    .vcard-hdr { padding: 12px 16px; border-bottom: 1px solid #1a1a1a; }
+    .vcard-tag { color: var(--purple-light); font-size: 10px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 3px; }
+    .vcard-hdr h3 { color: #fff; font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
+
+    /* Reel embed container — constrained so it shows fully */
+    .vembed {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      background: #000;
+      padding: 0;
+      overflow: hidden;
+    }
+    .vembed blockquote.instagram-media {
+      background: #fff !important;
+      border: 0 !important;
+      border-radius: 3px !important;
+      box-shadow: none !important;
+      margin: 8px auto !important;
+      max-width: 320px !important;
+      min-width: 280px !important;
+      width: 100% !important;
+      padding: 0 !important;
     }
 
-    /* VIDEO */
-    .vsec { margin-top: 48px; padding-top: 32px; border-top: 1px solid #1a1a1a; }
-    .vt { color: var(--purple-light); font-size: 11px; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 20px; }
-    .vgrid-top { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
-    .vgrid-bottom { display: flex; justify-content: center; }
-    .vgrid-bottom .vcard { width: calc(50% - 8px); }
-    .vcard { background: #111; border: 1px solid #1a1a1a; border-radius: 3px; overflow: hidden; }
-    .vcard-hdr { padding: 12px 16px 10px; border-bottom: 1px solid #1a1a1a; }
-    .vcard-tag { color: var(--purple-light); font-size: 10px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 3px; }
-    .vcard-hdr h3 { color: #fff; font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
-    .vembed { background: #000; display: flex; justify-content: center; min-height: 300px; max-height: 400px; overflow: hidden; }
-    .vembed blockquote { width: 100% !important; max-width: 100% !important; margin: 0 !important; border: none !important; box-shadow: none !important; background: #000 !important; }
-
     /* LIGHTBOX */
-    .lb { display: none; position: fixed; inset: 0; z-index: 999; background: rgba(0,0,0,0.94); align-items: center; justify-content: center; backdrop-filter: blur(8px); }
+    .lb { display: none; position: fixed; inset: 0; z-index: 999; background: rgba(0,0,0,0.94); align-items: center; justify-content: center; }
     .lb.open { display: flex; }
     .lb-inner { position: relative; display: flex; flex-direction: column; align-items: center; }
-    .lb-inner img { max-width: 88vw; max-height: 88vh; object-fit: contain; display: block; }
-    .lb-close { position: absolute; top: -44px; right: 0; background: none; border: none; color: rgba(255,255,255,0.6); font-size: 1.8rem; cursor: pointer; font-family: 'Barlow Condensed', sans-serif; transition: color 0.2s; }
+    .lb-inner img { max-width: 88vw; max-height: 85vh; object-fit: contain; display: block; }
+    .lb-close { position: absolute; top: -42px; right: 0; background: none; border: none; color: rgba(255,255,255,0.6); font-size: 1.6rem; cursor: pointer; transition: color 0.2s; }
     .lb-close:hover { color: #fff; }
     .lb-nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(123,47,190,0.55); border: none; color: #fff; font-size: 1.4rem; width: 42px; height: 42px; cursor: pointer; display: flex; align-items: center; justify-content: center; border-radius: 2px; transition: background 0.2s; }
     .lb-nav:hover { background: var(--purple); }
-    .lb-prev { right: calc(100% + 14px); }
-    .lb-next { left: calc(100% + 14px); }
-    .lb-cap { margin-top: 14px; font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--purple-light); }
+    .lb-prev { right: calc(100% + 12px); }
+    .lb-next { left: calc(100% + 12px); }
+    .lb-cap { margin-top: 12px; font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--purple-light); }
 
     /* FOOTER */
-    footer { border-top: 1px solid var(--border); padding: 36px 48px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    footer { border-top: 1px solid var(--border); padding: 32px 48px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
     .f-logo { font-weight: 900; font-size: 1.1rem; letter-spacing: 0.08em; text-transform: uppercase; color: #fff; }
     .f-logo span { color: var(--purple-light); }
-    footer p { font-size: 0.78rem; color: #888; letter-spacing: 0.06em; }
+    footer p { font-size: 0.78rem; color: #888; }
     footer a { font-size: 0.78rem; color: var(--purple-light); text-decoration: none; }
 
     @media (max-width: 768px) {
-      nav { padding: 16px 24px; }
-      .nav-links { gap: 18px; }
-      .gw { padding: 100px 20px 60px; }
-      .gtitle { font-size: 38px; }
-      .photo-grid { grid-template-columns: 1fr 1fr; gap: 4px; }
-      .vgrid-top { grid-template-columns: 1fr; }
-      .vgrid-bottom .vcard { width: 100%; }
-      footer { padding: 24px; }
+      nav { padding: 14px 20px; }
+      .nav-links { gap: 16px; }
+      .gw { padding: 90px 20px 60px; }
+      .gtitle { font-size: 36px; }
+      .photo-grid { grid-template-columns: 1fr 1fr; }
+      .photo-grid .item { height: 200px; }
+      .vrow-top { grid-template-columns: 1fr; }
+      .vrow-bottom .vcard { width: 100%; }
+      footer { padding: 24px 20px; }
     }
     @media (max-width: 480px) {
       .photo-grid { grid-template-columns: 1fr; }
+      .photo-grid .item { height: 240px; }
     }
   </style>
 </head>
@@ -240,21 +218,17 @@
     <button class="gf" data-filter="media">Media</button>
   </div>
 
-  <!-- PHOTO GRID -->
   <div class="photo-grid" id="photoGrid"></div>
 
-  <!-- SHOW MORE -->
   <div class="show-more-wrap" id="showMoreWrap">
     <button id="showMoreBtn">Show More</button>
     <span id="photoCount"></span>
   </div>
 
-  <!-- VIDEO SECTION -->
+  <!-- REELS -->
   <div class="vsec">
     <div class="vt">On Camera</div>
-
-    <!-- Top row: 2 reels side by side -->
-    <div class="vgrid-top">
+    <div class="vrow-top">
       <div class="vcard">
         <div class="vcard-hdr">
           <p class="vcard-tag">Red Bull Rookies Cup</p>
@@ -263,8 +237,7 @@
         <div class="vembed">
           <blockquote class="instagram-media"
             data-instgrm-permalink="https://www.instagram.com/reel/DAnf_5TtEoG/"
-            data-instgrm-version="14"
-            style="background:#000;border:0;margin:0;padding:0;width:100%;min-width:100%;">
+            data-instgrm-version="14">
           </blockquote>
         </div>
       </div>
@@ -276,15 +249,12 @@
         <div class="vembed">
           <blockquote class="instagram-media"
             data-instgrm-permalink="https://www.instagram.com/reel/DOQW3g0jPKL/"
-            data-instgrm-version="14"
-            style="background:#000;border:0;margin:0;padding:0;width:100%;min-width:100%;">
+            data-instgrm-version="14">
           </blockquote>
         </div>
       </div>
     </div>
-
-    <!-- Bottom row: 3rd reel centered -->
-    <div class="vgrid-bottom">
+    <div class="vrow-bottom">
       <div class="vcard">
         <div class="vcard-hdr">
           <p class="vcard-tag">MirCup</p>
@@ -293,13 +263,11 @@
         <div class="vembed">
           <blockquote class="instagram-media"
             data-instgrm-permalink="https://www.instagram.com/reel/C_6Dyoot5iX/"
-            data-instgrm-version="14"
-            style="background:#000;border:0;margin:0;padding:0;width:100%;min-width:100%;">
+            data-instgrm-version="14">
           </blockquote>
         </div>
       </div>
     </div>
-
   </div>
 
 </div>
@@ -307,7 +275,7 @@
 <footer>
   <div class="f-logo">Josh <span>#36</span> Wood</div>
   <p>Season opens Barcelona · 24 May 2026</p>
-  <a href="/cdn-cgi/l/email-protection#783519110c1d1419161c381a1d141914140d0a1d560c0a190e1d14"><span class="__cf_email__" data-cfemail="4508242c312029242b21052720292429293037206b313724332029">[email&#160;protected]</span></a>
+  <a href="mailto:Maiteland@belallure.travel">Maiteland@belallure.travel</a>
 </footer>
 
 <!-- LIGHTBOX -->
@@ -321,12 +289,11 @@
   </div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://www.instagram.com/embed.js"></script>
+<script async src="https://www.instagram.com/embed.js"></script>
 <script>
   // ── PHOTO DATA ───────────────────────────────────────────────────────────────
-  // To add new photos: append an entry to PHOTOS below.
-  // cat options: 'redbull' | 'training' | 'race' | 'behind' | 'media'
-  // First 24 show on load. Everything after appears in Show More batches of 9.
+  // To add photos: append entries below the "ADD NEW PHOTOS" comment.
+  // cat: 'redbull' | 'training' | 'race' | 'behind' | 'media'
 
   const PHOTOS = [
     { src:'redbull3.jpeg',    cat:'redbull', title:'Riders Walk',           sub:'Red Bull Rookies' },
@@ -353,7 +320,6 @@
     { src:'behindscene1.jpeg',cat:'behind',  title:'Pit Lane',              sub:'Behind The Scenes' },
     { src:'race3.jpeg',       cat:'race',    title:'Mid Corner',            sub:'Race Day' },
     { src:'behindscene4.jpeg',cat:'behind',  title:'Team Debrief',          sub:'Behind The Scenes' },
-
     // ── ADD NEW PHOTOS BELOW THIS LINE ──
     { src:'behindscene5.jpeg',cat:'behind',  title:'Race Day Prep',         sub:'Behind The Scenes' },
     { src:'behindscene6.jpeg',cat:'behind',  title:'With The Team',         sub:'Behind The Scenes' },
@@ -364,7 +330,6 @@
   const INITIAL_COUNT = 24;
   const PAGE_SIZE     = 9;
 
-  // ── STATE ────────────────────────────────────────────────────────────────────
   const photoGrid    = document.getElementById('photoGrid');
   const showMoreWrap = document.getElementById('showMoreWrap');
   const showMoreBtn  = document.getElementById('showMoreBtn');
@@ -373,16 +338,18 @@
   const lbImg        = document.getElementById('lbImg');
   const lbCap        = document.getElementById('lbCap');
 
-  let activePhotos = [];
-  let loadedUpTo   = 0;
-  let cur          = 0;
+  let activePhotos  = [];
+  let loadedUpTo    = 0;
+  let cur           = 0;
   let currentFilter = 'all';
 
-  // ── HELPERS ──────────────────────────────────────────────────────────────────
+  function getPool(filter) {
+    return filter === 'all' ? PHOTOS : PHOTOS.filter(p => p.cat === filter);
+  }
+
   function makeTile(photo, lbIndex) {
     const div = document.createElement('div');
     div.className = 'item';
-    div.dataset.lbindex = lbIndex;
     div.innerHTML = `
       <img src="${photo.src}" alt="${photo.title}" loading="lazy"/>
       <div class="cap">
@@ -390,65 +357,59 @@
         <div class="cs">${photo.sub}</div>
       </div>`;
     div.addEventListener('click', () => {
-      activePhotos = currentFilter === 'all'
-        ? PHOTOS.slice(0, loadedUpTo)
-        : PHOTOS.filter(p => p.cat === currentFilter);
+      activePhotos = getPool(currentFilter).slice(0, loadedUpTo);
       openLb(lbIndex);
     });
     return div;
   }
 
-  function updateCountLabel() {
-    const pool = currentFilter === 'all' ? PHOTOS : PHOTOS.filter(p => p.cat === currentFilter);
+  function updateBtn() {
+    const pool = getPool(currentFilter);
     const remaining = pool.length - loadedUpTo;
     if (remaining <= 0) {
       showMoreWrap.classList.remove('visible');
     } else {
       showMoreWrap.classList.add('visible');
-      const next = Math.min(remaining, PAGE_SIZE);
-      photoCount.textContent = next + ' of ' + remaining + ' remaining';
+      photoCount.textContent = Math.min(remaining, PAGE_SIZE) + ' of ' + remaining + ' remaining';
     }
   }
 
-  // ── RENDER ───────────────────────────────────────────────────────────────────
-  function renderAll(filter) {
+  function render(filter) {
     currentFilter = filter;
     photoGrid.innerHTML = '';
     loadedUpTo = 0;
-
-    const pool = filter === 'all' ? PHOTOS : PHOTOS.filter(p => p.cat === filter);
-    const initial = pool.slice(0, INITIAL_COUNT);
-    loadedUpTo = initial.length;
-
-    initial.forEach((photo, i) => photoGrid.appendChild(makeTile(photo, i)));
+    const pool = getPool(filter);
+    const batch = pool.slice(0, INITIAL_COUNT);
+    loadedUpTo = batch.length;
+    batch.forEach((photo, i) => photoGrid.appendChild(makeTile(photo, i)));
     activePhotos = pool.slice(0, loadedUpTo);
-    updateCountLabel();
+    updateBtn();
   }
 
   // Initial render
-  renderAll('all');
+  render('all');
 
-  // ── SHOW MORE ────────────────────────────────────────────────────────────────
+  // Show More
   showMoreBtn.addEventListener('click', () => {
-    const pool = currentFilter === 'all' ? PHOTOS : PHOTOS.filter(p => p.cat === currentFilter);
-    const batch = pool.slice(loadedUpTo, loadedUpTo + PAGE_SIZE);
-    const startIndex = loadedUpTo;
-    batch.forEach((photo, i) => photoGrid.appendChild(makeTile(photo, startIndex + i)));
-    loadedUpTo = Math.min(loadedUpTo + PAGE_SIZE, pool.length);
+    const pool = getPool(currentFilter);
+    const start = loadedUpTo;
+    const batch = pool.slice(start, start + PAGE_SIZE);
+    batch.forEach((photo, i) => photoGrid.appendChild(makeTile(photo, start + i)));
+    loadedUpTo = Math.min(start + PAGE_SIZE, pool.length);
     activePhotos = pool.slice(0, loadedUpTo);
-    updateCountLabel();
+    updateBtn();
   });
 
-  // ── FILTERS ──────────────────────────────────────────────────────────────────
+  // Filters
   document.querySelectorAll('.gf').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.gf').forEach(b => b.classList.remove('on'));
       btn.classList.add('on');
-      renderAll(btn.dataset.filter);
+      render(btn.dataset.filter);
     });
   });
 
-  // ── LIGHTBOX ─────────────────────────────────────────────────────────────────
+  // Lightbox
   function openLb(index) {
     cur = index;
     lbImg.src = activePhotos[cur].src;
@@ -456,15 +417,12 @@
     lb.classList.add('open');
     document.body.style.overflow = 'hidden';
   }
-
   function closeLb() {
     lb.classList.remove('open');
     document.body.style.overflow = '';
   }
-
   document.getElementById('lbClose').onclick = closeLb;
   lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
-
   document.getElementById('lbPrev').onclick = () => {
     cur = (cur - 1 + activePhotos.length) % activePhotos.length;
     lbImg.src = activePhotos[cur].src;
@@ -476,4 +434,11 @@
     lbCap.textContent = activePhotos[cur].title + ' — ' + activePhotos[cur].sub;
   };
   document.addEventListener('keydown', e => {
-    if (!lb
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLb();
+    if (e.key === 'ArrowLeft') document.getElementById('lbPrev').click();
+    if (e.key === 'ArrowRight') document.getElementById('lbNext').click();
+  });
+</script>
+</body>
+</html>
