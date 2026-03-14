@@ -7,53 +7,24 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;900&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
       --bg: #0d0d0d;
       --purple: #7b2fbe;
       --purple-light: #a855f7;
       --border: rgba(255,255,255,0.07);
     }
-
-    body {
-      background: var(--bg);
-      color: #fff;
-      font-family: 'Barlow Condensed', sans-serif;
-      overflow-x: hidden;
-    }
+    body { background: var(--bg); color: #fff; font-family: 'Barlow Condensed', sans-serif; overflow-x: hidden; }
 
     /* NAV */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 200;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 18px 48px;
-      background: rgba(13,13,13,0.95);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-logo {
-      font-weight: 900; font-size: 1.4rem;
-      letter-spacing: 0.08em; text-transform: uppercase;
-      color: #fff; text-decoration: none;
-    }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; align-items: center; justify-content: space-between; padding: 18px 48px; background: rgba(13,13,13,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-logo { font-weight: 900; font-size: 1.4rem; letter-spacing: 0.08em; text-transform: uppercase; color: #fff; text-decoration: none; }
     .nav-logo span { color: var(--purple-light); }
     .nav-links { display: flex; gap: 36px; list-style: none; }
-    .nav-links a {
-      font-weight: 600; font-size: 0.85rem;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      color: rgba(255,255,255,0.55); text-decoration: none;
-      transition: color 0.2s;
-    }
+    .nav-links a { font-weight: 600; font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s; }
     .nav-links a:hover, .nav-links a.active { color: var(--purple-light); }
 
-    /* PAGE WRAP */
+    /* PAGE */
     .gw { padding: 110px 48px 80px; }
-
-    /* HEADER */
     .gh { margin-bottom: 28px; }
     .gt { color: var(--purple-light); font-size: 11px; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 8px; }
     .gtitle { color: #fff; font-size: 52px; font-weight: 900; line-height: 0.9; text-transform: uppercase; letter-spacing: -1px; }
@@ -62,94 +33,37 @@
 
     /* FILTERS */
     .gfilters { display: flex; gap: 8px; margin-bottom: 28px; flex-wrap: wrap; }
-    .gf {
-      background: transparent; border: 1px solid #2a2a2a;
-      color: #888; padding: 7px 18px; font-size: 11px;
-      letter-spacing: 2px; text-transform: uppercase;
-      cursor: pointer; font-family: 'Barlow Condensed', sans-serif;
-      transition: all 0.18s;
-    }
+    .gf { background: transparent; border: 1px solid #2a2a2a; color: #888; padding: 7px 18px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; font-family: 'Barlow Condensed', sans-serif; transition: all 0.18s; }
     .gf:hover { border-color: var(--purple-light); color: #fff; }
     .gf.on { background: var(--purple); border-color: var(--purple); color: #fff; }
 
     /* PHOTO GRID */
-    .photo-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 6px;
-    }
-    .photo-grid .item {
-      position: relative;
-      overflow: hidden;
-      background: #111;
-      cursor: pointer;
-      height: 380px;
-    }
-    .photo-grid .item img {
-      width: 100%; height: 100%;
-      object-fit: cover; display: block;
-      transition: transform 0.4s;
-      filter: brightness(0.88);
-    }
+    .photo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+    .photo-grid .item { position: relative; overflow: hidden; background: #111; cursor: pointer; height: 380px; }
+    .photo-grid .item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s; filter: brightness(0.88); }
     .photo-grid .item:hover img { transform: scale(1.04); filter: brightness(1); }
-    .cap {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
-      padding: 28px 12px 10px; opacity: 0; transition: opacity 0.2s;
-    }
+    .cap { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); padding: 28px 12px 10px; opacity: 0; transition: opacity 0.2s; }
     .photo-grid .item:hover .cap { opacity: 1; }
     .ct { color: #fff; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; }
     .cs { color: var(--purple-light); font-size: 9px; letter-spacing: 1px; text-transform: uppercase; margin-top: 2px; }
 
     /* SHOW MORE */
-    .show-more-wrap {
-      display: none; justify-content: center;
-      align-items: center; flex-direction: column;
-      gap: 10px; margin-top: 28px;
-    }
+    .show-more-wrap { display: none; justify-content: center; align-items: center; flex-direction: column; gap: 10px; margin-top: 28px; }
     .show-more-wrap.visible { display: flex; }
-    #showMoreBtn {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 11px; font-weight: 700; letter-spacing: 3px;
-      text-transform: uppercase; color: #fff;
-      background: transparent; border: 1px solid var(--purple);
-      padding: 12px 36px; cursor: pointer; transition: all 0.2s;
-    }
+    #showMoreBtn { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #fff; background: transparent; border: 1px solid var(--purple); padding: 12px 36px; cursor: pointer; transition: all 0.2s; }
     #showMoreBtn:hover { background: var(--purple); }
     #photoCount { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #555; }
 
     /* REELS */
     .vsec { margin-top: 56px; padding-top: 28px; border-top: 1px solid #1a1a1a; }
     .vt { color: var(--purple-light); font-size: 11px; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 20px; }
-
-    .vrow-top { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
-    .vrow-bottom { display: none; }
-
+    .vrow { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
     .vcard { background: #111; border: 1px solid #1a1a1a; border-radius: 3px; overflow: hidden; }
     .vcard-hdr { padding: 12px 16px; border-bottom: 1px solid #1a1a1a; }
     .vcard-tag { color: var(--purple-light); font-size: 10px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 3px; }
     .vcard-hdr h3 { color: #fff; font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
-
-    /* Reel embed container — constrained so it shows fully */
-    .vembed {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      background: #000;
-      padding: 0;
-      overflow: hidden;
-    }
-    .vembed blockquote.instagram-media {
-      background: #fff !important;
-      border: 0 !important;
-      border-radius: 3px !important;
-      box-shadow: none !important;
-      margin: 8px auto !important;
-      max-width: 320px !important;
-      min-width: 280px !important;
-      width: 100% !important;
-      padding: 0 !important;
-    }
+    .vembed { display: flex; justify-content: center; background: #000; padding: 8px; }
+    .vembed blockquote.instagram-media { background: #fff !important; border: 0 !important; border-radius: 3px !important; box-shadow: none !important; margin: 0 auto !important; max-width: 100% !important; min-width: 0 !important; width: 100% !important; padding: 0 !important; }
 
     /* LIGHTBOX */
     .lb { display: none; position: fixed; inset: 0; z-index: 999; background: rgba(0,0,0,0.94); align-items: center; justify-content: center; }
@@ -177,13 +91,13 @@
       .gw { padding: 90px 20px 60px; }
       .gtitle { font-size: 36px; }
       .photo-grid { grid-template-columns: 1fr 1fr; }
-      .photo-grid .item { height: 200px; }
-      .vrow-top { grid-template-columns: 1fr; }
+      .photo-grid .item { height: 220px; }
+      .vrow { grid-template-columns: 1fr; }
       footer { padding: 24px 20px; }
     }
     @media (max-width: 480px) {
       .photo-grid { grid-template-columns: 1fr; }
-      .photo-grid .item { height: 240px; }
+      .photo-grid .item { height: 260px; }
     }
   </style>
 </head>
@@ -223,20 +137,16 @@
     <span id="photoCount"></span>
   </div>
 
-  <!-- REELS -->
   <div class="vsec">
     <div class="vt">On Camera</div>
-    <div class="vrow-top">
+    <div class="vrow">
       <div class="vcard">
         <div class="vcard-hdr">
           <p class="vcard-tag">Red Bull Rookies Cup</p>
           <h3>Tryout Selection</h3>
         </div>
         <div class="vembed">
-          <blockquote class="instagram-media"
-            data-instgrm-permalink="https://www.instagram.com/reel/DAnf_5TtEoG/"
-            data-instgrm-version="14">
-          </blockquote>
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DAnf_5TtEoG/" data-instgrm-version="14"></blockquote>
         </div>
       </div>
       <div class="vcard">
@@ -245,10 +155,7 @@
           <h3>Race Footage</h3>
         </div>
         <div class="vembed">
-          <blockquote class="instagram-media"
-            data-instgrm-permalink="https://www.instagram.com/reel/DOQW3g0jPKL/"
-            data-instgrm-version="14">
-          </blockquote>
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DOQW3g0jPKL/" data-instgrm-version="14"></blockquote>
         </div>
       </div>
       <div class="vcard">
@@ -257,10 +164,7 @@
           <h3>Pre-Race Interview</h3>
         </div>
         <div class="vembed">
-          <blockquote class="instagram-media"
-            data-instgrm-permalink="https://www.instagram.com/reel/C_6Dyoot5iX/"
-            data-instgrm-version="14">
-          </blockquote>
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/C_6Dyoot5iX/" data-instgrm-version="14"></blockquote>
         </div>
       </div>
     </div>
@@ -271,10 +175,9 @@
 <footer>
   <div class="f-logo">Josh <span>#36</span> Wood</div>
   <p>Season opens Barcelona · 24 May 2026</p>
-  <a href="/cdn-cgi/l/email-protection#afe2cec6dbcac3cec1cbefcdcac3cec3c3daddca81dbddced9cac3"><span class="__cf_email__" data-cfemail="f5b8949c819099949b91b5979099949999808790db818794839099">[email&#160;protected]</span></a>
+  <a href="mailto:Maiteland@belallure.travel">Maiteland@belallure.travel</a>
 </footer>
 
-<!-- LIGHTBOX -->
 <div class="lb" id="lb">
   <div class="lb-inner">
     <button class="lb-close" id="lbClose">&#x2715; Close</button>
@@ -285,12 +188,7 @@
   </div>
 </div>
 
-<script async src="https://www.instagram.com/embed.js"></script>
 <script>
-  // ── PHOTO DATA ───────────────────────────────────────────────────────────────
-  // To add photos: append entries below the "ADD NEW PHOTOS" comment.
-  // cat: 'redbull' | 'training' | 'race' | 'behind' | 'media'
-
   const PHOTOS = [
     { src:'redbull3.jpeg',    cat:'redbull', title:'Riders Walk',           sub:'Red Bull Rookies' },
     { src:'race1.jpeg',       cat:'race',    title:'On The Limit',          sub:'Race Day' },
@@ -316,7 +214,7 @@
     { src:'behindscene1.jpeg',cat:'behind',  title:'Pit Lane',              sub:'Behind The Scenes' },
     { src:'race3.jpeg',       cat:'race',    title:'Mid Corner',            sub:'Race Day' },
     { src:'behindscene4.jpeg',cat:'behind',  title:'Team Debrief',          sub:'Behind The Scenes' },
-    // ── ADD NEW PHOTOS BELOW THIS LINE ──
+    // ADD NEW PHOTOS BELOW THIS LINE
     { src:'behindscene5.jpeg',cat:'behind',  title:'Race Day Prep',         sub:'Behind The Scenes' },
     { src:'behindscene6.jpeg',cat:'behind',  title:'With The Team',         sub:'Behind The Scenes' },
     { src:'trackwalk1.jpeg',  cat:'behind',  title:'Track Walk',            sub:'Circuit de Catalunya' },
@@ -324,7 +222,7 @@
   ];
 
   const INITIAL_COUNT = 24;
-  const PAGE_SIZE     = 9;
+  const PAGE_SIZE = 9;
 
   const photoGrid    = document.getElementById('photoGrid');
   const showMoreWrap = document.getElementById('showMoreWrap');
@@ -340,19 +238,16 @@
   let currentFilter = 'all';
 
   function getPool(filter) {
-    return filter === 'all' ? PHOTOS : PHOTOS.filter(p => p.cat === filter);
+    return filter === 'all' ? PHOTOS : PHOTOS.filter(function(p){ return p.cat === filter; });
   }
 
   function makeTile(photo, lbIndex) {
-    const div = document.createElement('div');
+    var div = document.createElement('div');
     div.className = 'item';
-    div.innerHTML = `
-      <img src="${photo.src}" alt="${photo.title}" loading="lazy"/>
-      <div class="cap">
-        <div class="ct">${photo.title}</div>
-        <div class="cs">${photo.sub}</div>
-      </div>`;
-    div.addEventListener('click', () => {
+    div.innerHTML =
+      '<img src="' + photo.src + '" alt="' + photo.title + '" loading="lazy"/>' +
+      '<div class="cap"><div class="ct">' + photo.title + '</div><div class="cs">' + photo.sub + '</div></div>';
+    div.addEventListener('click', function() {
       activePhotos = getPool(currentFilter).slice(0, loadedUpTo);
       openLb(lbIndex);
     });
@@ -360,8 +255,8 @@
   }
 
   function updateBtn() {
-    const pool = getPool(currentFilter);
-    const remaining = pool.length - loadedUpTo;
+    var pool = getPool(currentFilter);
+    var remaining = pool.length - loadedUpTo;
     if (remaining <= 0) {
       showMoreWrap.classList.remove('visible');
     } else {
@@ -374,38 +269,38 @@
     currentFilter = filter;
     photoGrid.innerHTML = '';
     loadedUpTo = 0;
-    const pool = getPool(filter);
-    const batch = pool.slice(0, INITIAL_COUNT);
+    var pool = getPool(filter);
+    var batch = pool.slice(0, INITIAL_COUNT);
     loadedUpTo = batch.length;
-    batch.forEach((photo, i) => photoGrid.appendChild(makeTile(photo, i)));
+    for (var i = 0; i < batch.length; i++) {
+      photoGrid.appendChild(makeTile(batch[i], i));
+    }
     activePhotos = pool.slice(0, loadedUpTo);
     updateBtn();
   }
 
-  // Initial render
   render('all');
 
-  // Show More
-  showMoreBtn.addEventListener('click', () => {
-    const pool = getPool(currentFilter);
-    const start = loadedUpTo;
-    const batch = pool.slice(start, start + PAGE_SIZE);
-    batch.forEach((photo, i) => photoGrid.appendChild(makeTile(photo, start + i)));
+  showMoreBtn.addEventListener('click', function() {
+    var pool = getPool(currentFilter);
+    var start = loadedUpTo;
+    var batch = pool.slice(start, start + PAGE_SIZE);
+    for (var i = 0; i < batch.length; i++) {
+      photoGrid.appendChild(makeTile(batch[i], start + i));
+    }
     loadedUpTo = Math.min(start + PAGE_SIZE, pool.length);
     activePhotos = pool.slice(0, loadedUpTo);
     updateBtn();
   });
 
-  // Filters
-  document.querySelectorAll('.gf').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.gf').forEach(b => b.classList.remove('on'));
+  document.querySelectorAll('.gf').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.gf').forEach(function(b){ b.classList.remove('on'); });
       btn.classList.add('on');
       render(btn.dataset.filter);
     });
   });
 
-  // Lightbox
   function openLb(index) {
     cur = index;
     lbImg.src = activePhotos[cur].src;
@@ -413,21 +308,35 @@
     lb.classList.add('open');
     document.body.style.overflow = 'hidden';
   }
+
   function closeLb() {
     lb.classList.remove('open');
     document.body.style.overflow = '';
   }
-  document.getElementById('lbClose').onclick = closeLb;
-  lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
-  document.getElementById('lbPrev').onclick = () => {
+
+  document.getElementById('lbClose').addEventListener('click', closeLb);
+  lb.addEventListener('click', function(e){ if (e.target === lb) closeLb(); });
+
+  document.getElementById('lbPrev').addEventListener('click', function() {
     cur = (cur - 1 + activePhotos.length) % activePhotos.length;
     lbImg.src = activePhotos[cur].src;
     lbCap.textContent = activePhotos[cur].title + ' — ' + activePhotos[cur].sub;
-  };
-  document.getElementById('lbNext').onclick = () => {
+  });
+
+  document.getElementById('lbNext').addEventListener('click', function() {
     cur = (cur + 1) % activePhotos.length;
     lbImg.src = activePhotos[cur].src;
     lbCap.textContent = activePhotos[cur].title + ' — ' + activePhotos[cur].sub;
-  };
-  document.addEventListener('keydown', e => {
-    if (!lb
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLb();
+    if (e.key === 'ArrowLeft') document.getElementById('lbPrev').click();
+    if (e.key === 'ArrowRight') document.getElementById('lbNext').click();
+  });
+</script>
+
+<script async src="https://www.instagram.com/embed.js"></script>
+</body>
+</html>
