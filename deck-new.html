@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Josh Wood — JuniorGP 2026 — Partnership Overview</title>
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --bg-panel: #131313;
+    --bg-panel-2: #1a1a1a;
+    --white: #ffffff;
+    --grey: #9a9a9a;
+    --grey-dim: #6e6e6e;
+    --purple: #8b2fc9;
+    --purple-light: #a855e8;
+    --line: #262626;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.5;
+  }
+
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+
+  /* ---------- HEADER ---------- */
+  header {
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    background: rgba(10,10,10,0.95);
+    z-index: 50;
+  }
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 22px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+  }
+  .logo span { color: var(--purple-light); }
+  .btn {
+    border: 1px solid var(--purple);
+    color: var(--purple-light);
+    background: transparent;
+    padding: 11px 20px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    border-radius: 4px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    padding: 90px 0 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .eyebrow {
+    color: var(--purple-light);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 28px;
+  }
+  .hero h1 {
+    font-size: 76px;
+    font-weight: 800;
+    line-height: 0.98;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+  }
+  .hero h1 .accent { color: var(--purple-light); }
+  .hero p.lede {
+    margin-top: 28px;
+    font-size: 18px;
+    color: var(--grey);
+    max-width: 480px;
+  }
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    margin-top: 44px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .stat {
+    background: var(--bg-panel);
+    padding: 22px 16px;
+    text-align: left;
+    border-right: 1px solid var(--line);
+  }
+  .stat:last-child { border-right: none; }
+  .stat .num { font-size: 30px; font-weight: 800; color: var(--purple-light); }
+  .stat .label { font-size: 11px; color: var(--grey-dim); letter-spacing: 1px; text-transform: uppercase; margin-top: 4px; }
+
+  .hero-media {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    aspect-ratio: 4/5;
+    background: var(--bg-panel);
+  }
+  .hero-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .hero-media video { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .media-tag {
+    position: absolute;
+    bottom: 18px;
+    left: 18px;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: var(--white);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 8px 14px;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .media-tag .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--purple-light); }
+
+  .section-eyebrow {
+    color: var(--purple-light);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+  }
+  .feature-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    align-items: center;
+    padding: 90px 0;
+    border-top: 1px solid var(--line);
+  }
+  .feature-row.reverse .feature-media { order: 2; }
+  .feature-row.reverse .feature-text { order: 1; }
+  .feature-media {
+    border-radius: 10px;
+    overflow: hidden;
+    aspect-ratio: 1/1;
+    background: var(--bg-panel);
+  }
+  .feature-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .feature-text h3 {
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -0.3px;
+    margin-bottom: 22px;
+    text-transform: uppercase;
+    line-height: 1.1;
+  }
+  .feature-text p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--grey);
+    margin-bottom: 16px;
+  }
+  .feature-text p:last-child { margin-bottom: 0; }
+  .feature-text p strong { color: var(--white); font-weight: 600; }
+  .story-body-justified p {
+    text-align: justify;
+    text-justify: inter-word;
+  }
+
+  /* ---------- WHY NOW STAT CARDS (existing content, kept) ---------- */
+  .proof-section {
+    padding: 90px 0;
+    border-top: 1px solid var(--line);
+  }
+  .proof-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.3fr;
+    gap: 1px;
+    margin-top: 50px;
+    background: var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .proof-card {
+    background: var(--bg-panel);
+    padding: 36px 32px;
+  }
+  .proof-card .big { color: var(--purple-light); font-size: 26px; font-weight: 800; margin-bottom: 4px; }
+  .proof-card .small-label { font-size: 12px; letter-spacing: 1.5px; color: var(--grey-dim); text-transform: uppercase; margin-bottom: 18px; }
+  .proof-card p { font-size: 15px; color: var(--grey); line-height: 1.6; }
+  .race-row { display: flex; justify-content: space-between; padding: 9px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+  .race-row:last-child { border-bottom: none; }
+  .race-date { color: var(--purple-light); font-weight: 700; width: 70px; flex-shrink: 0; }
+  .race-name { color: var(--white); flex: 1; }
+  .race-country { color: var(--grey-dim); }
+
+  /* ---------- PARTNERSHIP TIERS ---------- */
+  .tiers-section {
+    padding: 90px 0;
+    border-top: 1px solid var(--line);
+  }
+  .tiers-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    margin-top: 50px;
+    background: var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .tier-card { background: var(--bg-panel); padding: 32px 26px; }
+  .tier-num { color: var(--purple-light); font-size: 13px; font-weight: 800; letter-spacing: 1px; margin-bottom: 18px; }
+  .tier-name { font-size: 19px; font-weight: 800; text-transform: uppercase; margin-bottom: 10px; }
+  .tier-price { color: var(--purple-light); font-size: 17px; font-weight: 700; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
+  .tier-card ul { list-style: none; }
+  .tier-card li { font-size: 14px; color: var(--grey); margin-bottom: 11px; padding-left: 14px; position: relative; line-height: 1.4; }
+  .tier-card li::before { content: "—"; position: absolute; left: 0; color: var(--grey-dim); }
+
+  /* ---------- PITCH DECK (final, last section) ---------- */
+  .deck-section {
+    padding: 90px 0 110px;
+    border-top: 1px solid var(--line);
+  }
+  .deck-viewer {
+    margin-top: 40px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--bg-panel);
+    aspect-ratio: 16/9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .deck-slide-placeholder {
+    width: 88%;
+    height: 80%;
+    background: var(--bg-panel-2);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--grey-dim);
+    font-size: 14px;
+    letter-spacing: 1px;
+  }
+  .deck-nav {
+    margin-top: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+  }
+  .deck-nav button {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--purple);
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  .deck-nav .count { color: var(--grey); font-size: 14px; }
+
+  .section-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--grey-dim);
+    text-transform: uppercase;
+    border: 1px solid var(--line);
+    padding: 6px 12px;
+    border-radius: 100px;
+    margin-bottom: 16px;
+  }
+
+  .note-banner {
+    background: var(--bg-panel);
+    border: 1px dashed var(--purple);
+    border-radius: 8px;
+    padding: 14px 20px;
+    font-size: 13px;
+    color: var(--purple-light);
+    margin-top: 16px;
+  }
+
+  @media (max-width: 900px) {
+    .wrap { padding: 0 24px; }
+    .header-inner { padding: 16px 24px; flex-wrap: wrap; gap: 12px; }
+    .logo { font-size: 17px; }
+    .btn { font-size: 12px; padding: 9px 14px; }
+    .hero { grid-template-columns: 1fr; padding: 50px 0; }
+    .hero h1 { font-size: 48px; }
+    .stat-row { grid-template-columns: repeat(2, 1fr); }
+    .feature-row { grid-template-columns: 1fr; gap: 32px; padding: 60px 0; }
+    .feature-row .feature-text { order: 1; }
+    .feature-row .feature-media { order: 2; }
+    .proof-cards { grid-template-columns: 1fr; }
+    .tiers-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 480px) {
+    .header-inner { padding: 14px 18px; }
+    .logo { font-size: 15px; }
+    .btn { font-size: 11px; padding: 8px 12px; }
+    .wrap { padding: 0 18px; }
+    .hero h1 { font-size: 38px; }
+    .tiers-grid { grid-template-columns: 1fr; }
+    .race-row { flex-wrap: wrap; }
+    .race-name { flex-basis: 100%; order: 1; margin-top: 2px; }
+    .race-country { order: 2; font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">JOSH<span>#36</span>WOOD</div>
+    <a href="#" class="btn">↓ DOWNLOAD DECK</a>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- ============ HERO — VIDEO PLACEHOLDER GOES HERE ============ -->
+  <section class="hero">
+    <div>
+      <div class="eyebrow">AMERICAN RIDER · ROAD TO MOTOGP · 2026</div>
+      <h1>JOSH<br><span class="accent">WOOD</span><br>#36</h1>
+      <p class="lede">A 17-year-old American training inside the system that produces MotoGP champions. Selected for the Red Bull Rookies Cup tryouts. Entering JuniorGP for the 2026 season.</p>
+      <div class="stat-row">
+        <div class="stat"><div class="num">17</div><div class="label">Years Old</div></div>
+        <div class="stat"><div class="num">7</div><div class="label">Races 2026</div></div>
+        <div class="stat"><div class="num">4</div><div class="label">Countries</div></div>
+        <div class="stat"><div class="num">3M+</div><div class="label">Viewers</div></div>
+      </div>
+    </div>
+    <div class="hero-media">
+      <video src="hero_video.mp4" autoplay muted loop playsinline></video>
+    </div>
+  </section>
+
+  <!-- ============ STORY SECTION — NEW, NOW PHOTO + TEXT (text leads on mobile) ============ -->
+  <section class="feature-row reverse story-row">
+    <div class="feature-media">
+      <img src="redbull_briefing.jpeg" alt="Josh being briefed by the Red Bull Rookies Cup programme director" style="object-position: center 30%;">
+    </div>
+    <div class="feature-text">
+      <div class="section-tag">THE STORY</div>
+      <h3 style="font-size:32px; text-transform:none; line-height:1.2;">Josh has spent his career inside the system that produces world champions</h3>
+      <div class="story-body-justified">
+        <p>The academies, the coaches, the pathway races that lead to MotoGP. Josh trains daily at SPN Academy, riding alongside the Spanish and Italian talent that has dominated this sport for decades.</p>
+        <p>He was selected for the Red Bull Rookies Cup tryouts, one of 120 riders chosen from around the world. This year, his goal is JuniorGP, racing across Europe in front of a broadcast audience of 3 million.</p>
+        <p>He needs founding partners to make that season happen.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURE ROW — WHY BACK JOSH NOW (moved up, right after The Story) ============ -->
+  <section class="feature-row why-now-row">
+    <div class="feature-media">
+      <img src="josh_leading_pack.jpg" alt="Josh leading the pack into the corner" style="object-position: center 35%;">
+    </div>
+    <div class="feature-text">
+      <div class="section-tag">WHY BACK JOSH NOW</div>
+      <h3>An American Inside the System</h3>
+      <p>Very few American riders are inside the system that actually produces champions, the academies, the coaches, the pathway races across Spain and Portugal that lead to MotoGP.</p>
+      <p><strong>Josh is one of them.</strong></p>
+      <p>Motorcycle racing has belonged to two countries for a long time. Josh has the talent to change that. What he needs now is the backing to get there.</p>
+    </div>
+  </section>
+
+  <!-- ============ FEATURE ROW 1 — TRAINED ALONGSIDE THE BEST ============ -->
+  <section class="feature-row trained-row">
+    <div class="feature-media">
+      <img src="Nico_Training.jpeg" alt="Josh and the SPN Academy riders on the grid at sunrise" style="object-position: center 65%;">
+    </div>
+    <div class="feature-text">
+      <div class="section-tag">SPN ACADEMY</div>
+      <h3>Trained Alongside the Best</h3>
+      <p>Josh trains under <strong>Nico Ferreira</strong>, a coach recognized across the sport for developing some of its best young talent.</p>
+      <p>The academy's current riders compete in the <strong>Red Bull Rookies Cup, JuniorGP, and the European Talent Cup</strong>, including a Moto3 rider and national champions from multiple countries training in the same group. Riders who have come through the academy in the past have gone on to compete in Moto2 and Moto3.</p>
+      <p>Josh trains alongside all of them, on the same track, under the same coach, held to the same standard.</p>
+      <p>This is not a junior programme on the periphery of the sport. It is inside the pipeline that feeds it.</p>
+    </div>
+  </section>
+
+  <!-- ============ FEATURE ROW 2 — WHY HIM ============ -->
+  <section class="feature-row">
+    <div class="feature-media">
+      <img src="josh_redbull_hero.jpeg" alt="Josh at the Red Bull Rookies Cup garage" style="object-position: center 25%;">
+    </div>
+    <div class="feature-text">
+      <div class="section-tag">SPN ACADEMY</div>
+      <h3 style="font-size:42px;">WHY HIM</h3>
+      <p style="font-size:14px; letter-spacing:1px; text-transform:uppercase; color:var(--grey-dim); margin-bottom:24px; margin-top:-8px;">Quiet. Humble. Resourceful.</p>
+      <p>Josh is the kind of athlete who finds a way to succeed against the odds. In a sport where money often decides who gets the best equipment and the fastest path forward, Josh has shown that he can still succeed. His selection for the Red Bull Rookies Cup tryouts, one of only 120 riders invited worldwide, and his place at SPN Academy, open only to top riders, shows just that.</p>
+      <p>He is quiet and humble, but always wanting more for himself. Through hard work and persistence, he earned his place at SPN Academy, training daily under one of the most respected coaches in the sport.</p>
+      <p>That is exactly the kind of athlete worth backing. Someone who has already proven success with limited resources, and who will make the most of what a founding partner provides.</p>
+    </div>
+  </section>
+
+  <!-- ============ PROOF / STATS SECTION (existing content, repositioned) ============ -->
+  <section class="proof-section">
+    <div class="section-eyebrow">THE NUMBERS</div>
+    <h2 style="font-size:36px; font-weight:800; text-transform:uppercase; max-width:600px;">Why the Timing Works</h2>
+    <div class="proof-cards">
+      <div class="proof-card">
+        <div class="big">Ground Floor</div>
+        <div class="small-label">Early Positioning</div>
+        <p>Brands that commit now secure the lowest entry point. As Josh progresses through JuniorGP toward Moto3, the value of early association grows.</p>
+      </div>
+      <div class="proof-card">
+        <div class="big">3M+</div>
+        <div class="small-label">Broadcast Reach</div>
+        <p>Every race broadcast across DAZN, Sky+, Teledeporte, Canal+, Sport TV, Star Sports, TNT, and FIM JuniorGP YouTube.</p>
+      </div>
+      <div class="proof-card">
+        <div class="big">7 Races · 4 Countries</div>
+        <div class="small-label">The 2026 Season</div>
+        <div class="race-row"><span class="race-date">24 May</span><span class="race-name">Circuit Barcelona-Catalunya</span><span class="race-country">Spain</span></div>
+        <div class="race-row"><span class="race-date">14 Jun</span><span class="race-name">Circuito do Estoril</span><span class="race-country">Portugal</span></div>
+        <div class="race-row"><span class="race-date">5 Jul</span><span class="race-name">Jerez – Ángel Nieto</span><span class="race-country">Spain</span></div>
+        <div class="race-row"><span class="race-date">26 Jul</span><span class="race-name">Circuit de Nevers Magny-Cours</span><span class="race-country">France</span></div>
+        <div class="race-row"><span class="race-date">6 Sep</span><span class="race-name">Circuit Ricardo Tormo</span><span class="race-country">Spain</span></div>
+        <div class="race-row"><span class="race-date">27 Sep</span><span class="race-name">MotorLand Aragón</span><span class="race-country">Spain</span></div>
+        <div class="race-row"><span class="race-date">18 Oct</span><span class="race-name">Motor Valley – Misano</span><span class="race-country">Italy</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PARTNERSHIP TIERS — JUST BEFORE DECK ============ -->
+  <section class="tiers-section">
+    <div class="section-eyebrow">SPONSORSHIP</div>
+    <h2 style="font-size:36px; font-weight:800; text-transform:uppercase;">Partnership Tiers</h2>
+    <p style="color:var(--grey); margin-top:14px; max-width:600px;">Season opens Barcelona 24 May 2026. Founding partnerships can be tailored to align with brand goals.</p>
+    <div class="tiers-grid">
+      <div class="tier-card">
+        <div class="tier-num">01</div>
+        <div class="tier-name">Entry Partner</div>
+        <div class="tier-price">€500 – €1,000</div>
+        <ul>
+          <li>Stay connected to the journey</li>
+          <li>Updates & behind-the-scenes access</li>
+          <li>Social media mentions</li>
+          <li>Early stage involvement</li>
+        </ul>
+      </div>
+      <div class="tier-card">
+        <div class="tier-num">02</div>
+        <div class="tier-name">Growth Partner</div>
+        <div class="tier-price">€1,500 – €4,500</div>
+        <ul>
+          <li>Build strong brand visibility</li>
+          <li>Logo placement on suit</li>
+          <li>Social exposure across race weekends</li>
+          <li>Collaborative content opportunities</li>
+        </ul>
+      </div>
+      <div class="tier-card">
+        <div class="tier-num">03</div>
+        <div class="tier-name">Performance Partner</div>
+        <div class="tier-price">€5,000 – €10,000</div>
+        <ul>
+          <li>Logo on suit & bike (secondary)</li>
+          <li>Behind-the-scenes content access</li>
+          <li>Co-branded campaigns</li>
+          <li>Increased media exposure</li>
+        </ul>
+      </div>
+      <div class="tier-card">
+        <div class="tier-num">04</div>
+        <div class="tier-name">Founding Partner</div>
+        <div class="tier-price">€10,000 – €25,000</div>
+        <ul>
+          <li>Maximum exposure & full integration</li>
+          <li>Premium logo placement — bike, suit, helmet</li>
+          <li>Race weekend presence</li>
+          <li>Event & activation opportunities</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PITCH DECK — VERY LAST ============ -->
+  <section class="deck-section">
+    <div class="section-eyebrow">FULL DETAIL</div>
+    <h2 style="font-size:36px; font-weight:800; text-transform:uppercase;">Partnership Deck</h2>
+    <p style="color:var(--grey); margin-top:14px; max-width:600px;">The complete picture — Josh's pathway, the 2026 season, broadcast reach, and partnership options.</p>
+    <div class="deck-viewer">
+      <div class="deck-slide-placeholder">SLIDE DECK EMBED — 15 SLIDES</div>
+    </div>
+    <div class="deck-nav">
+      <button>←</button>
+      <span class="count">1 / 15</span>
+      <button>→</button>
+    </div>
+  </section>
+
+</div>
+
+</body>
+</html>
