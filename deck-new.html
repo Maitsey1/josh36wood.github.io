@@ -572,4 +572,32 @@
     if (e.key === 'ArrowLeft') changePage(-1);
   });
 </script>
+<div class="contact-section" id="contact">
+  <p class="section-label">Get In Touch</p>
+  <h2>Discuss a Partnership</h2>
+  <p class="sub">Tell us which level interests you and we will come back to you directly.</p>
+  <form class="contact-form" action="https://formspree.io/f/xeenoqyo" method="POST">
+    <div class="form-row">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="text" name="company" placeholder="Company" required>
+    </div>
+    <input type="email" name="email" placeholder="Email Address" required>
+    <select name="interest" required>
+      <option value="" disabled selected>Which partnership interests you?</option>
+      <option>Entry Partner — €500–€1,000</option>
+      <option>Growth Partner — €1,500–€4,500</option>
+      <option>Performance Partner — €5,000–€10,000</option>
+      <option>Title Partner — €10,000–€25,000</option>
+      <option>Not sure yet — happy to discuss</option>
+    </select>
+    <textarea name="message" placeholder="Anything else you'd like to share (optional)"></textarea>
+    <button type="submit" class="btn-submit">Send Enquiry</button>
+  </form>
+</div>
+<footer>
+  <span>© 2026 Joshua Wood Racing Academy</span>
+  <span class="season-tag">Season opens Barcelona · 24 May 2026</span>
+  <a href="mailto:Maiteland@belallure.travel">Maiteland@belallure.travel</a>
+</footer>
+</body>
 </html>
