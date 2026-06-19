@@ -329,6 +329,90 @@
     .race-name { flex-basis: 100%; order: 1; margin-top: 2px; }
     .race-country { order: 2; font-size: 13px; }
   }
+  .contact-section {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 80px 48px;
+  text-align: center;
+}
+.contact-section .section-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--purple);
+  margin-bottom: 10px;
+}
+.contact-section h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 2.4rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.contact-section .sub {
+  color: var(--grey);
+  font-size: 0.9rem;
+  margin-bottom: 36px;
+}
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-align: left;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 6px;
+  color: #fff;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.95rem;
+  padding: 14px 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.contact-form textarea {
+  height: 120px;
+  resize: vertical;
+}
+.btn-submit {
+  background: var(--purple);
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  padding: 16px;
+  text-transform: uppercase;
+  width: 100%;
+}
+.btn-submit:hover { background: var(--purple-dark); }
+footer {
+  border-top: 1px solid #1e1e1e;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 48px;
+  font-size: 0.75rem;
+  color: #555;
+}
+footer a { color: var(--purple); text-decoration: none; }
+@media (max-width: 900px) {
+  .contact-section { padding: 60px 24px; }
+  .form-row { grid-template-columns: 1fr; }
+  footer { flex-direction: column; gap: 8px; text-align: center; padding: 24px; }
+}
 </style>
 </head>
 <body>
