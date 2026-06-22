@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Josh Wood — European Talent Cup 2026 — Visão Geral da Parceria</title>
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --bg-panel: #131313;
+    --bg-panel-2: #1a1a1a;
+    --white: #ffffff;
+    --grey: #9a9a9a;
+    --grey-dim: #6e6e6e;
+    --purple: #8b2fc9;
+    --purple-light: #a855e8;
+    --line: #262626;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.5;
+  }
+
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+
+  /* ---------- HEADER ---------- */
+  header {
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    background: rgba(10,10,10,0.95);
+    z-index: 50;
+  }
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 22px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+  }
+  .logo span { color: var(--purple-light); }
+  .btn {
+    border: 1px solid var(--purple);
+    color: var(--purple-light);
+    background: transparent;
+    padding: 11px 20px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    border-radius: 4px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    padding: 90px 0 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .eyebrow {
+    color: var(--purple-light);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 28px;
+  }
+  .hero h1 {
+    font-size: 76px;
+    font-weight: 800;
+    line-height: 0.98;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+  }
+  .hero h1 .accent { color: var(--purple-light); }
+  .hero p.lede {
+    margin-top: 28px;
+    font-size: 18px;
+    color: var(--grey);
+    max-width: 480px;
+  }
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    margin-top: 44px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .stat {
+    background: var(--bg-panel);
+    padding: 22px 16px;
+    text-align: left;
+    border-right: 1px solid var(--line);
+  }
+  .stat:last-child { border-right: none; }
+  .stat .num { font-size: 30px; font-weight: 800; color: var(--purple-light); }
+  .stat .label { font-size: 11px; color: var(--grey-dim); letter-spacing: 1px; text-transform: uppercase; margin-top: 4px; }
+
+  .hero-media {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    aspect-ratio: 4/5;
+    background: var(--bg-panel);
+  }
+  .hero-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .hero-media video { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .media-tag {
+    position: absolute;
+    bottom: 18px;
+    left: 18px;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: var(--white);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 8px 14px;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .media-tag .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--purple-light); }
+
+  .section-eyebrow {
+    color: var(--purple-light);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+  }
+  .feature-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    align-items: center;
+    padding: 90px 0;
+    border-top: 1px solid var(--line);
+  }
+  .feature-row.reverse .feature-media { order: 2; }
+  .feature-row.reverse .feature-text { order: 1; }
+  .feature-media {
+    border-radius: 10px;
+    overflow: hidden;
+    aspect-ratio: 1/1;
+    background: var(--bg-panel);
+  }
+  .feature-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .feature-text h3 {
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -0.3px;
+    margin-bottom: 22px;
+    text-transform: uppercase;
+    line-height: 1.1;
+  }
+  .feature-text p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--grey);
+    margin-bottom: 16px;
+  }
+  .feature-text p:last-child { margin-bottom: 0; }
+  .feature-text p strong { color: var(--white); font-weight: 600; }
+  .story-body-justified p {
+    text-align: justify;
+    text-justify: inter-word;
+  }
+
+  /* ---------- WHY NOW STAT CARDS ---------- */
+  .proof-section {
+    padding: 90px 0;
+    border-top: 1px solid var(--line);
+  }
+  .proof-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.3fr;
+    gap: 1px;
+    margin-top: 50px;
+    background: var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .proof-card {
+    background: var(--bg-panel);
+    padding: 36px 32px;
+  }
+  .proof-card .big { color: var(--purple-light); font-size: 26px; font-weight: 800; margin-bottom: 4px; }
+  .proof-card .small-label { font-size: 12px; letter-spacing: 1.5px; color: var(--grey-dim); text-transform: uppercase; margin-bottom: 18px; }
+  .proof-card p { font-size: 15px; color: var(--grey); line-height: 1.6; }
+  .race-row { display: flex; justify-content: space-between; padding: 9px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+  .race-row:last-child { border-bottom: none; }
+  .race-date { color: var(--purple-light); font-weight: 700; width: 70px; flex-shrink: 0; }
+  .race-name { color: var(--white); flex: 1; }
+  .race-country { color: var(--grey-dim); }
+
+  /* ---------- PARTNERSHIP TIERS ---------- */
+  .tiers-section {
+    padding: 90px 0;
+    border-top: 1px solid var(--line);
+  }
+  .tiers-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    margin-top: 50px;
+    background: var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .tier-card { background: var(--bg-panel); padding: 32px 26px; }
+  .tier-num { color: var(--purple-light); font-size: 13px; font-weight: 800; letter-spacing: 1px; margin-bottom: 18px; }
+  .tier-name { font-size: 19px; font-weight: 800; text-transform: uppercase; margin-bottom: 10px; }
+  .tier-price { color: var(--purple-light); font-size: 17px; font-weight: 700; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
+  .tier-card ul { list-style: none; }
+  .tier-card li { font-size: 14px; color: var(--grey); margin-bottom: 11px; padding-left: 14px; position: relative; line-height: 1.4; }
+  .tier-card li::before { content: "—"; position: absolute; left: 0; color: var(--grey-dim); }
+
+  /* ---------- PITCH DECK ---------- */
+  .deck-section {
+    padding: 90px 0 110px;
+    border-top: 1px solid var(--line);
+  }
+  .deck-viewer {
+    margin-top: 40px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--bg-panel);
+    aspect-ratio: 16/9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .deck-slide-placeholder {
+    width: 88%;
+    height: 80%;
+    background: var(--bg-panel-2);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--grey-dim);
+    font-size: 14px;
+    letter-spacing: 1px;
+  }
+  .deck-nav {
+    margin-top: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+  }
+  .deck-nav button {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--purple);
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  .deck-nav .count { color: var(--grey); font-size: 14px; }
+
+  .section-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--grey-dim);
+    text-transform: uppercase;
+    border: 1px solid var(--line);
+    padding: 6px 12px;
+    border-radius: 100px;
+    margin-bottom: 16px;
+  }
+
+  .note-banner {
+    background: var(--bg-panel);
+    border: 1px dashed var(--purple);
+    border-radius: 8px;
+    padding: 14px 20px;
+    font-size: 13px;
+    color: var(--purple-light);
+    margin-top: 16px;
+  }
+
+  @media (max-width: 900px) {
+    .wrap { padding: 0 24px; }
+    .header-inner { padding: 16px 24px; flex-wrap: wrap; gap: 12px; }
+    .logo { font-size: 17px; }
+    .btn { font-size: 12px; padding: 9px 14px; }
+    .hero { grid-template-columns: 1fr; padding: 50px 0; }
+    .hero h1 { font-size: 48px; }
+    .stat-row { grid-template-columns: repeat(2, 1fr); }
+    .feature-row { grid-template-columns: 1fr; gap: 32px; padding: 60px 0; }
+    .feature-row .feature-text { order: 1; }
+    .feature-row .feature-media { order: 2; }
+    .proof-cards { grid-template-columns: 1fr; }
+    .tiers-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 480px) {
+    .header-inner { padding: 14px 18px; }
+    .logo { font-size: 15px; }
+    .btn { font-size: 11px; padding: 8px 12px; }
+    .wrap { padding: 0 18px; }
+    .hero h1 { font-size: 38px; }
+    .tiers-grid { grid-template-columns: 1fr; }
+    .race-row { flex-wrap: wrap; }
+    .race-name { flex-basis: 100%; order: 1; margin-top: 2px; }
+    .race-country { order: 2; font-size: 13px; }
+  }
+  .contact-section {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 80px 48px;
+  text-align: center;
+}
+.contact-section .section-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--purple);
+  margin-bottom: 10px;
+}
+.contact-section h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 2.4rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.contact-section .sub {
+  color: var(--grey);
+  font-size: 0.9rem;
+  margin-bottom: 36px;
+}
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-align: left;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 6px;
+  color: #fff;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.95rem;
+  padding: 14px 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.contact-form textarea {
+  height: 120px;
+  resize: vertical;
+}
+.btn-submit {
+  background: var(--purple);
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  padding: 16px;
+  text-transform: uppercase;
+  width: 100%;
+}
+.btn-submit:hover { background: var(--purple-dark); }
+footer {
+  border-top: 1px solid #1e1e1e;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 48px;
+  font-size: 0.75rem;
+  color: #555;
+}
+footer a { color: var(--purple); text-decoration: none; }
+@media (max-width: 900px) {
+  .contact-section { padding: 60px 24px; }
+  .form-row { grid-template-columns: 1fr; }
+  footer { flex-direction: column; gap: 8px; text-align: center; padding: 24px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">JOSH<span>#36</span>WOOD</div>
+    <a href="#" class="btn">↓ DESCARREGAR DECK</a>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div>
+      <div class="eyebrow">PILOTO AMERICANO · CAMINHO PARA O MOTOGP · 2026</div>
+      <h1>JOSH<br><span class="accent">WOOD</span><br>#36</h1>
+      <p class="lede">Um americano de 17 anos a treinar dentro do sistema que forma os campeões do MotoGP. Selecionado para os tryouts da Red Bull Rookies Cup. A entrar na European Talent Cup na época de 2026.</p>
+      <div class="stat-row">
+        <div class="stat"><div class="num">17</div><div class="label">Anos</div></div>
+        <div class="stat"><div class="num">7</div><div class="label">Corridas 2026</div></div>
+        <div class="stat"><div class="num">4</div><div class="label">Países</div></div>
+        <div class="stat"><div class="num">3M+</div><div class="label">Espectadores</div></div>
+      </div>
+    </div>
+    <div class="hero-media">
+      <video src="hero_video.mp4" autoplay muted loop playsinline></video>
+    </div>
+  </section>
+
+  <!-- ============ STORY SECTION ============ -->
+  <section class="feature-row reverse story-row">
+    <div class="feature-media">
+      <img src="redbull_briefing.jpeg" alt="Josh a receber instruções do diretor do programa Red Bull Rookies Cup" style="object-position: center 30%;">
+    </div>
+    <div class="feature-text">
+      <div class="section-tag">A HISTÓRIA</div>
+      <h3 style="font-size:32px; text-transform:none; line-height:1.2;">Josh passou a carreira dentro do sistema que forma os campeões mundiais</h3>
+      <div class="story-body-justified">
+        <p>As academias, os treinadores, as corridas de formação que conduzem ao MotoGP. Josh treina diariamente na SPN Academy, ao lado do talento espanhol e italiano que tem dominado este desporto há décadas.</p>
+        <p>Foi selecionado para os tryouts da Red Bull Rookies Cup, um de 120 pilotos escolhidos em todo o mundo. Competiu na MIR Racing Cup nas categorias Moto5 e PreMoto3. Este ano, o seu objetivo é a European Talent Cup, correndo pela Europa perante uma audiência televisiva de 3 milhões de espectadores.</p>
+        <p>Precisa de parceiros fundadores para que essa época aconteça.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHY BACK JOSH NOW ============ -->
+  <section class="feature-row why-now-row">
+    <div class="feature-media">
+      <img src="josh_corner_lean.jpg" alt="Josh em curva, na liderança do grupo" style="object-position: center 75%;">
+    </div>
+    <div class="feature-text">
+      <div class="section-tag">PORQUE APOIAR JOSH AGORA</div>
+      <h3>Um Americano Pronto a Fazer a Diferença</h3>
+      <p>Muito poucos pilotos americanos têm a oportunidade de treinar dia após dia com os melhores pilotos júnior do desporto. Josh tem. Em cada sessão, está em pista com pilotos que perseguem o mesmo caminho, o mesmo nível, as mesmas exigências.</p>
+      <p><strong>É por isso que está pronto para dar o salto.</strong></p>
+      <p>O motociclismo de competição pertenceu a dois países durante muito tempo. Josh tem o talento para mudar isso. O que precisa agora é do apoio para chegar lá.</p>
+    </div>
+  </section>
+
+  <!-- ============ TRAINED ALONGSIDE THE BEST ============ -->
+  <section class="feature-row trained-row">
+    <div class="feature-media">
+      <img src="Nico_Training.jpeg" alt="Josh e os pilotos da SPN Academy na grelha ao amanhecer" style="object-position: center 65%;">
+    </div>
+    <div class="feature-text">
+      <div class="section-tag">SPN ACADEMY</div>
+      <h3>Treinado ao Lado dos Melhores</h3>
+      <p>Josh treina sob a orientação de <strong>Nico Ferreira</strong>, um treinador reconhecido no desporto pelo desenvolvimento de alguns dos melhores jovens talentos.</p>
+      <p>Os pilotos atuais da academia competem na <strong>Red Bull Rookies Cup, JuniorGP e European Talent Cup</strong>, incluindo um piloto de Moto3 e campeões nacionais de vários países a treinar no mesmo grupo. Pilotos que passaram pela academia já foram competir em Moto2 e Moto3.</p>
+      <p>Josh treina ao lado de todos eles, na mesma pista, com o mesmo treinador, sujeito ao mesmo nível de exigência.</p>
+      <p>Este não é um programa júnior na periferia do desporto. Está dentro do pipeline que o alimenta.</p>
+    </div>
+  </section>
+
+  <!-- ============ WHY HIM ============ -->
+  <section class="feature-row">
+    <div class="feature-media">
+      <img src="josh_redbull_hero.jpeg" alt="Josh na garagem da Red Bull Rookies Cup" style="object-position: center 25%;">
+    </div>
+    <div class="feature-text">
+      <div class="section-tag">SPN ACADEMY</div>
+      <h3 style="font-size:42px;">PORQUÊ ELE</h3>
+      <p style="font-size:14px; letter-spacing:1px; text-transform:uppercase; color:var(--grey-dim); margin-bottom:24px; margin-top:-8px;">Determinado. Confiante. Implacável.</p>
+      <p>Josh é o tipo de atleta que encontra sempre uma forma de vencer contra as adversidades. Num desporto onde o dinheiro frequentemente decide quem tem o melhor equipamento e o caminho mais rápido, Josh provou que consegue igualmente ser bem-sucedido. O seu talento e habilidade fizeram-no destacar, garantindo-lhe um lugar numa academia de topo e a oportunidade de tentar entrar na Red Bull Rookies Cup.</p>
+      <p>Ele aparece em cada sessão e deixa tudo em pista. É esse o tipo de atleta que é — o tipo que conquista o seu lugar, todos os dias.</p>
+      <p>É exatamente esse o tipo de atleta que vale a pena apoiar. Alguém que já provou o seu valor com recursos limitados, e que vai tirar o máximo partido do que um parceiro fundador disponibiliza.</p>
+    </div>
+  </section>
+
+  <!-- ============ PROOF / STATS SECTION ============ -->
+  <section class="proof-section">
+    <div class="section-eyebrow">OS NÚMEROS</div>
+    <h2 style="font-size:36px; font-weight:800; text-transform:uppercase; max-width:600px;">Porque o Momento é Agora</h2>
+    <div class="proof-cards">
+      <div class="proof-card">
+        <div class="big">Piso Zero</div>
+        <div class="small-label">Posicionamento Antecipado</div>
+        <p>As marcas que se comprometem agora garantem o ponto de entrada mais acessível. À medida que Josh progride na European Talent Cup em direção ao JuniorGP, esse valor só aumenta.</p>
+      </div>
+      <div class="proof-card">
+        <div class="big">3M+</div>
+        <div class="small-label">Alcance em Transmissão</div>
+        <p>Cada corrida transmitida pela DAZN, Sky+, Teledeporte, Canal+, Sport TV, Star Sports, TNT e FIM JuniorGP YouTube.</p>
+      </div>
+      <div class="proof-card">
+        <div class="big">7 Corridas · 4 Países</div>
+        <div class="small-label">A Época 2026</div>
+        <div class="race-row"><span class="race-date">24 Mai</span><span class="race-name">Circuit Barcelona-Catalunya</span><span class="race-country">Espanha</span></div>
+        <div class="race-row"><span class="race-date">14 Jun</span><span class="race-name">Circuito do Estoril</span><span class="race-country">Portugal</span></div>
+        <div class="race-row"><span class="race-date">5 Jul</span><span class="race-name">Jerez – Ángel Nieto</span><span class="race-country">Espanha</span></div>
+        <div class="race-row"><span class="race-date">26 Jul</span><span class="race-name">Circuit de Nevers Magny-Cours</span><span class="race-country">França</span></div>
+        <div class="race-row"><span class="race-date">6 Set</span><span class="race-name">Circuit Ricardo Tormo</span><span class="race-country">Espanha</span></div>
+        <div class="race-row"><span class="race-date">27 Set</span><span class="race-name">MotorLand Aragón</span><span class="race-country">Espanha</span></div>
+        <div class="race-row"><span class="race-date">18 Out</span><span class="race-name">Motor Valley – Misano</span><span class="race-country">Itália</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PARTNERSHIP TIERS ============ -->
+  <section class="tiers-section">
+    <div class="section-eyebrow">PATROCÍNIO</div>
+    <h2 style="font-size:36px; font-weight:800; text-transform:uppercase;">Níveis de Parceria</h2>
+    <p style="color:var(--grey); margin-top:14px; max-width:600px;">A época abre em Barcelona a 24 de maio de 2026. As parcerias fundadoras podem ser adaptadas aos objetivos de cada marca.</p>
+    <div class="tiers-grid">
+      <div class="tier-card">
+        <div class="tier-num">01</div>
+        <div class="tier-name">Parceiro de Entrada</div>
+        <div class="tier-price">€500 – €1.000</div>
+        <ul>
+          <li>Acompanhe a jornada de perto</li>
+          <li>Atualizações e acesso aos bastidores</li>
+          <li>Menções nas redes sociais</li>
+          <li>Envolvimento desde o início</li>
+        </ul>
+      </div>
+      <div class="tier-card">
+        <div class="tier-num">02</div>
+        <div class="tier-name">Parceiro de Crescimento</div>
+        <div class="tier-price">€1.500 – €4.500</div>
+        <ul>
+          <li>Visibilidade de marca consistente</li>
+          <li>Logótipo no fato de corrida</li>
+          <li>Exposição nas redes sociais durante os fins de semana de corrida</li>
+          <li>Oportunidades de conteúdo colaborativo</li>
+        </ul>
+      </div>
+      <div class="tier-card">
+        <div class="tier-num">03</div>
+        <div class="tier-name">Parceiro de Performance</div>
+        <div class="tier-price">€5.000 – €10.000</div>
+        <ul>
+          <li>Logótipo no fato e mota (posição secundária)</li>
+          <li>Acesso a conteúdo dos bastidores</li>
+          <li>Campanhas de co-branding</li>
+          <li>Maior exposição nos meios de comunicação</li>
+        </ul>
+      </div>
+      <div class="tier-card">
+        <div class="tier-num">04</div>
+        <div class="tier-name">Parceiro Fundador</div>
+        <div class="tier-price">€10.000 – €25.000</div>
+        <ul>
+          <li>Exposição máxima e integração total</li>
+          <li>Colocação premium do logótipo — mota, fato, capacete</li>
+          <li>Presença nos fins de semana de corrida</li>
+          <li>Oportunidades de eventos e ativações</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PITCH DECK ============ -->
+<section class="deck-section">
+  <div class="section-eyebrow">DETALHE COMPLETO</div>
+  <h2 style="font-size:36px; font-weight:800; text-transform:uppercase;">Deck de Parceria</h2>
+  <p style="color:var(--grey); margin-top:14px; max-width:600px;">A imagem completa — o percurso de Josh, a época de 2026, o alcance em transmissão e as opções de parceria.</p>
+
+  <div class="deck-viewer" style="position:relative; width:100%; background:#111; border:1px solid #2a2a2a; border-radius:8px; overflow:hidden; margin-top:32px;">
+    <canvas id="deck-canvas" style="display:block; width:100%; height:auto;"></canvas>
+    <div id="deck-loading" style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:#666; font-family:'Barlow Condensed',sans-serif; letter-spacing:0.1em; font-size:0.85rem;">A CARREGAR DECK...</div>
+  </div>
+
+  <div style="display:flex; align-items:center; justify-content:center; gap:24px; margin-top:20px;">
+    <button onclick="changePage(-1)" style="background:#7b2fbe; border:none; color:#fff; width:44px; height:44px; border-radius:6px; font-size:1.2rem; cursor:pointer;">←</button>
+    <span id="deck-count" style="font-family:'Barlow Condensed',sans-serif; letter-spacing:0.15em; font-size:0.9rem; color:#aaa;">1 / 15</span>
+    <button onclick="changePage(1)" style="background:#7b2fbe; border:none; color:#fff; width:44px; height:44px; border-radius:6px; font-size:1.2rem; cursor:pointer;">→</button>
+  </div>
+</section>
+</div>
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script>
+  pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+  const PDF_URL = 'https://raw.githubusercontent.com/Maitsey1/josh36wood.github.io/main/Joshua_Wood_2026.pdf';
+  let pdfDoc = null;
+  let currentPage = 1;
+  let totalPages = 0;
+  let rendering = false;
+
+  const canvas = document.getElementById('deck-canvas');
+  const ctx = canvas.getContext('2d');
+  const loading = document.getElementById('deck-loading');
+
+  pdfjsLib.getDocument(PDF_URL).promise.then(pdf => {
+    pdfDoc = pdf;
+    totalPages = pdf.numPages;
+    loading.style.display = 'none';
+    renderPage(1);
+  }).catch(() => {
+    loading.textContent = 'Não foi possível carregar o deck. Use o botão de descarregar acima.';
+  });
+
+  function renderPage(num) {
+    if (rendering) return;
+    rendering = true;
+    pdfDoc.getPage(num).then(page => {
+      const viewport = page.getViewport({ scale: 1.8 });
+      canvas.width = viewport.width;
+      canvas.height = viewport.height;
+      page.render({ canvasContext: ctx, viewport }).promise.then(() => {
+        rendering = false;
+        document.getElementById('deck-count').textContent = num + ' / ' + totalPages;
+      });
+    });
+  }
+
+  function changePage(dir) {
+    const next = currentPage + dir;
+    if (next < 1 || next > totalPages) return;
+    currentPage = next;
+    renderPage(currentPage);
+    canvas.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') changePage(1);
+    if (e.key === 'ArrowLeft') changePage(-1);
+  });
+</script>
+<div class="contact-section" id="contact">
+  <p class="section-label">Entre em Contacto</p>
+  <h2>Discutir uma Parceria</h2>
+  <p class="sub">Indique qual o nível que lhe interessa e entraremos em contacto diretamente.</p>
+  <form class="contact-form" action="https://formspree.io/f/xeenoqyo" method="POST">
+    <div class="form-row">
+      <input type="text" name="name" placeholder="O Seu Nome" required>
+      <input type="text" name="company" placeholder="Empresa" required>
+    </div>
+    <input type="email" name="email" placeholder="Endereço de E-mail" required>
+    <select name="interest" required>
+      <option value="" disabled selected>Qual a parceria que lhe interessa?</option>
+      <option>Parceiro de Entrada — €500–€1.000</option>
+      <option>Parceiro de Crescimento — €1.500–€4.500</option>
+      <option>Parceiro de Performance — €5.000–€10.000</option>
+      <option>Parceiro Fundador — €10.000–€25.000</option>
+      <option>Ainda não tenho a certeza — gostava de discutir</option>
+    </select>
+    <textarea name="message" placeholder="Mais alguma coisa que queira partilhar (opcional)"></textarea>
+    <button type="submit" class="btn-submit">Enviar Pedido</button>
+  </form>
+</div>
+<footer>
+  <span>© 2026 Joshua Wood Racing Academy</span>
+  <span class="season-tag">Época abre em Barcelona · 24 de maio de 2026</span>
+  <a href="mailto:Maiteland@josh36wood.com">Maiteland@josh36wood.com</a>
+</footer>
+</body>
+</html>
