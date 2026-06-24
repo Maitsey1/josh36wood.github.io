@@ -50,6 +50,18 @@
     letter-spacing: 0.5px;
   }
   .logo span { color: var(--purple-light); }
+  nav { display: flex; gap: 32px; align-items: center; }
+  nav a {
+    color: var(--grey);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  nav a:hover { color: var(--white); }
+  @media (max-width: 900px) { nav { display: none; } }
   .btn {
     border: 1px solid var(--purple);
     color: var(--purple-light);
@@ -420,6 +432,10 @@ footer a { color: var(--purple); text-decoration: none; }
 <header>
   <div class="header-inner">
     <div class="logo">JOSH<span>#36</span>WOOD</div>
+    <nav>
+      <a href="https://josh36wood.com">Home</a>
+      <a href="https://josh36wood.com/gallery.html">Gallery</a>
+    </nav>
     <a href="#" class="btn">↓ DOWNLOAD DECK</a>
   </div>
 </header>
