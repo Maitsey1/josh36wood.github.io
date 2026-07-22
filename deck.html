@@ -142,6 +142,26 @@
   }
   .hero-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .hero-media video { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .mute-toggle {
+    position: absolute;
+    bottom: 18px;
+    right: 18px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2;
+    transition: background 0.2s;
+  }
+  .mute-toggle:hover { background: rgba(0,0,0,0.8); }
+  .mute-toggle svg { width: 18px; height: 18px; stroke: #fff; }
+
   .media-tag {
     position: absolute;
     bottom: 18px;
@@ -466,7 +486,14 @@ footer a { color: var(--purple); text-decoration: none; }
       </div>
     </div>
     <div class="hero-media">
-      <video src="hero_video.mp4" autoplay muted loop playsinline></video>
+      <video id="hero-video" src="hero_video.mp4" autoplay muted playsinline></video>
+      <button class="mute-toggle" id="mute-toggle" aria-label="Unmute video" onclick="toggleMute()">
+        <svg id="mute-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+          <line x1="23" y1="9" x2="17" y2="15"/>
+          <line x1="17" y1="9" x2="23" y2="15"/>
+        </svg>
+      </button>
     </div>
   </section>
 
@@ -709,5 +736,21 @@ footer a { color: var(--purple); text-decoration: none; }
   <span class="season-tag">Season opens Barcelona · 24 May 2026</span>
   <a href="mailto:Maiteland@josh36wood.com">Maiteland@josh36wood.com</a>
 </footer>
+
+<script>
+function toggleMute(){
+  const v = document.getElementById('hero-video');
+  const icon = document.getElementById('mute-icon');
+  const btn = document.getElementById('mute-toggle');
+  v.muted = !v.muted;
+  if(!v.muted){
+    icon.innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>';
+    btn.setAttribute('aria-label','Mute video');
+  } else {
+    icon.innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>';
+    btn.setAttribute('aria-label','Unmute video');
+  }
+}
+</script>
 </body>
 </html>
