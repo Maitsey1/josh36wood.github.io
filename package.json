@@ -1,0 +1,7 @@
+{
+  "name": "josh36wood-site",
+  "private": true,
+  "type": "module",
+  "scripts": { "images": "node scripts/images.mjs" },
+  "dependencies": { "sharp": "^0.33.5" }
+}

@@ -1,0 +1,69 @@
+# Home page content. Drafts: Maite edits these after the build. Josh's quote stays empty until he approves it.
+status: "Now: training full-time toward 2027"
+hero:
+  image: josh-corner-lean
+  alt: Josh Wood leaning into a corner on a red and black MIR Racing Cup bike
+  pos: "58% 46%"
+  caption: "Above: MIR Racing Cup, [circuit, month, year]"
+tagline: Seventeen. American. Building a professional career, racing championships across Europe.
+about:
+  text: "Josh Wood has finished school and now races full-time. He trains with SPN Academy under coach Nico Ferreira and competes across Europe. In 2024 he was one of around 120 riders invited to the Red Bull MotoGP Rookies Cup Selection Event. His objective for 2027 is a full European championship programme."
+  facts:
+    - [Based in, "Málaga, Spain"]
+    - [Trains with, "SPN Academy, under coach Nico Ferreira"]
+    - [Selected, "2024 Red Bull MotoGP Rookies Cup Selection Event, one of around 120 riders worldwide"]
+    - [Working toward, "2027: a full European championship programme"]
+words:
+  image: josh-contact
+  alt: Josh Wood, helmet off, in race leathers at the circuit
+  pos: "50% 28%"
+  quote: ""   # waiting for Josh's approval
+timeline:
+  - {year: "2023", image: josh-calafat, alt: Josh cornering at Circuito de Campillos in 2023, text: "First races, in the Spanish national cups."}
+  - {year: "2024", image: training1, alt: Evening training session on small bikes at SPN Academy, text: "Joins SPN Academy under coach Nico Ferreira."}
+  - {year: "2024", image: redbull3, alt: Josh beside a Red Bull bike in the pit lane at the 2024 selection event, text: "Invited to the Red Bull MotoGP Rookies Cup Selection Event, one of around 120 riders worldwide."}
+  - {year: "2025–2026", image: race2, alt: Josh racing in the MIR Racing Cup, text: "Races the MIR Racing Cup in Moto5 and PreMoto3. Finishes school in 2026 and moves to full-time training and racing."}
+  - {year: Next, big: "2027", text: "Objective: a full European championship programme."}
+weekends:
+  heading: Race weekends are the short part
+  intro: Track days at SPN Academy are what people see. The rest of the week is gym and strength work, long rides on the road bike, running, flat track and Hyrox-style conditioning.
+  items:
+    - {title: Track riding, meta: "SPN Academy, [month, year]", image: training2, alt: Knee down on a small training bike}
+    - {title: Flat track, meta: "[Place, month, year]", image: josh-season, alt: Josh on a dirt bike for flat track training}
+    - {title: Cycling, meta: From the training shoot}
+    - {title: Running, meta: From the training shoot}
+    - {title: Strength, meta: From the training shoot}
+    - {title: Hyrox-style training, meta: From the training shoot}
+latest:
+  - {image: trackwalk1, alt: Riders walking the circuit at Portimão, meta: "[Month, year]. Pictured: Portimão", title: Before the first lap, text: "[Josh on what he notices on a track walk: the surface, the braking markers, the kerbs, and how it feels the day before a race.]"}
+  - {image: behindscene1, alt: Josh in the garage beside the yellow race bike, meta: "[Month 2026], [circuit]", title: Race-day preparation in the garage, text: "[A short entry on the hours before a session.]"}
+  - {image: redbull5, alt: Pit lane at the 2024 Red Bull MotoGP Rookies Cup Selection Event, meta: "2024, [circuit]", title: What the Red Bull selection event was like, text: "[Josh’s account of the selection event, two years on.]"}
+racing:
+  - [Next, "[Round, circuit, date]"]
+  - [Latest result, "[Result, championship, round]"]
+  - ["2027", "Full European championship programme. Details once confirmed."]
+press:
+  - {outlet: Talk Radio Europe, format: Radio and video interview, url: "https://www.youtube.com/watch?v=7Y-HCc9knzs"}
+  - {outlet: "RTV Marbella, English Edition", format: "Television interview, April 2026", url: "https://www.youtube.com/watch?v=4qCWz0P031k&t=1875s"}
+  - {outlet: Euro Weekly News, format: "Newspaper column, April 2026", url: "https://euroweeklynews.com/2026/04/22/juniorgp-world-championship-the-race-is-on/"}
+  - {outlet: Essential Magazine, format: "Print feature, 2025", url: "https://issuu.com/essentialmagazine/docs/essential_magazine_june_2025"}
+  - {outlet: Planet Marbella, format: "Feature interview, April 2025", url: "https://www.planetmarbella.com/can-josh-break-into-the-big-time/"}
+  - {outlet: "FTV, El Patio", format: "Television interview, March 2025"}
+  - {outlet: SUR in English, format: "Newspaper profile, February 2025", url: "https://www.surinenglish.com/sport/josh-appeals-for-help-fulfil-his-dream-20250217074611-nt.html"}
+  - {outlet: Diario Sur, format: "Newspaper profile, in Spanish, February 2025", url: "https://www.diariosur.es/costadelsol/josh-ayuda-sueno-convertirse-campeon-20250215213318-nt.html"}
+  - {outlet: Área Costa del Sol, format: "Online, in Spanish, February 2025", url: "https://www.areacostadelsol.com/costa-del-sol/josh-wood-fuengiroleno-que-suena-con-correr-en-motogp/"}
+pull_quote: {text: "This already puts him among the most promising up-coming young riders.", source: "Euro Weekly News, April 2026"}
+follow:
+  grid:
+    - {image: race1, alt: Josh and a team-mate between sessions}
+    - {image: josh-calafat, alt: Josh cornering at Circuit Calafat}
+    - {image: race3, alt: Close racing in the MIR Racing Cup}
+    - {image: race4, alt: Josh on the limit in the MIR Racing Cup}
+    - {image: redbull3, alt: Pit lane at the Red Bull selection event}
+    - {image: trackwalk1, alt: Track walk at Portimão}
+partners:
+  - [GoPro, Onboard and training footage]
+  - [Hyperice, Recovery between sessions]
+  - [Manta Sleep, "Sleep, at home and away"]
+  - [Lumie, Light and wake routine]
+  - [VOITED, Travel and paddock kit]
