@@ -64,8 +64,8 @@ blockquote.q{margin:0;font:italic 400 clamp(26px,2.7vw,40px)/1.18 'Newsreader',G
 .yr{margin:14px 0 4px;font-size:15px;font-weight:750;font-variant-numeric:tabular-nums}
 .rail p:last-child{margin:0;font-size:16px;line-height:1.45}
 /* grids */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:32px 24px}
-.fig{margin:0}.fig img,.fig .none{width:100%;aspect-ratio:4/3;object-fit:cover}
+.grid{align-items:start;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:32px 24px}
+.fig{margin:0}.fig picture,.fig img,.fig .none{width:100%;aspect-ratio:var(--ratio,4/3);object-fit:cover}
 .none{display:flex;align-items:center;justify-content:center;background:var(--sand);font-size:14px}
 .fig figcaption{margin-top:12px}.fig b{display:block;font-weight:650}.fig small{display:block;font-size:13px;color:var(--muted)}
 .post a{display:block;color:var(--ink);text-decoration:none}
