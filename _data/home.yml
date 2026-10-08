@@ -40,7 +40,7 @@ weekends:
   intro: Track days at SPN Academy are what people see. The rest of the week is gym and strength work, long rides on the road bike, running, flat track and Hyrox-style conditioning.
   items:
     - {title: Track riding, meta: "", image: training-track-riding, alt: Knee down on a small training bike}
-    - {title: Flat track, meta: "", image: training-flat-track, pos: "50% 55%", alt: Josh on a dirt bike for flat track training}
+    - {title: Flat track, meta: "", image: training-flat-track, pos: "50% 0%", alt: Josh on a dirt bike for flat track training}
     - {title: Cycling, meta: From the training shoot, image: "", alt: ""}
     - {title: Running, meta: From the training shoot, image: "", alt: ""}
     - {title: Strength, meta: From the training shoot, image: "", alt: ""}
