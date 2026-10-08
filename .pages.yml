@@ -96,8 +96,6 @@ content:
               - {name: title, label: Title, type: string}
               - {name: meta, label: Place and month, type: string, description: "Leave empty unless the place is known."}
               - {name: image, label: Photo name, type: string, description: "Leave empty until there is a photo; the card stays off the live site."}
-              - {name: pos, label: Crop focus, type: string, description: "Optional. Which part of the photo to keep in frame, e.g. 50% 0% keeps the top."}
-              - {name: ratio, label: Frame shape, type: string, description: "Optional. Width / height, e.g. 4 / 3 (wide, the default) or 4 / 5 (tall)."}
               - {name: alt, label: What the photo shows, type: string, required: true}
           - {name: footnote, label: Line under the photos, type: text}
           - {name: link, label: Link, type: object, fields: [{name: label, label: Name, type: string}, {name: url, label: Page, type: string}]}
