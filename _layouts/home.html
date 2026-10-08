@@ -9,7 +9,7 @@ layout: default
 <section class="dark">
 {% include header.html %}
 <div class="heroimg">
-{% include picture.html name=h.hero.image alt=h.hero.alt pos=h.hero.pos sizes="100vw" priority=true %}
+{% include picture.html name=h.hero.image phone=h.hero.phone_image alt=h.hero.alt pos=h.hero.pos sizes="100vw" priority=true %}
 {% if h.status != "" %}<p class="badge"><i aria-hidden="true"></i><span>{{ h.status }}</span></p>{% endif %}
 </div>
 <div class="herotxt"><div class="wrap">
@@ -48,7 +48,7 @@ layout: default
 <div class="head"><h2 class="h2">{{ h.timeline.heading }}</h2><a class="link" href="{{ h.timeline.link.url }}">{{ h.timeline.link.label }}</a></div>
 <div class="rail" tabindex="0" role="region" aria-label="{{ h.timeline.heading }}">
 {% for t in h.timeline.items %}<article>
-{% if t.image %}{% include picture.html name=t.image alt=t.alt sizes="320px" %}{% else %}<div class="big">{{ t.big }}</div>{% endif %}
+{% if t.image %}{% include picture.html name=t.image alt=t.alt pos=t.pos sizes="320px" %}{% else %}<div class="big">{{ t.big }}</div>{% endif %}
 <p class="yr">{{ t.year }}</p><p>{{ t.text }}</p>
 </article>{% endfor %}
 </div>
@@ -59,7 +59,7 @@ layout: default
 <div class="head" style="gap:24px 64px"><h2 class="h2" style="max-width:760px">{{ h.weekends.heading }}</h2><p style="flex:0 1 460px;margin:0">{{ h.weekends.intro }}</p></div>
 <div class="grid">
 {% for i in h.weekends.items %}{% if i.image == "" and prod %}{% continue %}{% endif %}<figure class="fig">
-{% if i.image != "" %}{% include picture.html name=i.image alt=i.alt sizes="(min-width:1100px) 400px, 100vw" %}{% else %}<div class="none missing">Missing: photo for “{{ i.title }}”</div>{% endif %}
+{% if i.image != "" %}{% include picture.html name=i.image alt=i.alt pos=i.pos sizes="(min-width:1100px) 400px, 100vw" %}{% else %}<div class="none missing">Missing: photo for “{{ i.title }}”</div>{% endif %}
 <figcaption><b>{{ i.title }}</b>{% if i.meta != "" %}<small>{{ i.meta }}</small>{% endif %}</figcaption>
 </figure>{% endfor %}
 </div>

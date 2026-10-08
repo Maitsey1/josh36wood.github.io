@@ -3,8 +3,9 @@
 status: "Now: training full-time toward 2027"
 tagline: "American. Building a professional career, racing championships across Europe."
 hero:
-  image: josh-corner-lean
-  alt: Rider in red and black leathers leaning into a corner on a red and black MIR Racing bike
+  image: hero-desktop
+  phone_image: hero-phone      # portrait crop used on phones
+  alt: Josh Wood leaning into a corner on a red and black MIR Racing Cup bike
   pos: "58% 46%"
   caption: ""   # circuit and month, once known
   buttons:
@@ -20,8 +21,8 @@ about:
   link: {label: Read the full story, url: "/#story"}
 words:
   heading: In his words
-  image: josh-contact
-  alt: Josh Wood in red and black MIR race leathers, arms folded, standing at the circuit
+  image: josh-portrait
+  alt: Josh Wood, helmet off, in race leathers at the circuit
   pos: "50% 28%"
   quote: ""   # only text Josh has approved
   by: Josh Wood
@@ -29,17 +30,17 @@ timeline:
   heading: The journey so far
   link: {label: The full story, url: "/#story"}
   items:
-    - {year: "2023", image: josh-calafat, alt: Two riders leaning through a corner on a circuit, text: "First races, in the Spanish national cups."}
-    - {year: "2024", image: training1, alt: Riders on small motorbikes waiting on a track, text: "Joins SPN Academy under coach Nico Ferreira."}
-    - {year: "2024", image: redbull3, alt: Riders in race leathers and numbered bibs standing under a tent, text: "Invited to the Red Bull MotoGP Rookies Cup Selection Event, one of around 120 riders worldwide."}
-    - {year: "2025–2026", image: race2, alt: Riders racing close together through a corner, text: "Races the MIR Racing Cup in Moto5 and PreMoto3. Finishes school in 2026 and moves to full-time training and racing."}
+    - {year: "2023", image: timeline-2023, pos: "58% 55%", alt: Josh cornering at Circuito de Campillos in 2023, text: "First races, in the Spanish national cups."}
+    - {year: "2024", image: timeline-spn-academy, alt: Evening training session on small bikes at SPN Academy, text: "Joins SPN Academy under coach Nico Ferreira."}
+    - {year: "2024", image: timeline-red-bull, alt: Josh beside a Red Bull bike in the pit lane at the 2024 selection event, text: "Invited to the Red Bull MotoGP Rookies Cup Selection Event, one of around 120 riders worldwide."}
+    - {year: "2025–2026", image: timeline-mir-racing-cup, alt: Josh racing in the MIR Racing Cup, text: "Races the MIR Racing Cup in Moto5 and PreMoto3. Finishes school in 2026 and moves to full-time training and racing."}
     - {year: Next, big: "2027", text: "Objective: a full European championship programme."}
 weekends:
   heading: Race weekends are the short part
   intro: Track days at SPN Academy are what people see. The rest of the week is gym and strength work, long rides on the road bike, running, flat track and Hyrox-style conditioning.
   items:
-    - {title: Track riding, meta: "", image: josh-season, alt: Rider on a pink number 3 bike leaning through a corner at Circuit Calafat}
-    - {title: Flat track, meta: "", image: "", alt: ""}
+    - {title: Track riding, meta: "", image: training-track-riding, alt: Knee down on a small training bike}
+    - {title: Flat track, meta: "", image: training-flat-track, pos: "50% 55%", alt: Josh on a dirt bike for flat track training}
     - {title: Cycling, meta: From the training shoot, image: "", alt: ""}
     - {title: Running, meta: From the training shoot, image: "", alt: ""}
     - {title: Strength, meta: From the training shoot, image: "", alt: ""}
@@ -50,9 +51,9 @@ latest:
   heading: Latest from the Journey
   link: {label: All entries, url: "/#journey"}
   items:
-    - {image: trackwalk1, alt: Riders in matching light-blue shirts walking along a circuit, meta: "", title: Before the first lap, text: "", url: "/#journey"}
-    - {image: behindscene1, alt: Rider in leathers beside a yellow race bike in the pit lane, with a mechanic, meta: "", title: Race-day preparation in the garage, text: "", url: "/#journey"}
-    - {image: redbull5, alt: Rider in a numbered bib on a bike in the pit lane, with team members, meta: "2024", title: What the Red Bull selection event was like, text: "", url: "/#journey"}
+    - {image: journey-track-walk, alt: Riders walking the circuit at Portimão, meta: "", title: Before the first lap, text: "", url: "/#journey"}
+    - {image: journey-garage, alt: Josh in the garage beside the yellow race bike, meta: "", title: Race-day preparation in the garage, text: "", url: "/#journey"}
+    - {image: journey-red-bull-pit-lane, alt: Pit lane at the 2024 Red Bull MotoGP Rookies Cup Selection Event, meta: "2024", title: What the Red Bull selection event was like, text: "", url: "/#journey"}
 racing:
   heading: Racing now
   link: {label: Racing and results, url: "/#racing"}
@@ -83,12 +84,12 @@ follow:
   text: "Instagram gets it first. The dispatch follows each race weekend: what happened, and what comes next."
   button: Follow @josh.wood36
   grid:
-    - {image: josh-leading-pack, alt: Riders leading a pack through a corner}
-    - {image: race1, alt: Riders at the start of a race on a circuit with grandstands behind}
-    - {image: race3, alt: Rider in white and blue leathers standing beside a yellow race bike with the number 36}
-    - {image: race4, alt: Rider on a red and black bike leaning through a corner}
-    - {image: josh-audience, alt: Rider leaning through a corner with other riders close behind}
-    - {image: josh-calafat, alt: Two riders leaning through a corner on a circuit}
+    - {image: follow-team-mate, alt: Josh and a team-mate between sessions}
+    - {image: follow-circuit-calafat, alt: Josh cornering at Circuit Calafat}
+    - {image: follow-close-racing, alt: Close racing in the MIR Racing Cup}
+    - {image: timeline-mir-racing-cup, alt: Josh on the limit in the MIR Racing Cup}
+    - {image: journey-red-bull-pit-lane, alt: Pit lane at the Red Bull selection event}
+    - {image: journey-track-walk, alt: Track walk at Portimão}
   dispatch:
     label: Race-weekend dispatch
     button: Sign up

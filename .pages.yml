@@ -44,6 +44,7 @@ content:
         type: object
         fields:
           - {name: image, label: Photo name, type: string, description: "The file name without .jpg, lower case with dashes, e.g. josh-corner-lean."}
+          - {name: phone_image, label: Phone photo name, type: string, description: "Optional portrait crop shown on phones."}
           - {name: alt, label: What the photo shows, type: string, required: true, description: "One sentence for people who can't see it."}
           - {name: pos, label: Crop focus, type: string, description: "Optional, e.g. 58% 46%."}
           - {name: caption, label: Caption, type: string, description: "Circuit and month. Leave empty unless you know both."}
