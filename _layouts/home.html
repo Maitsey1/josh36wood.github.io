@@ -2,59 +2,53 @@
 layout: default
 ---
 {%- assign h = site.data.home -%}
+{%- assign s = site.data.site -%}
 {%- assign prod = false -%}{%- if jekyll.environment == "production" %}{% assign prod = true %}{% endif -%}
 {%- assign age_words = "Zero,One,Two,Three,Four,Five,Six,Seven,Eight,Nine,Ten,Eleven,Twelve,Thirteen,Fourteen,Fifteen,Sixteen,Seventeen,Eighteen" | split: "," -%}
 <!-- 1. Hero -->
 <section class="dark">
-<header class="bar">
-<a class="brand" href="/"><span class="mark">36</span><span>Josh Wood</span></a>
-<nav class="nav" aria-label="Main">
-<a href="#story">Story</a><a href="#racing">Racing</a><a href="#athlete">Athlete</a><a href="#journey">Journey</a><a href="#media">Media</a><a href="#partners">Partners</a>
-<a class="cta" href="#work">Work with Josh</a>
-</nav>
-</header>
+{% include header.html %}
 <div class="heroimg">
-{% include picture.html name=h.hero.image alt=h.hero.alt pos=h.hero.pos sizes="100vw" %}
-<p class="badge"><i aria-hidden="true"></i><span>{{ h.status }}</span></p>
+{% include picture.html name=h.hero.image alt=h.hero.alt pos=h.hero.pos sizes="100vw" priority=true %}
+{% if h.status != "" %}<p class="badge"><i aria-hidden="true"></i><span>{{ h.status }}</span></p>{% endif %}
 </div>
 <div class="herotxt"><div class="wrap">
 <h1>Josh Wood</h1>
 <div class="herorow">
 <p class="tag">{{ age_words[site.data.profile.age] }}. {{ h.tagline }}</p>
-<div class="btns"><a class="btn" href="https://www.instagram.com/josh.wood36/">Follow the journey</a><a class="btn ghost" href="#story">Read the story</a></div>
+<div class="btns">{% for b in h.hero.buttons %}<a class="btn{% unless forloop.first %} ghost{% endunless %}" href="{{ b.url }}">{{ b.label }}</a>{% endfor %}</div>
 </div>
-{% unless prod and h.hero.caption contains "[" %}<p class="cap">{{ h.hero.caption }}</p>{% endunless %}
+{% if h.hero.caption != "" %}<p class="cap">{{ h.hero.caption }}</p>{% elsif prod == false %}<p class="cap missing">Missing: hero photo caption (circuit and month)</p>{% endif %}
 </div></div>
 </section>
 
+<main id="main">
 <!-- 2. About Josh -->
 <section id="story" class="about">
 <div>
 <h2 class="sr">About Josh</h2>
 <p class="lead">{{ h.about.text }}</p>
 <dl class="facts">{% for f in h.about.facts %}<div><dt>{{ f.label }}</dt><dd>{{ f.text }}</dd></div>{% endfor %}</dl>
-<p style="margin:32px 0 0"><a class="link" href="#story">Read the full story</a></p>
+<p style="margin:32px 0 0"><a class="link" href="{{ h.about.link.url }}">{{ h.about.link.label }}</a></p>
 </div>
 <div class="big36" aria-hidden="true"><span>36</span></div>
 </section>
 
 <!-- 3. In His Words -->
-<section class="words">
-<div class="ph">{% include picture.html name=h.words.image alt=h.words.alt pos=h.words.pos sizes="(min-width:900px) 50vw, 100vw" lazy=true %}</div>
+{% if h.words.quote != "" or prod == false %}<section class="words">
+<div class="ph">{% include picture.html name=h.words.image alt=h.words.alt pos=h.words.pos sizes="(min-width:900px) 50vw, 100vw" %}</div>
 <div class="tx">
-{% if h.words.quote != "" %}<h2>In his words</h2>
-<blockquote class="q">{{ h.words.quote }}</blockquote>
-<p>Josh Wood</p>{% elsif prod == false %}<h2>In his words</h2>
-<blockquote class="q">Missing: Josh’s approved quote (Pages CMS, Home, “In his words”)</blockquote>{% endif %}
+<h2>{{ h.words.heading }}</h2>
+{% if h.words.quote != "" %}<blockquote class="q">{{ h.words.quote }}</blockquote><p>{{ h.words.by }}</p>{% else %}<p class="missing">Missing: Josh’s approved quote. Leave empty until he approves it, and this whole section stays off the live site.</p>{% endif %}
 </div>
-</section>
+</section>{% endif %}
 
 <!-- 4. Journey Timeline -->
 <section class="tl">
-<div class="head"><h2 class="h2">The journey so far</h2><a class="link" href="#story">The full story</a></div>
-<div class="rail">
-{% for t in h.timeline %}<article>
-{% if t.image %}{% include picture.html name=t.image alt=t.alt sizes="320px" lazy=true %}{% else %}<div class="big">{{ t.big }}</div>{% endif %}
+<div class="head"><h2 class="h2">{{ h.timeline.heading }}</h2><a class="link" href="{{ h.timeline.link.url }}">{{ h.timeline.link.label }}</a></div>
+<div class="rail" tabindex="0" role="region" aria-label="{{ h.timeline.heading }}">
+{% for t in h.timeline.items %}<article>
+{% if t.image %}{% include picture.html name=t.image alt=t.alt sizes="320px" %}{% else %}<div class="big">{{ t.big }}</div>{% endif %}
 <p class="yr">{{ t.year }}</p><p>{{ t.text }}</p>
 </article>{% endfor %}
 </div>
@@ -64,66 +58,59 @@ layout: default
 <section id="athlete" class="sec stone"><div class="wrap">
 <div class="head" style="gap:24px 64px"><h2 class="h2" style="max-width:760px">{{ h.weekends.heading }}</h2><p style="flex:0 1 460px;margin:0">{{ h.weekends.intro }}</p></div>
 <div class="grid">
-{% for i in h.weekends.items %}<figure class="fig">
-{% if i.image %}{% include picture.html name=i.image alt=i.alt sizes="(min-width:1100px) 400px, 100vw" lazy=true %}{% else %}<div class="none">Photo to come</div>{% endif %}
-<figcaption><b>{{ i.title }}</b>{% unless prod and i.meta contains "[" %}<small>{{ i.meta }}</small>{% endunless %}</figcaption>
+{% for i in h.weekends.items %}{% if i.image == "" and prod %}{% continue %}{% endif %}<figure class="fig">
+{% if i.image != "" %}{% include picture.html name=i.image alt=i.alt sizes="(min-width:1100px) 400px, 100vw" %}{% else %}<div class="none missing">Missing: photo for “{{ i.title }}”</div>{% endif %}
+<figcaption><b>{{ i.title }}</b>{% if i.meta != "" %}<small>{{ i.meta }}</small>{% endif %}</figcaption>
 </figure>{% endfor %}
 </div>
-<p style="max-width:62ch;margin:clamp(32px,4vw,48px) 0 0">The recovery and sleep kit comes from partners Hyperice, Manta Sleep and Lumie. <a class="link" href="#athlete">How he trains</a></p>
+<p style="max-width:62ch;margin:clamp(32px,4vw,48px) 0 0">{{ h.weekends.footnote }} <a class="link" href="{{ h.weekends.link.url }}">{{ h.weekends.link.label }}</a></p>
 </div></section>
 
 <!-- 6. Latest -->
-<section id="journey" class="sec"><div class="wrap">
-<div class="head"><h2 class="h2">Latest from the Journey</h2><a class="link" href="#journey">All entries</a></div>
+{%- assign nlatest = 0 -%}{%- for p in h.latest.items %}{% if p.text != "" %}{% assign nlatest = nlatest | plus: 1 %}{% endif %}{% endfor -%}
+{% if nlatest > 0 or prod == false %}<section id="journey" class="sec"><div class="wrap">
+<div class="head"><h2 class="h2">{{ h.latest.heading }}</h2><a class="link" href="{{ h.latest.link.url }}">{{ h.latest.link.label }}</a></div>
 <div class="grid" style="gap:40px 24px">
-{% for p in h.latest %}{% if prod and p.text contains "[" %}{% continue %}{% endif %}{% if prod and p.meta contains "[" %}{% assign pmeta = "" %}{% else %}{% assign pmeta = p.meta %}{% endif %}<article class="post"><a href="#journey">
-{% include picture.html name=p.image alt=p.alt sizes="(min-width:1100px) 400px, 100vw" lazy=true %}
-<small>{{ pmeta }}</small><h3 class="h3">{{ p.title }}</h3><p>{{ p.text }}</p>
+{% for p in h.latest.items %}{% if p.text == "" and prod %}{% continue %}{% endif %}<article class="post"><a href="{{ p.url }}">
+{% include picture.html name=p.image alt=p.alt sizes="(min-width:1100px) 400px, 100vw" %}
+{% if p.meta != "" %}<small>{{ p.meta }}</small>{% endif %}<h3 class="h3">{{ p.title }}</h3>{% if p.text != "" %}<p>{{ p.text }}</p>{% else %}<p class="missing">Missing: Josh’s entry text</p>{% endif %}
 </a></article>{% endfor %}
 </div>
-</div></section>
+</div></section>{% endif %}
 
 <!-- 7. Racing Now -->
 <section id="racing" class="dark" style="padding:clamp(56px,6.5vw,96px) var(--gut)"><div class="wrap">
-<div class="head" style="margin-bottom:40px"><h2 class="h2">Racing now</h2><a class="link" href="#racing">Racing and results</a></div>
-<div class="now">{% for r in h.racing %}{% if prod and r.text contains "[" %}{% continue %}{% endif %}<div><small>{{ r.label }}</small><p>{{ r.text }}</p></div>{% endfor %}</div>
+<div class="head" style="margin-bottom:40px"><h2 class="h2">{{ h.racing.heading }}</h2><a class="link" href="{{ h.racing.link.url }}">{{ h.racing.link.label }}</a></div>
+<div class="now">{% for r in h.racing.items %}{% if r.text == "" and prod %}{% continue %}{% endif %}<div><small>{{ r.label }}</small>{% if r.text != "" %}<p>{{ r.text }}</p>{% else %}<p class="missing">Missing: {{ r.label | downcase }}</p>{% endif %}</div>{% endfor %}</div>
 </div></section>
 
 <!-- 8. Press -->
 <section id="media" class="sec"><div class="wrap">
-<div class="head"><h2 class="h2">Heard on, read in</h2><a class="link" href="#media">Media kit</a></div>
-<ul class="press">{% for p in h.press %}<li><b>{% if p.url %}<a href="{{ p.url }}">{{ p.outlet }}</a>{% else %}{{ p.outlet }}{% endif %}</b><span>{{ p.format }}</span></li>{% endfor %}</ul>
-<figure class="pull"><blockquote>“{{ h.pull_quote.text }}”</blockquote><figcaption>{{ h.pull_quote.source }}</figcaption></figure>
-<p class="links"><a class="link" href="{{ h.press[0].url }}">Watch: Talk Radio Europe interview</a><a class="link" href="{{ h.press[1].url }}">Watch: RTV Marbella interview</a><a class="link" href="#media">Media kit</a></p>
+<div class="head"><h2 class="h2">{{ h.press.heading }}</h2><a class="link" href="{{ h.press.link.url }}">{{ h.press.link.label }}</a></div>
+<ul class="press">{% for p in h.press.items %}<li><b>{% if p.url != "" %}<a href="{{ p.url }}">{{ p.outlet }}</a>{% else %}{{ p.outlet }}{% endif %}</b><span>{{ p.format }}</span></li>{% endfor %}</ul>
+<figure class="pull"><blockquote>“{{ h.press.pull_quote.text }}”</blockquote><figcaption>{{ h.press.pull_quote.source }}</figcaption></figure>
+<p class="links">{% for w in h.press.watch %}<a class="link" href="{{ w.url }}">{{ w.label }}</a>{% endfor %}</p>
 </div></section>
 
 <!-- 9. Follow -->
 <section class="sec follow"><div class="wrap">
-<div class="head" style="gap:24px 64px;margin-bottom:32px"><div style="max-width:640px"><h2 class="h2">Follow the journey</h2><p style="margin:16px 0 0">Instagram gets it first. The dispatch follows each race weekend: what happened, and what comes next.</p></div><a class="btn solid" href="https://www.instagram.com/josh.wood36/">Follow @josh.wood36</a></div>
-<div class="thumbs">{% for g in h.follow.grid %}{% include picture.html name=g.image alt=g.alt sizes="200px" lazy=true %}{% endfor %}</div>
+<div class="head" style="gap:24px 64px;margin-bottom:32px"><div style="max-width:640px"><h2 class="h2">{{ h.follow.heading }}</h2><p style="margin:16px 0 0">{{ h.follow.text }}</p></div><a class="btn solid" href="{{ s.instagram.url }}">{{ h.follow.button }}</a></div>
+<div class="thumbs">{% for g in h.follow.grid %}{% include picture.html name=g.image alt=g.alt sizes="200px" %}{% endfor %}</div>
 {% if site.dispatch_endpoint != "" or prod == false %}<form class="dispatch" method="post" action="{{ site.dispatch_endpoint }}">
-<label for="dispatch-email">Race-weekend dispatch</label>
-<div class="row"><input id="dispatch-email" type="email" placeholder="name@example.com" autocomplete="email"><button class="btn solid" type="submit">Sign up</button></div>
-<p>One short email after each race weekend. Unsubscribe at any time.</p>
+<label for="dispatch-email">{{ h.follow.dispatch.label }}</label>
+<div class="row"><input id="dispatch-email" name="email" type="email" placeholder="name@example.com" autocomplete="email" required><button class="btn solid" type="submit">{{ h.follow.dispatch.button }}</button></div>
+<p>{{ h.follow.dispatch.note }}</p>
+{% if prod == false and site.dispatch_endpoint == "" %}<p class="missing">Missing: dispatch sign-up address (_config.yml). This form is hidden on the live site until it is set.</p>{% endif %}
 </form>{% endif %}
 </div></section>
 
 <!-- 10. Three Doors -->
 <section class="sec"><div class="wrap doors">
-<div><h2>For media</h2><p>Bios, key facts, photographs and story angles, ready to use.</p><a class="link" href="#media">Open the media kit</a></div>
-<div id="work"><h2>For brands</h2><p>Content, appearances and long-term partnerships, built around a European racing season.</p><a class="link" href="#work">Work with Josh</a></div>
-<div id="partners"><h2>Partners</h2><ul>{% for p in h.partners %}<li><b>{{ p.name }}</b><span>{{ p.role }}</span></li>{% endfor %}</ul><a class="link" href="#partners">How they fit</a></div>
+<div><h2>{{ h.doors.media.heading }}</h2><p>{{ h.doors.media.text }}</p><a class="link" href="{{ h.doors.media.link.url }}">{{ h.doors.media.link.label }}</a></div>
+<div id="work"><h2>{{ h.doors.brands.heading }}</h2><p>{{ h.doors.brands.text }}</p><a class="link" href="{{ h.doors.brands.link.url }}">{{ h.doors.brands.link.label }}</a></div>
+<div id="partners"><h2>{{ h.doors.partners.heading }}</h2><ul>{% for p in h.doors.partners.items %}<li><b>{{ p.name }}</b><span>{{ p.role }}</span></li>{% endfor %}</ul><a class="link" href="{{ h.doors.partners.link.url }}">{{ h.doors.partners.link.label }}</a></div>
 </div></section>
+</main>
 
 <!-- 11. Footer -->
-<footer class="dark"><div class="wrap">
-<div class="fcols">
-<a class="brand" href="#top" style="align-self:flex-start"><span class="mark">36</span><span>Josh Wood</span></a>
-<div class="fgrid">
-<div><small>Contact</small><p><a href="mailto:media@josh36wood.com">media@josh36wood.com</a></p><p><a href="mailto:partnerships@josh36wood.com">partnerships@josh36wood.com</a></p></div>
-<div><small>Follow</small><p><a href="https://www.instagram.com/josh.wood36/">Instagram, @josh.wood36</a></p>{% unless prod %}<p style="color:var(--sand)">Missing: YouTube channel</p>{% endunless %}</div>
-<div><small>Site</small><p><a href="#media">Media kit</a></p><p><a href="#work">Work with Josh</a></p><p><a href="#top">Privacy</a></p></div>
-</div>
-</div>
-<p class="legal">© 2026 Josh Wood. Enquiries are handled by his management team.</p>
-</div></footer>
+{% include footer.html %}

@@ -1,0 +1,13 @@
+{%- assign s = site.data.site -%}
+<footer class="dark"><div class="wrap">
+<div class="fcols">
+<a class="brand" href="#top" style="align-self:flex-start"><span class="mark" aria-hidden="true">36</span><span>Josh Wood</span></a>
+<div class="fgrid">
+<div><small>{{ s.footer.contact_heading }}</small><p><a href="mailto:{{ s.contact.media }}">{{ s.contact.media }}</a></p><p><a href="mailto:{{ s.contact.partnerships }}">{{ s.contact.partnerships }}</a></p></div>
+<div><small>{{ s.footer.follow_heading }}</small><p><a href="{{ s.instagram.url }}">Instagram, {{ s.instagram.handle }}</a></p>
+{%- if s.youtube.url != "" %}<p><a href="{{ s.youtube.url }}">YouTube, {{ s.youtube.label }}</a></p>{% elsif jekyll.environment != "production" %}<p class="missing">Missing: YouTube channel</p>{% endif %}</div>
+<div><small>{{ s.footer.site_heading }}</small>{% for l in s.footer.site_links %}<p><a href="{{ l.url }}">{{ l.label }}</a></p>{% endfor %}</div>
+</div>
+</div>
+<p class="legal">{{ s.footer.legal }}</p>
+</div></footer>

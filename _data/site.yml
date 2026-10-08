@@ -1,0 +1,23 @@
+# Site-wide words: navigation, contact and footer.
+nav:
+  - {label: Story, url: "/#story"}
+  - {label: Racing, url: "/#racing"}
+  - {label: Athlete, url: "/#athlete"}
+  - {label: Journey, url: "/#journey"}
+  - {label: Media, url: "/#media"}
+  - {label: Partners, url: "/#partners"}
+nav_button: {label: Work with Josh, url: "/#work"}
+instagram: {handle: "@josh.wood36", url: "https://www.instagram.com/josh.wood36/"}
+youtube: {label: "", url: ""}   # add once the channel exists
+contact:
+  media: media@josh36wood.com
+  partnerships: partnerships@josh36wood.com
+footer:
+  contact_heading: Contact
+  follow_heading: Follow
+  site_heading: Site
+  site_links:
+    - {label: Media kit, url: "/#media"}
+    - {label: Work with Josh, url: "/#work"}
+    - {label: Privacy, url: "/#top"}
+  legal: "© 2026 Josh Wood. Enquiries are handled by his management team."

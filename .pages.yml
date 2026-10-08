@@ -20,45 +20,67 @@ content:
     fields:
       - {name: age, label: Josh's age, type: number, required: true, description: "One number. It updates every mention on the site, including the hero."}
 
+  - name: site
+    label: Navigation, contact and footer
+    type: file
+    path: _data/site.yml
+    fields:
+      - {name: nav, label: Menu links, type: object, list: true, fields: [{name: label, label: Name, type: string}, {name: url, label: Page, type: string}]}
+      - {name: nav_button, label: Menu button, type: object, fields: [{name: label, label: Name, type: string}, {name: url, label: Page, type: string}]}
+      - {name: instagram, label: Instagram, type: object, fields: [{name: handle, label: Handle, type: string}, {name: url, label: Link, type: string}]}
+      - {name: youtube, label: YouTube channel, type: object, fields: [{name: label, label: Channel name, type: string}, {name: url, label: Link, type: string, description: "Leave empty until the channel exists."}]}
+      - {name: contact, label: Contact addresses, type: object, fields: [{name: media, label: Media email, type: string}, {name: partnerships, label: Partnerships email, type: string}]}
+      - {name: footer, label: Footer, type: object, fields: [{name: legal, label: Small print, type: string}]}
+
   - name: home
     label: Home page
     type: file
     path: _data/home.yml
     fields:
-      - {name: status, label: Status line, type: string, description: "The short line in the hero badge, e.g. Now: training full-time toward 2027."}
+      - {name: status, label: Status line, type: string, description: "The short line in the hero badge. Leave empty to hide it."}
+      - {name: tagline, label: Intro line, type: string, description: "Comes after the age. Don't type the age here; it comes from Profile facts."}
       - name: hero
         label: Hero photo
         type: object
         fields:
-          - {name: image, label: Photo name, type: string, description: "Name of a processed photo, e.g. josh-corner-lean (the file name without the extension, lower case, dashes)."}
-          - {name: alt, label: What the photo shows, type: string, required: true}
-          - {name: pos, label: Crop focus, type: string, description: "Optional. Where to keep in frame, e.g. 58% 46%."}
-          - {name: caption, label: Caption, type: string, description: "Circuit, month and year. Leave empty if you don't know all three."}
-      - {name: tagline, label: Intro line, type: string, description: "Starts after the age. Don't type the age here."}
+          - {name: image, label: Photo name, type: string, description: "The file name without .jpg, lower case with dashes, e.g. josh-corner-lean."}
+          - {name: alt, label: What the photo shows, type: string, required: true, description: "One sentence for people who can't see it."}
+          - {name: pos, label: Crop focus, type: string, description: "Optional, e.g. 58% 46%."}
+          - {name: caption, label: Caption, type: string, description: "Circuit and month. Leave empty unless you know both."}
+          - {name: buttons, label: Buttons, type: object, list: true, fields: [{name: label, label: Name, type: string}, {name: url, label: Link, type: string}]}
       - name: about
         label: About Josh
         type: object
         fields:
           - {name: text, label: Opening paragraph, type: text}
           - {name: facts, label: Key facts, type: object, list: true, fields: [{name: label, label: Label, type: string}, {name: text, label: Fact, type: string}]}
+          - {name: link, label: Link, type: object, fields: [{name: label, label: Name, type: string}, {name: url, label: Page, type: string}]}
       - name: words
         label: In his words
         type: object
         fields:
+          - {name: heading, label: Heading, type: string}
           - {name: image, label: Photo name, type: string}
           - {name: alt, label: What the photo shows, type: string, required: true}
           - {name: pos, label: Crop focus, type: string}
-          - {name: quote, label: Josh's quote, type: text, description: "Only text Josh has approved. Leave empty until then."}
+          - {name: quote, label: Josh's quote, type: text, description: "Only words Josh has approved. While this is empty, the whole section stays off the live site."}
+          - {name: by, label: Name under the quote, type: string}
       - name: timeline
         label: Journey timeline
         type: object
-        list: true
         fields:
-          - {name: year, label: Year, type: string}
-          - {name: image, label: Photo name, type: string}
-          - {name: alt, label: What the photo shows, type: string, required: true}
-          - {name: big, label: Large year (last card only), type: string}
-          - {name: text, label: Text, type: text}
+          - {name: heading, label: Heading, type: string}
+          - {name: link, label: Link, type: object, fields: [{name: label, label: Name, type: string}, {name: url, label: Page, type: string}]}
+          - name: items
+            label: Cards
+            type: object
+            list: true
+            fields:
+              - {name: year, label: Year, type: string}
+              - {name: image, label: Photo name, type: string}
+              - {name: alt, label: What the photo shows, type: string, required: true}
+              - {name: big, label: Large year (last card only), type: string}
+              - {name: text, label: Text, type: text}
       - name: weekends
         label: Race weekends and training
         type: object
@@ -72,48 +94,62 @@ content:
             fields:
               - {name: title, label: Title, type: string}
               - {name: meta, label: Place and month, type: string, description: "Leave empty unless the place is known."}
-              - {name: image, label: Photo name, type: string}
+              - {name: image, label: Photo name, type: string, description: "Leave empty until there is a photo; the card stays off the live site."}
               - {name: alt, label: What the photo shows, type: string, required: true}
+          - {name: footnote, label: Line under the photos, type: text}
+          - {name: link, label: Link, type: object, fields: [{name: label, label: Name, type: string}, {name: url, label: Page, type: string}]}
       - name: latest
         label: Latest from the Journey
         type: object
-        list: true
         fields:
-          - {name: title, label: Title, type: string}
-          - {name: meta, label: Date and place, type: string}
-          - {name: text, label: Summary, type: text, description: "Josh's words only once he has approved them."}
-          - {name: image, label: Photo name, type: string}
-          - {name: alt, label: What the photo shows, type: string, required: true}
+          - {name: heading, label: Heading, type: string}
+          - {name: link, label: Link, type: object, fields: [{name: label, label: Name, type: string}, {name: url, label: Page, type: string}]}
+          - name: items
+            label: Entries
+            type: object
+            list: true
+            fields:
+              - {name: title, label: Title, type: string}
+              - {name: meta, label: Date and place, type: string}
+              - {name: text, label: Summary, type: text, description: "Josh's words, once he has approved them. While empty, the entry stays off the live site."}
+              - {name: image, label: Photo name, type: string}
+              - {name: alt, label: What the photo shows, type: string, required: true}
+              - {name: url, label: Entry page, type: string}
       - name: racing
         label: Racing now
         type: object
-        list: true
-        fields: [{name: label, label: Label, type: string}, {name: text, label: Text, type: string}]
+        fields:
+          - {name: heading, label: Heading, type: string}
+          - {name: link, label: Link, type: object, fields: [{name: label, label: Name, type: string}, {name: url, label: Page, type: string}]}
+          - {name: items, label: Boxes, type: object, list: true, fields: [{name: label, label: Label, type: string}, {name: text, label: Text, type: string, description: "Leave empty until known; the box stays off the live site."}]}
       - name: press
         label: Press
         type: object
-        list: true
         fields:
-          - {name: outlet, label: Outlet, type: string}
-          - {name: format, label: Format and date, type: string}
-          - {name: url, label: Link, type: string, description: "Leave empty if there isn't one."}
-      - name: pull_quote
-        label: Press quote
-        type: object
-        fields: [{name: text, label: Quote, type: text}, {name: source, label: Outlet and date, type: string}]
+          - {name: heading, label: Heading, type: string}
+          - {name: link, label: Link, type: object, fields: [{name: label, label: Name, type: string}, {name: url, label: Page, type: string}]}
+          - {name: items, label: Coverage, type: object, list: true, fields: [{name: outlet, label: Outlet, type: string}, {name: format, label: Format and date, type: string}, {name: url, label: Link, type: string, description: "Leave empty if there isn't one."}]}
+          - {name: pull_quote, label: Press quote, type: object, fields: [{name: text, label: Quote, type: text}, {name: source, label: Outlet and date, type: string}]}
+          - {name: watch, label: Links under the quote, type: object, list: true, fields: [{name: label, label: Name, type: string}, {name: url, label: Link, type: string}]}
       - name: follow
-        label: Instagram strip
+        label: Follow
         type: object
         fields:
-          - name: grid
-            label: Six photos
-            type: object
-            list: {max: 6}
-            fields:
-              - {name: image, label: Photo name, type: string}
-              - {name: alt, label: What the photo shows, type: string, required: true}
-      - name: partners
-        label: Partners
+          - {name: heading, label: Heading, type: string}
+          - {name: text, label: Text, type: text}
+          - {name: button, label: Button name, type: string}
+          - {name: grid, label: Instagram strip (six photos), type: object, list: {max: 6}, fields: [{name: image, label: Photo name, type: string}, {name: alt, label: What the photo shows, type: string, required: true}]}
+          - {name: dispatch, label: Dispatch sign-up, type: object, fields: [{name: label, label: Label, type: string}, {name: button, label: Button, type: string}, {name: note, label: Note, type: string}]}
+      - name: doors
+        label: Media, brands and partners
         type: object
-        list: true
-        fields: [{name: name, label: Partner, type: string}, {name: role, label: One line on the relationship, type: string}]
+        fields:
+          - {name: media, label: For media, type: object, fields: [{name: heading, label: Heading, type: string}, {name: text, label: Text, type: text}, {name: link, label: Link, type: object, fields: [{name: label, label: Name, type: string}, {name: url, label: Page, type: string}]}]}
+          - {name: brands, label: For brands, type: object, fields: [{name: heading, label: Heading, type: string}, {name: text, label: Text, type: text}, {name: link, label: Link, type: object, fields: [{name: label, label: Name, type: string}, {name: url, label: Page, type: string}]}]}
+          - name: partners
+            label: Partners
+            type: object
+            fields:
+              - {name: heading, label: Heading, type: string}
+              - {name: link, label: Link, type: object, fields: [{name: label, label: Name, type: string}, {name: url, label: Page, type: string}]}
+              - {name: items, label: Partners, type: object, list: true, fields: [{name: name, label: Partner, type: string}, {name: role, label: One line on the relationship, type: string, description: "Shown once the brand has approved it."}]}
