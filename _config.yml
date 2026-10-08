@@ -1,0 +1,48 @@
+title: Josh Wood
+description: Josh Wood, seventeen, American, racing championships across Europe.
+url: "https://josh36wood.com"
+baseurl: ""
+lang: en
+timezone: Europe/Madrid
+author: Josh Wood
+twitter:
+  username:
+social:
+  name: Josh Wood
+  links:
+    - https://www.instagram.com/josh.wood36/
+image: /og_image.jpg
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-redirect-from
+
+permalink: /journey/:year/:month/:title/
+collections:
+  journey:
+    output: true
+    permalink: /journey/:name/
+defaults:
+  - scope: {path: ""}
+    values: {lang: en}
+
+# Not part of the published site.
+exclude:
+  - .claude
+  - .github
+  - scripts
+  - node_modules
+  - package.json
+  - package-lock.json
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
+  - assets/uploads   # originals only; the site serves the processed copies in assets/img
+
+# Add endpoints when they exist. Until then the email address is shown instead.
+formspree_media: ""
+formspree_partnerships: ""
+dispatch_endpoint: ""
+analytics_token: ""
