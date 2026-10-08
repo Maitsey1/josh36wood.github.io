@@ -2,6 +2,12 @@
   "name": "josh36wood-site",
   "private": true,
   "type": "module",
-  "scripts": { "images": "node scripts/images.mjs" },
-  "dependencies": { "sharp": "^0.33.5" }
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "images": "node scripts/images.mjs",
+    "build": "npm run images && JEKYLL_ENV=production bundle exec jekyll build",
+    "check": "node scripts/content-check.mjs"
+  },
+  "dependencies": { "exif-reader": "^2.0.3", "sharp": "^0.33.5" },
+  "devDependencies": { "js-yaml": "^4.1.0" }
 }

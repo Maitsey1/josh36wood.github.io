@@ -2,6 +2,8 @@
 layout: default
 ---
 {%- assign h = site.data.home -%}
+{%- assign prod = false -%}{%- if jekyll.environment == "production" %}{% assign prod = true %}{% endif -%}
+{%- assign age_words = "Zero,One,Two,Three,Four,Five,Six,Seven,Eight,Nine,Ten,Eleven,Twelve,Thirteen,Fourteen,Fifteen,Sixteen,Seventeen,Eighteen" | split: "," -%}
 <!-- 1. Hero -->
 <section class="dark">
 <header class="bar">
@@ -18,10 +20,10 @@ layout: default
 <div class="herotxt"><div class="wrap">
 <h1>Josh Wood</h1>
 <div class="herorow">
-<p class="tag">{{ h.tagline }}</p>
+<p class="tag">{{ age_words[site.data.profile.age] }}. {{ h.tagline }}</p>
 <div class="btns"><a class="btn" href="https://www.instagram.com/josh.wood36/">Follow the journey</a><a class="btn ghost" href="#story">Read the story</a></div>
 </div>
-<p class="cap">{{ h.hero.caption }}</p>
+{% unless prod and h.hero.caption contains "[" %}<p class="cap">{{ h.hero.caption }}</p>{% endunless %}
 </div></div>
 </section>
 
@@ -30,7 +32,7 @@ layout: default
 <div>
 <h2 class="sr">About Josh</h2>
 <p class="lead">{{ h.about.text }}</p>
-<dl class="facts">{% for f in h.about.facts %}<div><dt>{{ f[0] }}</dt><dd>{{ f[1] }}</dd></div>{% endfor %}</dl>
+<dl class="facts">{% for f in h.about.facts %}<div><dt>{{ f.label }}</dt><dd>{{ f.text }}</dd></div>{% endfor %}</dl>
 <p style="margin:32px 0 0"><a class="link" href="#story">Read the full story</a></p>
 </div>
 <div class="big36" aria-hidden="true"><span>36</span></div>
@@ -40,9 +42,10 @@ layout: default
 <section class="words">
 <div class="ph">{% include picture.html name=h.words.image alt=h.words.alt pos=h.words.pos sizes="(min-width:900px) 50vw, 100vw" lazy=true %}</div>
 <div class="tx">
-<h2>In his words</h2>
-{% if h.words.quote != "" %}<blockquote class="q">{{ h.words.quote }}</blockquote>{% else %}<blockquote class="q">[Josh’s quote, once he has approved it: two to four sentences in his own words about the work that never shows on race day. Kept out of the repo until then.]</blockquote>{% endif %}
-<p>Josh Wood</p>
+{% if h.words.quote != "" %}<h2>In his words</h2>
+<blockquote class="q">{{ h.words.quote }}</blockquote>
+<p>Josh Wood</p>{% elsif prod == false %}<h2>In his words</h2>
+<blockquote class="q">Missing: Josh’s approved quote (Pages CMS, Home, “In his words”)</blockquote>{% endif %}
 </div>
 </section>
 
@@ -63,7 +66,7 @@ layout: default
 <div class="grid">
 {% for i in h.weekends.items %}<figure class="fig">
 {% if i.image %}{% include picture.html name=i.image alt=i.alt sizes="(min-width:1100px) 400px, 100vw" lazy=true %}{% else %}<div class="none">Photo to come</div>{% endif %}
-<figcaption><b>{{ i.title }}</b><small>{{ i.meta }}</small></figcaption>
+<figcaption><b>{{ i.title }}</b>{% unless prod and i.meta contains "[" %}<small>{{ i.meta }}</small>{% endunless %}</figcaption>
 </figure>{% endfor %}
 </div>
 <p style="max-width:62ch;margin:clamp(32px,4vw,48px) 0 0">The recovery and sleep kit comes from partners Hyperice, Manta Sleep and Lumie. <a class="link" href="#athlete">How he trains</a></p>
@@ -73,9 +76,9 @@ layout: default
 <section id="journey" class="sec"><div class="wrap">
 <div class="head"><h2 class="h2">Latest from the Journey</h2><a class="link" href="#journey">All entries</a></div>
 <div class="grid" style="gap:40px 24px">
-{% for p in h.latest %}<article class="post"><a href="#journey">
+{% for p in h.latest %}{% if prod and p.text contains "[" %}{% continue %}{% endif %}{% if prod and p.meta contains "[" %}{% assign pmeta = "" %}{% else %}{% assign pmeta = p.meta %}{% endif %}<article class="post"><a href="#journey">
 {% include picture.html name=p.image alt=p.alt sizes="(min-width:1100px) 400px, 100vw" lazy=true %}
-<small>{{ p.meta }}</small><h3 class="h3">{{ p.title }}</h3><p>{{ p.text }}</p>
+<small>{{ pmeta }}</small><h3 class="h3">{{ p.title }}</h3><p>{{ p.text }}</p>
 </a></article>{% endfor %}
 </div>
 </div></section>
@@ -83,7 +86,7 @@ layout: default
 <!-- 7. Racing Now -->
 <section id="racing" class="dark" style="padding:clamp(56px,6.5vw,96px) var(--gut)"><div class="wrap">
 <div class="head" style="margin-bottom:40px"><h2 class="h2">Racing now</h2><a class="link" href="#racing">Racing and results</a></div>
-<div class="now">{% for r in h.racing %}<div><small>{{ r[0] }}</small><p>{{ r[1] }}</p></div>{% endfor %}</div>
+<div class="now">{% for r in h.racing %}{% if prod and r.text contains "[" %}{% continue %}{% endif %}<div><small>{{ r.label }}</small><p>{{ r.text }}</p></div>{% endfor %}</div>
 </div></section>
 
 <!-- 8. Press -->
@@ -98,18 +101,18 @@ layout: default
 <section class="sec follow"><div class="wrap">
 <div class="head" style="gap:24px 64px;margin-bottom:32px"><div style="max-width:640px"><h2 class="h2">Follow the journey</h2><p style="margin:16px 0 0">Instagram gets it first. The dispatch follows each race weekend: what happened, and what comes next.</p></div><a class="btn solid" href="https://www.instagram.com/josh.wood36/">Follow @josh.wood36</a></div>
 <div class="thumbs">{% for g in h.follow.grid %}{% include picture.html name=g.image alt=g.alt sizes="200px" lazy=true %}{% endfor %}</div>
-<form class="dispatch" onsubmit="return false">
+{% if site.dispatch_endpoint != "" or prod == false %}<form class="dispatch" method="post" action="{{ site.dispatch_endpoint }}">
 <label for="dispatch-email">Race-weekend dispatch</label>
-<div class="row"><input id="dispatch-email" type="email" placeholder="name@example.com" autocomplete="email"><button class="btn solid" type="button">Sign up</button></div>
+<div class="row"><input id="dispatch-email" type="email" placeholder="name@example.com" autocomplete="email"><button class="btn solid" type="submit">Sign up</button></div>
 <p>One short email after each race weekend. Unsubscribe at any time.</p>
-</form>
+</form>{% endif %}
 </div></section>
 
 <!-- 10. Three Doors -->
 <section class="sec"><div class="wrap doors">
 <div><h2>For media</h2><p>Bios, key facts, photographs and story angles, ready to use.</p><a class="link" href="#media">Open the media kit</a></div>
 <div id="work"><h2>For brands</h2><p>Content, appearances and long-term partnerships, built around a European racing season.</p><a class="link" href="#work">Work with Josh</a></div>
-<div id="partners"><h2>Partners</h2><ul>{% for p in h.partners %}<li><b>{{ p[0] }}</b><span>{{ p[1] }}</span></li>{% endfor %}</ul><a class="link" href="#partners">How they fit</a></div>
+<div id="partners"><h2>Partners</h2><ul>{% for p in h.partners %}<li><b>{{ p.name }}</b><span>{{ p.role }}</span></li>{% endfor %}</ul><a class="link" href="#partners">How they fit</a></div>
 </div></section>
 
 <!-- 11. Footer -->
@@ -118,7 +121,7 @@ layout: default
 <a class="brand" href="#top" style="align-self:flex-start"><span class="mark">36</span><span>Josh Wood</span></a>
 <div class="fgrid">
 <div><small>Contact</small><p><a href="mailto:media@josh36wood.com">media@josh36wood.com</a></p><p><a href="mailto:partnerships@josh36wood.com">partnerships@josh36wood.com</a></p></div>
-<div><small>Follow</small><p><a href="https://www.instagram.com/josh.wood36/">Instagram, @josh.wood36</a></p><p style="color:var(--sand)">YouTube, [channel]</p></div>
+<div><small>Follow</small><p><a href="https://www.instagram.com/josh.wood36/">Instagram, @josh.wood36</a></p>{% unless prod %}<p style="color:var(--sand)">Missing: YouTube channel</p>{% endunless %}</div>
 <div><small>Site</small><p><a href="#media">Media kit</a></p><p><a href="#work">Work with Josh</a></p><p><a href="#top">Privacy</a></p></div>
 </div>
 </div>

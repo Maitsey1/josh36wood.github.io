@@ -5,14 +5,14 @@ hero:
   alt: Josh Wood leaning into a corner on a red and black MIR Racing Cup bike
   pos: "58% 46%"
   caption: "Above: MIR Racing Cup, [circuit, month, year]"
-tagline: Seventeen. American. Building a professional career, racing championships across Europe.
+tagline: American. Building a professional career, racing championships across Europe.
 about:
   text: "Josh Wood has finished school and now races full-time. He trains with SPN Academy under coach Nico Ferreira and competes across Europe. In 2024 he was one of around 120 riders invited to the Red Bull MotoGP Rookies Cup Selection Event. His objective for 2027 is a full European championship programme."
   facts:
-    - [Based in, "Málaga, Spain"]
-    - [Trains with, "SPN Academy, under coach Nico Ferreira"]
-    - [Selected, "2024 Red Bull MotoGP Rookies Cup Selection Event, one of around 120 riders worldwide"]
-    - [Working toward, "2027: a full European championship programme"]
+    - {label: "Based in", text: "Málaga, Spain"}
+    - {label: "Trains with", text: "SPN Academy, under coach Nico Ferreira"}
+    - {label: "Selected", text: "2024 Red Bull MotoGP Rookies Cup Selection Event, one of around 120 riders worldwide"}
+    - {label: "Working toward", text: "2027: a full European championship programme"}
 words:
   image: josh-contact
   alt: Josh Wood, helmet off, in race leathers at the circuit
@@ -39,9 +39,9 @@ latest:
   - {image: behindscene1, alt: Josh in the garage beside the yellow race bike, meta: "[Month 2026], [circuit]", title: Race-day preparation in the garage, text: "[A short entry on the hours before a session.]"}
   - {image: redbull5, alt: Pit lane at the 2024 Red Bull MotoGP Rookies Cup Selection Event, meta: "2024, [circuit]", title: What the Red Bull selection event was like, text: "[Josh’s account of the selection event, two years on.]"}
 racing:
-  - [Next, "[Round, circuit, date]"]
-  - [Latest result, "[Result, championship, round]"]
-  - ["2027", "Full European championship programme. Details once confirmed."]
+  - {label: "Next", text: "[Round, circuit, date]"}
+  - {label: "Latest result", text: "[Result, championship, round]"}
+  - {label: "2027", text: "Full European championship programme. Details once confirmed."}
 press:
   - {outlet: Talk Radio Europe, format: Radio and video interview, url: "https://www.youtube.com/watch?v=7Y-HCc9knzs"}
   - {outlet: "RTV Marbella, English Edition", format: "Television interview, April 2026", url: "https://www.youtube.com/watch?v=4qCWz0P031k&t=1875s"}
@@ -62,8 +62,8 @@ follow:
     - {image: redbull3, alt: Pit lane at the Red Bull selection event}
     - {image: trackwalk1, alt: Track walk at Portimão}
 partners:
-  - [GoPro, Onboard and training footage]
-  - [Hyperice, Recovery between sessions]
-  - [Manta Sleep, "Sleep, at home and away"]
-  - [Lumie, Light and wake routine]
-  - [VOITED, Travel and paddock kit]
+  - {name: "GoPro", role: "Onboard and training footage"}
+  - {name: "Hyperice", role: "Recovery between sessions"}
+  - {name: "Manta Sleep", role: "Sleep, at home and away"}
+  - {name: "Lumie", role: "Light and wake routine"}
+  - {name: "VOITED", role: "Travel and paddock kit"}

@@ -1,0 +1,119 @@
+# Pages CMS setup. Words and photos are edited here; the site's layout is never touched.
+media:
+  input: assets/uploads
+  output: /assets/uploads
+  categories: [image]
+
+components:
+  photo:
+    label: Photo
+    type: object
+    fields:
+      - {name: image, label: Photo, type: image, required: true, description: "Choose or upload a photo. Use the original file."}
+      - {name: alt, label: What the photo shows, type: string, required: true, description: "One sentence for people who can't see it, e.g. Josh leaning into a corner on a red and black bike."}
+
+content:
+  - name: profile
+    label: Profile facts
+    type: file
+    path: _data/profile.yml
+    fields:
+      - {name: age, label: Josh's age, type: number, required: true, description: "One number. It updates every mention on the site, including the hero."}
+
+  - name: home
+    label: Home page
+    type: file
+    path: _data/home.yml
+    fields:
+      - {name: status, label: Status line, type: string, description: "The short line in the hero badge, e.g. Now: training full-time toward 2027."}
+      - name: hero
+        label: Hero photo
+        type: object
+        fields:
+          - {name: image, label: Photo name, type: string, description: "Name of a processed photo, e.g. josh-corner-lean (the file name without the extension, lower case, dashes)."}
+          - {name: alt, label: What the photo shows, type: string, required: true}
+          - {name: pos, label: Crop focus, type: string, description: "Optional. Where to keep in frame, e.g. 58% 46%."}
+          - {name: caption, label: Caption, type: string, description: "Circuit, month and year. Leave empty if you don't know all three."}
+      - {name: tagline, label: Intro line, type: string, description: "Starts after the age. Don't type the age here."}
+      - name: about
+        label: About Josh
+        type: object
+        fields:
+          - {name: text, label: Opening paragraph, type: text}
+          - {name: facts, label: Key facts, type: object, list: true, fields: [{name: label, label: Label, type: string}, {name: text, label: Fact, type: string}]}
+      - name: words
+        label: In his words
+        type: object
+        fields:
+          - {name: image, label: Photo name, type: string}
+          - {name: alt, label: What the photo shows, type: string, required: true}
+          - {name: pos, label: Crop focus, type: string}
+          - {name: quote, label: Josh's quote, type: text, description: "Only text Josh has approved. Leave empty until then."}
+      - name: timeline
+        label: Journey timeline
+        type: object
+        list: true
+        fields:
+          - {name: year, label: Year, type: string}
+          - {name: image, label: Photo name, type: string}
+          - {name: alt, label: What the photo shows, type: string, required: true}
+          - {name: big, label: Large year (last card only), type: string}
+          - {name: text, label: Text, type: text}
+      - name: weekends
+        label: Race weekends and training
+        type: object
+        fields:
+          - {name: heading, label: Heading, type: string}
+          - {name: intro, label: Intro, type: text}
+          - name: items
+            label: Photos
+            type: object
+            list: true
+            fields:
+              - {name: title, label: Title, type: string}
+              - {name: meta, label: Place and month, type: string, description: "Leave empty unless the place is known."}
+              - {name: image, label: Photo name, type: string}
+              - {name: alt, label: What the photo shows, type: string, required: true}
+      - name: latest
+        label: Latest from the Journey
+        type: object
+        list: true
+        fields:
+          - {name: title, label: Title, type: string}
+          - {name: meta, label: Date and place, type: string}
+          - {name: text, label: Summary, type: text, description: "Josh's words only once he has approved them."}
+          - {name: image, label: Photo name, type: string}
+          - {name: alt, label: What the photo shows, type: string, required: true}
+      - name: racing
+        label: Racing now
+        type: object
+        list: true
+        fields: [{name: label, label: Label, type: string}, {name: text, label: Text, type: string}]
+      - name: press
+        label: Press
+        type: object
+        list: true
+        fields:
+          - {name: outlet, label: Outlet, type: string}
+          - {name: format, label: Format and date, type: string}
+          - {name: url, label: Link, type: string, description: "Leave empty if there isn't one."}
+      - name: pull_quote
+        label: Press quote
+        type: object
+        fields: [{name: text, label: Quote, type: text}, {name: source, label: Outlet and date, type: string}]
+      - name: follow
+        label: Instagram strip
+        type: object
+        fields:
+          - name: grid
+            label: Six photos
+            type: object
+            list: {max: 6}
+            fields:
+              - {name: image, label: Photo name, type: string}
+              - {name: alt, label: What the photo shows, type: string, required: true}
+      - name: partners
+        label: Partners
+        type: object
+        list: true
+        fields: [{name: name, label: Partner, type: string}, {name: role, label: One line on the relationship, type: string}]

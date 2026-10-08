@@ -27,14 +27,22 @@ defaults:
   - scope: {path: ""}
     values: {lang: en}
 
-# Keep the existing static pages and media published; skip build tooling.
+# Not part of the published site.
 exclude:
-  - Gemfile
-  - Gemfile.lock
+  - .claude
+  - .github
+  - scripts
   - node_modules
   - package.json
   - package-lock.json
-  - scripts
+  - Gemfile
+  - Gemfile.lock
   - README.md
   - vendor
-  - .claude
+  - assets/uploads   # originals only; the site serves the processed copies in assets/img
+
+# Add endpoints when they exist. Until then the email address is shown instead.
+formspree_media: ""
+formspree_partnerships: ""
+dispatch_endpoint: ""
+analytics_token: ""

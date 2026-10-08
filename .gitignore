@@ -4,3 +4,5 @@ _site/
 node_modules/
 vendor/
 Gemfile.lock
+assets/img/
+_data/images.json
