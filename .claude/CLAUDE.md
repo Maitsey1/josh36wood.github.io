@@ -160,7 +160,7 @@ Outreach-only angles (not on the site): no racing family; a student of the sport
 - Remove pitch decks: `deck.html`, `deck_es.html`, `deck_pt.html`, `deck-old.html`, `request-deck.html`, `slides/`, `Joshua_Wood_2026.pdf`. Redirect the old deck URLs to `/work-with-josh/` with `jekyll-redirect-from`.
 - Remove `shaw_logo.png` and any Shaw reference.
 - Remove the old `partner.html` and redirect it to `/work-with-josh/`.
-- `gallery.html` and unused root images: ask Maite before deleting anything not listed here. (`hero_video.mp4` is now `assets/video/josh-film.mp4`.)
+- Unused root images: ask Maite before deleting anything not listed here. (`hero_video.mp4` is now `assets/video/josh-film.mp4`.)
 
 ## Resolved (12 October 2026)
 - Red Bull walk-out photo (Story) and Red Bull article hero: keep as is, faces unblurred.
@@ -170,7 +170,7 @@ Outreach-only angles (not on the site): no racing family; a student of the sport
 - Athlete flat track photos (both yellow Suzuki photos): Maite approved all photos on 12 October 2026. Both are on the Athlete page.
 - Red Bull article: "selectors" and "selected riders" in the interviewer's questions are approved as written. The ban on "selected" is about Josh and the Red Bull event: never say he was selected.
 - Media kit: the long bio keeps "no racing family" and "a student of the sport", and the Euro Weekly News pull quote stays (attributed to the outlet, no date). Talk Radio Europe and RTV Marbella are listed without dates.
-- Pitch decks and the old `partner.html` are removed and their URLs redirect to `/work-with-josh/`. `gallery.html` stays as it is (old layout and wording, left alone on purpose).
+- Pitch decks and the old `partner.html` are removed and their URLs redirect to `/work-with-josh/`. The gallery was taken down on 12 October 2026 because it does not match the new look. `/gallery.html` redirects to the homepage. The old page is kept in `.claude/archive/gallery.html` (not published). It needs a rebuild in the new style, with the cookie banner, before it comes back.
 - Homepage: "racing championships across Europe" and "competes across Europe" stay (Spain and Portugal are Europe). The timeline says "invited to race as a wildcard for Team Quaresma". The Euro Weekly News quote has no date there either. "Racing now" shows "To be announced." The email sign-up is kept and sends to Formspree.
 - Google Analytics keeps visit data for 2 months (stated on `/privacy/`; the GA account setting must match).
 
