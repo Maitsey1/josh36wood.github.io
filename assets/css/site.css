@@ -454,3 +454,7 @@ figcaption { font-size: 13px; color: var(--sierra); margin-top: 10px; }
 .wwj .markets { margin: 24px 0 0; color: #E4E4DE; font-size: 15px; max-width: 46ch; }
 .wwj .big b { font-size: clamp(30px, 8vw, 52px); white-space: nowrap; }
 @media (max-width: 520px) { .wwj .split.aud .big b { font-size: 30px; } }
+
+/* Homepage: the sections carry their own layout; these reset shared rules that would otherwise leak in */
+.home a { font-weight: inherit; }
+.home figcaption { margin-top: 12px; font-size: inherit; color: inherit; }
