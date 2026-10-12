@@ -1,0 +1,196 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Before the grid</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Newsreader:ital,opsz,wght@1,6..72,300..600&display=swap">
+<style>
+/* Layout: dark hero with headline left, uncropped portrait photo right; light editorial Q&A below. */
+:root {
+  --asphalt: #232422;
+  --line-white: #F5F5F1;
+  --concrete: #62645F;
+  --violet: #5B2A86;
+  --violet-light: #B79CDB;
+  --sierra: #CDBB9E;
+  --surface-alt: #EBEBE6;
+  --rule: #D4D5CF;
+  --rule-dark: #4A4C48;
+  --bg: var(--line-white);
+  --fg: var(--asphalt);
+  --muted: var(--concrete);
+  --link: var(--violet);
+  --band: var(--surface-alt);
+  --hairline: var(--rule);
+  --font-head: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --font-voice: "Newsreader", Georgia, "Times New Roman", serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1B1C1A; --fg: #F5F5F1; --muted: #A9ABA4; --link: var(--violet-light);
+    --band: #232422; --hairline: #4A4C48; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #1B1C1A; --fg: #F5F5F1; --muted: #A9ABA4; --link: var(--violet-light);
+  --band: #232422; --hairline: #4A4C48; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--fg);
+  font-family: var(--font-head); font-size: 17px; line-height: 1.55;
+}
+a { color: var(--link); font-weight: 650; text-underline-offset: 4px; }
+a:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; }
+
+.nav {
+  background: var(--asphalt); color: var(--line-white);
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 14px clamp(20px, 5vw, 72px);
+  border-bottom: 1px solid var(--rule-dark);
+}
+.nav .mark { color: var(--line-white); text-decoration: none; display: flex; align-items: center; gap: 12px; font-weight: 750; font-stretch: 106%; }
+.nav .mark b {
+  background: var(--violet); color: #fff; font-weight: 800; font-stretch: 112%;
+  padding: 2px 8px; border-radius: 4px; font-size: 15px;
+}
+.nav a { color: var(--violet-light); font-size: 15px; }
+
+.hero { background: var(--asphalt); color: var(--line-white); }
+.hero-inner {
+  max-width: 1296px; margin: 0 auto;
+  padding: clamp(40px, 6vw, 88px) clamp(20px, 5vw, 72px);
+  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  gap: clamp(28px, 5vw, 72px); align-items: end;
+}
+.eyebrow { color: var(--sierra); font-size: 15px; margin: 0 0 18px; }
+h1 {
+  font-size: clamp(40px, 5.6vw, 84px); line-height: 1.0; letter-spacing: -0.02em;
+  font-weight: 800; font-stretch: 112%; margin: 0 0 26px; text-wrap: balance;
+}
+.standfirst { font-size: clamp(19px, 1.9vw, 25px); line-height: 1.4; color: #E4E4DE; margin: 0; max-width: 30ch; }
+figure { margin: 0; }
+figure img { display: block; width: 100%; height: auto; border-radius: 0; }
+figcaption { font-size: 13px; color: var(--sierra); margin-top: 10px; }
+
+.article { max-width: 1296px; margin: 0 auto; padding: clamp(48px, 7vw, 104px) clamp(20px, 5vw, 72px); }
+.section {
+  display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+  gap: clamp(20px, 4vw, 64px);
+  padding-block: clamp(28px, 4vw, 56px);
+  border-top: 1px solid var(--hairline);
+}
+.section:first-child { border-top: 0; padding-top: 0; }
+h2 {
+  font-size: clamp(26px, 3vw, 40px); line-height: 1.08; letter-spacing: -0.02em;
+  font-weight: 780; font-stretch: 110%; margin: 0; text-wrap: balance;
+}
+.qa { display: grid; gap: 30px; max-width: 62ch; min-width: 0; }
+.qa > div { display: grid; gap: 6px; }
+.q { font-weight: 750; font-stretch: 106%; margin: 0; font-size: 17px; }
+.a {
+  font-family: var(--font-voice); font-style: italic; font-weight: 400;
+  font-size: clamp(22px, 2.2vw, 30px); line-height: 1.3; margin: 0;
+}
+.quick { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 clamp(20px, 4vw, 56px); max-width: 62ch; }
+.quick li { display: grid; gap: 2px; padding: 16px 0; border-top: 1px solid var(--hairline); }
+.quick li:nth-child(-n+2) { border-top: 0; padding-top: 0; }
+.quick .q { font-size: 15px; font-weight: 650; color: var(--muted); }
+.quick .a { font-size: clamp(22px, 2vw, 28px); }
+
+.next { background: var(--band); }
+.next-inner {
+  max-width: 1296px; margin: 0 auto; padding: clamp(32px, 5vw, 56px) clamp(20px, 5vw, 72px);
+  display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px 32px; align-items: baseline;
+}
+.next p { margin: 0; color: var(--muted); font-size: 15px; }
+
+@media (max-width: 820px) {
+  body { font-size: 17px; }
+  .hero-inner { grid-template-columns: minmax(0, 1fr); align-items: start; }
+  .standfirst { max-width: none; }
+  .section { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+  .quick { grid-template-columns: minmax(0, 1fr); }
+  .quick li:nth-child(2) { border-top: 1px solid var(--hairline); padding-top: 16px; }
+}
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+</style>
+
+<header class="nav">
+  <a class="mark" href="https://claude.ai/artifact/99mYxYcVYA1Ejw4AuDZKBm"><b>36</b><span>Josh Wood</span></a>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <h1>Before the grid</h1>
+      <p class="standfirst">Josh on race morning, from his first thought of the day to the moment he rides out.</p>
+    </div>
+    <figure>
+      <img src="hero.jpg" width="1400" height="1593" alt="Josh in his race leathers and helmet, seated in the paddock while his coach crouches beside him with a hand on his knee.">
+      <figcaption>Last-minute chat with his coach in the paddock, Portimão</figcaption>
+    </figure>
+  </div>
+</section>
+
+<main class="article">
+  <section class="section">
+    <h2>Race morning</h2>
+    <div class="qa">
+      <div><p class="q">When do you start thinking about the race?</p><p class="a">As soon as I get out of bed.</p></div>
+      <div><p class="q">What's for breakfast?</p><p class="a">Probably a banana and some cereal. No chocolate before I get on the bike.</p></div>
+      <div><p class="q">When do you switch into race mode?</p><p class="a">When I arrive at the track and see my competition. The environment, the place, the seriousness, the competitiveness.</p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>In the garage</h2>
+    <div class="qa">
+      <div><p class="q">What are you like in the garage?</p><p class="a">Very serious. I don't want to be disturbed by anyone or anything.</p></div>
+      <div><p class="q">If someone followed you with a camera for the hour before a race, what would surprise them?</p><p class="a">How much I wouldn't want a camera in my face.</p></div>
+      <div><p class="q">Who is most likely to annoy you five minutes before you go out?</p><p class="a">My mother.</p></div>
+      <div><p class="q">She's also your biggest fan.</p><p class="a">She is, indeed.</p></div>
+      <div><p class="q">Do you listen to music?</p><p class="a">Yes. That's what pumps me up and gets me going.</p></div>
+      <div><p class="q">What's on the playlist?</p><p class="a">Beats. Very heavy beats.</p></div>
+      <div><p class="q">Any habits before you get on the bike?</p><p class="a">I stretch my knees out, like Valentino Rossi. For good luck.</p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Helmet on</h2>
+    <div class="qa">
+      <div><p class="q">What goes through your head when you put your helmet on?</p><p class="a">Go as fast as I can, stay with the group, latch on and never let go. The riders' pace, and whether I'll be able to keep up. And my opponents.</p></div>
+      <div><p class="q">And the last five minutes?</p><p class="a">Alone with my helmet on. Just breathing, and telling myself that I'm worthy and that I'm going to do my best.</p></div>
+      <div><p class="q">What's the last thing someone says to you before you ride out?</p><p class="a">Good luck.</p></div>
+      <div><p class="q">At the end of pit lane, do you want someone talking to you?</p><p class="a">Someone who doesn't overtalk. Someone who just reassures me that I've got it and I can do this. That's about it.</p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>On the grid</h2>
+    <div class="qa">
+      <div><p class="q">How did you feel on the grid at Portimão?</p><p class="a">Excitement. Nothing to feel nervous about.</p></div>
+      <div><p class="q">How do you feel now, compared with then?</p><p class="a">A lot better, especially in how I manage my weekends: tyres, laps, getting behind someone to get a reference.</p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Quick-fire</h2>
+    <ul class="quick">
+      <li><span class="q">Music or silence?</span><span class="a">Music.</span></li>
+      <li><span class="q">Eat before racing, or can't eat?</span><span class="a">Can't eat.</span></li>
+      <li><span class="q">Talk or quiet?</span><span class="a">Quiet.</span></li>
+      <li><span class="q">Nervous or excited?</span><span class="a">Excited.</span></li>
+      <li><span class="q">Qualifying or racing?</span><span class="a">Racing.</span></li>
+      <li><span class="q">Dry race or wet race?</span><span class="a">Dry race.</span></li>
+      <li><span class="q">First lap or last lap?</span><span class="a">Last lap.</span></li>
+      <li><span class="q">Grid or pit lane?</span><span class="a">Grid.</span></li>
+    </ul>
+  </section>
+</main>
+
+<footer class="next" id="all-entries">
+  <div class="next-inner">
+    <p>Next in the Journey: <a href="https://claude.ai/artifact/FTSTEDVuM5MRQams5tm5wJ">Walking the track</a></p>
+  </div>
+</footer>
+
+
+</body></html>

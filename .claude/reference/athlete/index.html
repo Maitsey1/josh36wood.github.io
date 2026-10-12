@@ -1,0 +1,221 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Josh Wood Athlete</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Newsreader:ital,opsz,wght@1,6..72,300..600&display=swap">
+<style>
+/* Layout: same shell as the Story page. Dark hero, then the training week as labelled rows with the label sticky on the left, a light band for what the training uses up, dark close. */
+:root {
+  --asphalt: #232422;
+  --line-white: #F5F5F1;
+  --concrete: #62645F;
+  --violet: #5B2A86;
+  --violet-light: #B79CDB;
+  --sierra: #CDBB9E;
+  --surface-alt: #EBEBE6;
+  --rule: #D4D5CF;
+  --rule-dark: #4A4C48;
+  --bg: var(--line-white);
+  --fg: var(--asphalt);
+  --muted: var(--concrete);
+  --link: var(--violet);
+  --band: var(--surface-alt);
+  --hairline: var(--rule);
+  --font-head: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --font-voice: "Newsreader", Georgia, "Times New Roman", serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1B1C1A; --fg: #F5F5F1; --muted: #A9ABA4; --link: var(--violet-light);
+    --band: #232422; --hairline: #4A4C48; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #1B1C1A; --fg: #F5F5F1; --muted: #A9ABA4; --link: var(--violet-light);
+  --band: #232422; --hairline: #4A4C48; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--font-head); font-size: 17px; line-height: 1.55; }
+a { color: var(--link); font-weight: 650; text-underline-offset: 4px; }
+a:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; }
+
+.nav { background: var(--asphalt); color: var(--line-white); display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 14px clamp(20px, 5vw, 72px); }
+.nav .mark { display: flex; align-items: center; gap: 12px; min-height: 44px; color: var(--line-white); text-decoration: none; flex: none; }
+.nav .mark b { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 4px; background: var(--violet); font-size: 15px; font-weight: 800; font-stretch: 115%; }
+.nav .mark span { font-size: 19px; font-weight: 750; font-stretch: 112%; letter-spacing: -0.01em; }
+.nav nav { display: flex; align-items: center; gap: clamp(14px, 2vw, 30px); overflow-x: auto; white-space: nowrap; font-size: 15px; min-width: 0; }
+.nav nav a { padding: 12px 0; color: var(--line-white); text-decoration: none; font-weight: 400; }
+.nav nav a[aria-current] { border-bottom: 2px solid var(--violet-light); }
+.nav nav a.cta-link { display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border: 1px solid var(--line-white); border-radius: 4px; font-weight: 650; }
+.nav a:focus-visible { outline: 2px solid var(--violet-light); outline-offset: 3px; }
+
+.wrap { max-width: 1296px; margin: 0 auto; padding-inline: clamp(20px, 5vw, 72px); }
+.hero { background: var(--asphalt); color: var(--line-white); }
+.hero .wrap { padding-block: clamp(40px, 6vw, 88px); display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(24px, 5vw, 72px); align-items: end; }
+.eyebrow { color: var(--sierra); font-size: 15px; margin: 0 0 18px; }
+h1 { font-size: clamp(44px, 6.4vw, 96px); line-height: .98; letter-spacing: -0.025em; font-weight: 800; font-stretch: 112%; margin: 0; text-wrap: balance; }
+.standfirst { font-size: clamp(19px, 1.9vw, 25px); line-height: 1.4; color: #E4E4DE; margin: 0; max-width: 36ch; }
+
+.week { padding-block: clamp(40px, 6vw, 88px); }
+.row { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: clamp(20px, 4vw, 64px); padding-block: clamp(32px, 4.5vw, 64px); }
+.row + .row { border-top: 1px solid var(--hairline); }
+.label { position: sticky; top: 24px; align-self: start; display: grid; gap: 6px; }
+.label h2 { font-size: clamp(26px, 3vw, 40px); line-height: 1.06; letter-spacing: -0.02em; font-weight: 780; font-stretch: 110%; margin: 0; text-wrap: balance; }
+.label span { font-size: 14px; color: var(--muted); }
+.body { min-width: 0; display: grid; gap: 24px; }
+.body p { margin: 0; max-width: none; text-wrap: pretty; }
+.gal { display: grid; gap: 12px; align-items: start; }
+.gal figure { margin: 0; min-width: 0; }
+.gal img { display: block; width: 100%; height: auto; object-fit: cover; }
+.g-one img { aspect-ratio: 16 / 9; }
+
+.g-port { grid-template-columns: minmax(0, 16fr) minmax(0, 9fr); }
+.g-port .land img { aspect-ratio: 4 / 3; }
+.g-port .tall img { aspect-ratio: 3 / 4; }
+.g-port .wide { grid-column: 1 / -1; }
+.g-port .wide img { aspect-ratio: 16 / 9; object-position: 50% 60%; }
+.g-tall { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.g-tall img { aspect-ratio: 3 / 4; }
+
+.uses { background: var(--band); }
+.uses .wrap { padding-block: clamp(48px, 7vw, 96px); display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: clamp(20px, 4vw, 64px); }
+
+.figure-line { font-size: clamp(30px, 4vw, 56px); line-height: 1.04; letter-spacing: -0.02em; font-weight: 800; font-stretch: 112%; margin: 0 0 20px; max-width: 18ch; text-wrap: balance; }
+.figure-line em { font-style: normal; color: var(--link); }
+.kit { list-style: none; margin: 0 0 28px; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 clamp(20px, 4vw, 56px); max-width: 640px; }
+.kit li { padding: 14px 0; border-top: 1px solid var(--hairline); font-weight: 650; }
+.uses p { margin: 0 0 24px; max-width: 58ch; }
+
+.uses-body { min-width: 0; display: grid; gap: 32px; }
+.uses .intro, .uses .close { margin: 0; max-width: none; text-wrap: pretty; }
+.cost-cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px clamp(24px, 4vw, 56px); align-items: start; }
+.cost-cols h3 { font-size: 13px; font-weight: 650; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0 0 4px; }
+.cost { list-style: none; margin: 0; padding: 0; border-bottom: 1px solid var(--hairline); }
+.cost li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 16ch); gap: 16px; align-items: baseline; min-height: 56px; padding-block: 15px; border-top: 1px solid var(--hairline); }
+.cost li span:first-child { font-weight: 650; }
+.cost li span:last-child { color: var(--muted); font-size: 15px; line-height: 1.35; text-align: right; }
+@media (max-width: 820px) { .cost-cols { grid-template-columns: minmax(0, 1fr); } }
+.cta { background: var(--asphalt); color: var(--line-white); }
+.cta .wrap { padding-block: clamp(40px, 6vw, 80px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px 40px; }
+.cta h2 { font-size: clamp(28px, 3.4vw, 46px); line-height: 1.06; letter-spacing: -0.02em; font-weight: 780; font-stretch: 110%; margin: 0; max-width: 18ch; }
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 24px; border-radius: 4px; background: var(--violet-light); color: var(--asphalt); font: 750 17px var(--font-head); text-decoration: none; }
+.btn.outline { background: transparent; color: var(--fg); border: 1px solid var(--fg); }
+.btn:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; }
+.foot { background: var(--band); color: var(--muted); font-size: 14px; }
+.foot .wrap { padding-block: 28px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 32px; }
+
+@media (max-width: 820px) {
+  .hero .wrap, .row, .uses .wrap { grid-template-columns: minmax(0, 1fr); }
+  .label { position: static; }
+}
+@media (max-width: 480px) { .g-port, .kit { grid-template-columns: minmax(0, 1fr); } }
+</style>
+
+<header class="nav">
+  <a class="mark" href="https://claude.ai/artifact/99mYxYcVYA1Ejw4AuDZKBm"><b>36</b><span>Josh Wood</span></a>
+  <nav aria-label="Main">
+    <a href="https://claude.ai/artifact/PJGpWcVebKiFXDG8h22FKs">Story</a><a href="#top" aria-current="page">Athlete</a><a href="https://claude.ai/artifact/99mYxYcVYA1Ejw4AuDZKBm#journey">Journey</a><a href="https://claude.ai/artifact/LKB7k2r44yjfA9weif1oxT">Media</a>
+    <a class="cta-link" href="https://claude.ai/artifact/6JjCWSkapvk3wcoVYUkFyH">Work with Josh</a>
+  </nav>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Athlete</p>
+      <h1>A typical week</h1>
+    </div>
+    <p class="standfirst">Race weekends are the short part. This is the work in between, built around riding and everything that makes him faster on the bike.</p>
+  </div>
+</section>
+
+<main class="wrap week">
+
+  <section class="row">
+    <div class="label"><h2>On the bike</h2><span>The core of the week</span></div>
+    <div class="body">
+      <p>At SPN Academy each session starts with a briefing from coach Nico Ferreira: the lines, the braking points and what to work on that day. Then the riders go out and do it lap after lap. Track days on his R6 at larger circuits add the speed and distance a training track cannot.</p>
+      <div class="gal g-port">
+        <figure class="land"><img src="a-brief2.jpg" alt="Coach Nico Ferreira, in an SPN Academy shirt, briefs a line of riders on small bikes before a session, with mountains behind the track." loading="lazy"></figure>
+        <figure class="tall"><img src="a-brief.jpg" alt="Josh, number 36, seated on his bike in SPN Racing leathers beside two other riders while coach Nico Ferreira briefs them before a session." loading="lazy"></figure>
+        <figure class="wide"><img src="a-r6.jpg" alt="Josh in black and pink leathers on his blue R6, riding along the edge of the track past red and white kerbs." loading="lazy"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="row">
+    <div class="label"><h2>Flat track</h2><span>Bike control</span></div>
+    <div class="body">
+      <p>Sliding a dirt bike on a loose surface teaches throttle and rear-wheel control that carries straight over to the circuit.</p>
+      <div class="gal g-tall">
+        <figure><img src="a-flat.jpg" alt="Josh on a dirt bike during flat track training." loading="lazy"></figure>
+        <figure><img src="a-flat2.jpg" alt="Josh in a yellow helmet and grey riding kit, seated on a yellow Suzuki dirt bike on a dirt track with olive trees and mountains behind." loading="lazy"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="row">
+    <div class="label"><h2>Strength and conditioning</h2><span>Gym</span></div>
+    <div class="body">
+      <p>Strength work and Hyrox-style conditioning, so he can hold race pace and body position to the last lap.</p>
+    </div>
+  </section>
+
+  <section class="row">
+    <div class="label"><h2>Endurance</h2><span>Road and running</span></div>
+    <div class="body">
+      <p>Long rides on the road bike and regular runs build the aerobic base a race distance demands.</p>
+      <div class="gal g-one">
+        <figure><img src="train-cycling.jpg" alt="Josh from behind on a road bike, riding down a palm-lined road in a helmet and cycling kit." loading="lazy"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="row">
+    <div class="label"><h2>Recovery</h2><span>Sleep and rest</span></div>
+    <div class="body">
+      <p>Recovery is planned like training. His recovery and sleep kit comes from partners Hyperice, Manta Sleep and Lumie.</p>
+    </div>
+  </section>
+
+</main>
+
+<section class="uses">
+  <div class="wrap">
+    <div class="label"><h2>What a training week costs</h2><span>Before the season starts</span></div>
+    <div class="uses-body">
+      <p class="intro">Race weekends are what people see. The bills start long before them. Every week of training is paid for: the track, the coaching, the travel and the kit that wears out doing it.</p>
+      <div class="cost-cols">
+        <div>
+          <h3>Every week</h3>
+          <ul class="cost">
+            <li><span>Track time</span><span>Three days a week</span></li>
+            <li><span>Coaching with Nico Ferreira at SPN Academy</span><span></span></li>
+            <li><span>Travel to training</span><span></span></li>
+            <li><span>Gym</span><span></span></li>
+            <li><span>Road bike hire for long rides</span><span></span></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Wears out</h3>
+          <ul class="cost">
+            <li><span>Training tyres</span><span>A set about every two weeks</span></li>
+            <li><span>Brakes</span><span></span></li>
+            <li><span>Boots</span><span>A new pair every two to three months</span></li>
+            <li><span>Race leathers</span><span>Repaired and replaced through the season</span></li>
+            <li><span>Cycling kit</span><span></span></li>
+          </ul>
+        </div>
+      </div>
+      <p class="close">All of this comes before the first race. A technical partner can take on one line of it, from tyres to boots, with an official partner title. Product value counts towards a partnership level.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Back the next step</h2>
+    <a class="btn" href="https://claude.ai/artifact/6JjCWSkapvk3wcoVYUkFyH">Work with Josh</a>
+  </div>
+</section>
+<footer class="foot"><div class="wrap"><span>Josh Wood, JWRA</span><a href="#top">Back to top</a></div></footer>
+
+</body></html>

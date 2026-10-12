@@ -45,7 +45,24 @@ Story / Athlete / Journey / Media / Work with Josh.
 - Homepage "How he trains" links to `/athlete/`.
 
 ## Approved mock-ups
-The approved designs are private claude.ai artifacts. Build from these, latest versions:
+Exact copies of the approved pages, with their photos, are in `.claude/reference/` (exported 12 October 2026). **Build from these folders.** Each has an `index.html` and the images it uses:
+
+| Folder | Page |
+|---|---|
+| `home/` | Homepage (images extracted from the original into files) |
+| `story/` | Story |
+| `athlete/` | Athlete |
+| `media/` | Media kit |
+| `work-with-josh/` | Work with Josh |
+| `journey-before-the-grid/` | Journey article |
+| `journey-walking-the-track/` | Journey article |
+| `journey-red-bull-selection-event/` | Journey article |
+
+Links inside the reference files point to claude.ai artifact URLs; replace them with the site paths in Navigation above. The mock-up enquiry form on Work with Josh does not send; wire it to Formspree on the live site. The film placeholder on Work with Josh stays out until Maite supplies the film.
+
+`.claude/reference/` is excluded from the published site (Jekyll skips dot-folders) but the repo is public, so the files are visible on GitHub.
+
+Original artifacts, for reference only:
 
 | Page | Artifact | Version |
 |---|---|---|
@@ -58,7 +75,6 @@ The approved designs are private claude.ai artifacts. Build from these, latest v
 | Journey: Walking the track | https://claude.ai/artifact/FTSTEDVuM5MRQams5tm5wJ | v2 |
 | Journey: The Red Bull selection event, two years on | https://claude.ai/artifact/Bd77pRJQfeHzK37onfP8CG | — |
 
-- `.claude/home-desktop.html` and `.claude/home-phone.html` in this repo are **superseded** (old nav with Racing and Partners, old media@ and partnerships@ addresses). Do not build from them.
 - Do not use the Media kit components doc (RGRTqKmcAPzzJJUhJZ4c9e); it carries retired motocross, "selected" and age wording.
 - Reproduce copy from the mock-ups exactly. Do not rewrite, extend or "improve" it. If copy is missing, leave a visible `TO CONFIRM` marker in an HTML comment and list it in the pull request.
 
@@ -106,11 +122,11 @@ The approved designs are private claude.ai artifacts. Build from these, latest v
 |---|---|---|---|
 | Talk Radio Europe | Radio interview | TO CONFIRM | https://www.youtube.com/watch?v=7Y-HCc9knzs |
 | RTV Marbella with Nicole King | Television interview | TO CONFIRM | https://www.youtube.com/watch?v=4qCWz0P031k&t=1875s |
-| Euro Weekly News | Online | April 2026 | https://euroweeklynews.com/2026/04/22/juniorgp-world-championship-the-race-is-on/ |
+| Euro Weekly News | Newspaper | April 2026 | https://euroweeklynews.com/2026/04/22/juniorgp-world-championship-the-race-is-on/ |
 | Essential Magazine | Print feature | June 2025 | https://issuu.com/essentialmagazine/docs/essential_magazine_june_2025 |
 | Planet Marbella | Feature interview | April 2025 | https://www.planetmarbella.com/can-josh-break-into-the-big-time/ |
 | SUR in English | Profile | February 2025 | https://www.surinenglish.com/sport/josh-appeals-for-help-fulfil-his-dream-20250217074611-nt.html |
-| Diario Sur | Online | February 2025 | https://www.diariosur.es/costadelsol/josh-ayuda-sueno-convertirse-campeon-20250215213318-nt.html |
+| Diario Sur | Newspaper | February 2025 | https://www.diariosur.es/costadelsol/josh-ayuda-sueno-convertirse-campeon-20250215213318-nt.html |
 | Área Costa del Sol | Online | — | https://www.areacostadelsol.com/costa-del-sol/josh-wood-fuengiroleno-que-suena-con-correr-en-motogp/ |
 | FTV (Fuengirola Televisión) | Television | — | No link yet |
 | Marbella Noticias | Television | — | No link yet |
