@@ -168,6 +168,7 @@ Outreach-only angles (not on the site): no racing family; a student of the sport
 - Athlete flat track photos (both yellow Suzuki photos): Maite approved all photos on 12 October 2026. Both are on the Athlete page.
 - Red Bull article: "selectors" and "selected riders" in the interviewer's questions are approved as written. The ban on "selected" is about Josh and the Red Bull event: never say he was selected.
 - Media kit: the long bio keeps "no racing family" and "a student of the sport", and the Euro Weekly News pull quote stays (attributed to the outlet, no date). Talk Radio Europe and RTV Marbella are listed without dates.
+- Pitch decks and the old `partner.html` are removed and their URLs redirect to `/work-with-josh/`. `gallery.html` stays as it is (old layout and wording, left alone on purpose).
 - Google Analytics keeps visit data for 2 months (stated on `/privacy/`; the GA account setting must match).
 
 ## Open items (do not resolve by guessing)
