@@ -99,6 +99,7 @@ Original artifacts, for reference only:
 - Cookie banner on every page: Accept and Reject styled identically, short plain wording, small and fixed to the bottom of the screen. Choice is stored in `localStorage` (`analytics-consent`). Footer has a "Cookie settings" button that reopens it.
 - Footer links to `/privacy/` and carries the "Cookie settings" button on every page.
 - Enquiry data (name, brand, email, message) goes through Formspree, is used only to reply, and is never shared or sold.
+- Homepage race-weekend dispatch sign-up (email only) also goes through Formspree (same form ID, subject "Race-weekend dispatch sign-up") to `maiteland@josh36wood.com`. Used only to send the dispatch, never shared or sold, kept until the person unsubscribes (they email `maiteland@josh36wood.com`).
 - Retention: enquiries are kept for 12 months after the last reply, then deleted.
 - Deletion requests go to `maiteland@josh36wood.com`.
 - If tracking or forms change, update `privacy/index.html` in the same pull request.
@@ -124,7 +125,7 @@ Original artifacts, for reference only:
 - Josh Wood, #36, American, based in Málaga. Trains at SPN Academy with coach Nico Ferreira. No racing family; came into the sport through the academy.
 - Go-karting as a kid. 2022: first dirt bike, then circuit riding on a 165cc. 2023: Spanish national cups.
 - 2024: joined SPN Academy; invited to race as a wildcard for Team Quaresma; MIR Moto5 as a wildcard; invited to the Red Bull MotoGP Rookies Cup Selection Event, one of around 120 riders.
-- 2025: PreMoto3. 2026: finished school, trains full time. Next objective (2027): ESBK Talent Cup. Calendar: "To be confirmed".
+- 2025: PreMoto3. 2026: finished school, trains full time. Next objective (2027): ESBK Talent Cup. Calendar: "To be announced".
 - Training: gym four days a week, track three days a week.
 - Costs (items only): track time, coaching, travel, gym, road bike hire; tyres (a set about every two weeks), brakes, boots (every two to three months), race leathers, cycling kit; two helmets a season (race and training).
 - Instagram @josh.wood36 (https://www.instagram.com/josh.wood36/): 3,200 followers (12 Oct 2026); pinned posts 138K, 43.2K and 31.7K views (8 Oct 2026).
@@ -169,11 +170,12 @@ Outreach-only angles (not on the site): no racing family; a student of the sport
 - Red Bull article: "selectors" and "selected riders" in the interviewer's questions are approved as written. The ban on "selected" is about Josh and the Red Bull event: never say he was selected.
 - Media kit: the long bio keeps "no racing family" and "a student of the sport", and the Euro Weekly News pull quote stays (attributed to the outlet, no date). Talk Radio Europe and RTV Marbella are listed without dates.
 - Pitch decks and the old `partner.html` are removed and their URLs redirect to `/work-with-josh/`. `gallery.html` stays as it is (old layout and wording, left alone on purpose).
+- Homepage: "racing championships across Europe" and "competes across Europe" stay (Spain and Portugal are Europe). The timeline says "invited to race as a wildcard for Team Quaresma". The Euro Weekly News quote has no date there either. "Racing now" shows "To be announced." The email sign-up is kept and sends to Formspree.
 - Google Analytics keeps visit data for 2 months (stated on `/privacy/`; the GA account setting must match).
 
 ## Open items (do not resolve by guessing)
 1. FTV and Marbella Noticias links once uploaded to YouTube.
-2. Racing calendar stays "To be confirmed" until announced.
+2. Racing calendar stays "To be announced" until it is published.
 3. Livery and logo positions to confirm with team and championship before partners sign; tyre categories subject to ESBK and team rules.
 4. Media kit: full-resolution photos and credits on request; confirm whether Josh gives interviews in English and Spanish.
 5. Athlete page: more photos to come (clothed strength training); road cycling photo is only 736px wide.
