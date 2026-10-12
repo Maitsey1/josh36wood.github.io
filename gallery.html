@@ -1,361 +1,116 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-56M0RX694E"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag("js", new Date());
-    gtag("config", "G-56M0RX694E");
-  </script>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Gallery — Joshua Wood Racing</title>
-<meta name="description" content="Race, training and Red Bull Rookies Cup photography from Josh Wood’s road to the 2026 European Talent Cup."/>
-<link rel="icon" type="image/svg+xml" href="favicon.svg"/>
-<link rel="icon" type="image/png" href="favicon.png"/>
-<meta property="og:type" content="website"/>
-<meta property="og:site_name" content="Josh Wood #36"/>
-<meta property="og:title" content="Gallery — Josh Wood Racing"/>
-<meta property="og:description" content="Race, training and Red Bull Rookies Cup photography from Josh Wood’s road to the 2026 European Talent Cup."/>
-<meta property="og:image" content="https://josh36wood.com/og_image.jpg"/>
-<meta property="og:url" content="https://josh36wood.com/gallery.html"/>
-<meta name="twitter:card" content="summary_large_image"/>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;900&display=swap" rel="stylesheet"/>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --bg: #0d0d0d;
-      --purple: #7b2fbe;
-      --purple-light: #a855f7;
-      --border: rgba(255,255,255,0.07);
-    }
-    body { background: var(--bg); color: #fff; font-family: 'Barlow Condensed', sans-serif; overflow-x: hidden; }
-
-    /* NAV */
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; align-items: center; justify-content: space-between; padding: 18px 48px; background: rgba(13,13,13,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
-    .nav-logo { font-weight: 900; font-size: 1.4rem; letter-spacing: 0.08em; text-transform: uppercase; color: #fff; text-decoration: none; }
-    .nav-logo span { color: var(--purple-light); }
-    .nav-links { display: flex; gap: 36px; list-style: none; }
-    .nav-links a { font-weight: 600; font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s; }
-    .nav-links a:hover, .nav-links a.active { color: var(--purple-light); }
-
-    /* PAGE */
-    .gw { padding: 110px 48px 80px; }
-    .gh { margin-bottom: 28px; }
-    .gt { color: var(--purple-light); font-size: 11px; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 8px; }
-    .gtitle { color: #fff; font-size: 52px; font-weight: 900; line-height: 0.9; text-transform: uppercase; letter-spacing: -1px; }
-    .gtitle span { color: var(--purple-light); }
-    .gdiv { width: 48px; height: 3px; background: var(--purple); margin: 14px 0 22px; }
-
-    /* FILTERS */
-    .gfilters { display: flex; gap: 8px; margin-bottom: 28px; flex-wrap: wrap; }
-    .gf { background: transparent; border: 1px solid #2a2a2a; color: #888; padding: 7px 18px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; font-family: 'Barlow Condensed', sans-serif; transition: all 0.18s; }
-    .gf:hover { border-color: var(--purple-light); color: #fff; }
-    .gf.on { background: var(--purple); border-color: var(--purple); color: #fff; }
-
-    /* PHOTO GRID */
-    .photo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
-    .photo-grid .item { position: relative; overflow: hidden; background: #111; cursor: pointer; height: 380px; }
-    .photo-grid .item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s; filter: brightness(0.88); }
-    .photo-grid .item:hover img { transform: scale(1.04); filter: brightness(1); }
-    .cap { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); padding: 28px 12px 10px; opacity: 0; transition: opacity 0.2s; }
-    .photo-grid .item:hover .cap { opacity: 1; }
-    .ct { color: #fff; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; }
-    .cs { color: var(--purple-light); font-size: 9px; letter-spacing: 1px; text-transform: uppercase; margin-top: 2px; }
-
-    /* SHOW MORE */
-    .show-more-wrap { display: none; justify-content: center; align-items: center; flex-direction: column; gap: 10px; margin-top: 28px; }
-    .show-more-wrap.visible { display: flex; }
-    #showMoreBtn { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #fff; background: transparent; border: 1px solid var(--purple); padding: 12px 36px; cursor: pointer; transition: all 0.2s; }
-    #showMoreBtn:hover { background: var(--purple); }
-    #photoCount { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #555; }
-
-    /* REELS */
-    .vsec { margin-top: 56px; padding-top: 28px; border-top: 1px solid #1a1a1a; }
-    .vt { color: var(--purple-light); font-size: 11px; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 20px; }
-    .vrow { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
-    .vcard { background: #111; border: 1px solid #1a1a1a; border-radius: 3px; overflow: hidden; }
-    .vcard-hdr { padding: 12px 16px; border-bottom: 1px solid #1a1a1a; }
-    .vcard-tag { color: var(--purple-light); font-size: 10px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 3px; }
-    .vcard-hdr h3 { color: #fff; font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
-    .vembed { display: flex; justify-content: center; background: #000; padding: 8px; }
-    .vembed blockquote.instagram-media { background: #fff !important; border: 0 !important; border-radius: 3px !important; box-shadow: none !important; margin: 0 auto !important; max-width: 100% !important; min-width: 0 !important; width: 100% !important; padding: 0 !important; }
-
-    /* LIGHTBOX */
-    .lb { display: none; position: fixed; inset: 0; z-index: 999; background: rgba(0,0,0,0.94); align-items: center; justify-content: center; }
-    .lb.open { display: flex; }
-    .lb-inner { position: relative; display: flex; flex-direction: column; align-items: center; }
-    .lb-inner img { max-width: 88vw; max-height: 85vh; object-fit: contain; display: block; }
-    .lb-close { position: absolute; top: -42px; right: 0; background: none; border: none; color: rgba(255,255,255,0.6); font-size: 1.6rem; cursor: pointer; transition: color 0.2s; }
-    .lb-close:hover { color: #fff; }
-    .lb-nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(123,47,190,0.55); border: none; color: #fff; font-size: 1.4rem; width: 42px; height: 42px; cursor: pointer; display: flex; align-items: center; justify-content: center; border-radius: 2px; transition: background 0.2s; }
-    .lb-nav:hover { background: var(--purple); }
-    .lb-prev { right: calc(100% + 12px); }
-    .lb-next { left: calc(100% + 12px); }
-    .lb-cap { margin-top: 12px; font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--purple-light); }
-
-    /* FOOTER */
-    footer { border-top: 1px solid var(--border); padding: 32px 48px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
-    .f-logo { font-weight: 900; font-size: 1.1rem; letter-spacing: 0.08em; text-transform: uppercase; color: #fff; }
-    .f-logo span { color: var(--purple-light); }
-    footer p { font-size: 0.78rem; color: #888; }
-    footer a { font-size: 0.78rem; color: var(--purple-light); text-decoration: none; }
-
-    @media (max-width: 768px) {
-      nav { padding: 14px 20px; }
-      .nav-links { gap: 16px; }
-      .gw { padding: 90px 20px 60px; }
-      .gtitle { font-size: 36px; }
-      .photo-grid { grid-template-columns: 1fr 1fr; }
-      .photo-grid .item { height: 220px; }
-      .vrow { grid-template-columns: 1fr; }
-      footer { padding: 24px 20px; }
-    }
-    @media (max-width: 480px) {
-      .photo-grid { grid-template-columns: 1fr; }
-      .photo-grid .item { height: 260px; }
-    }
-  </style>
-</head>
-<body>
-
-<nav>
-  <a href="index.html" class="nav-logo">Josh <span>#36</span> Wood</a>
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="gallery.html" class="active">Gallery</a></li>
-    <li><a href="partner.html">Partner</a></li>
-    <li><a href="request-deck.html">Deck</a></li>
-  </ul>
-</nav>
-
-<div class="gw">
-
-  <div class="gh">
-    <div class="gt">2026 Season</div>
-    <div class="gtitle">In The<br><span>Frame</span></div>
-    <div class="gdiv"></div>
-  </div>
-
-  <div class="gfilters">
-    <button class="gf on" data-filter="all">All</button>
-    <button class="gf" data-filter="training">Training</button>
-    <button class="gf" data-filter="redbull">Red Bull Rookies</button>
-    <button class="gf" data-filter="race">Race Day</button>
-    <button class="gf" data-filter="behind">Behind The Scenes</button>
-    <button class="gf" data-filter="media">Media</button>
-  </div>
-
-  <div class="photo-grid" id="photoGrid"></div>
-
-  <div class="show-more-wrap" id="showMoreWrap">
-    <button id="showMoreBtn">Show More</button>
-    <span id="photoCount"></span>
-  </div>
-
-  <div class="vsec">
-    <div class="vt">On Camera</div>
-    <div class="vrow">
-      <div class="vcard">
-        <div class="vcard-hdr">
-          <p class="vcard-tag">Red Bull Rookies Cup</p>
-          <h3>Tryout Selection</h3>
-        </div>
-        <div class="vembed">
-          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DAnf_5TtEoG/" data-instgrm-version="14"></blockquote>
-        </div>
-      </div>
-      <div class="vcard">
-        <div class="vcard-hdr">
-          <p class="vcard-tag">MirCup</p>
-          <h3>Race Footage</h3>
-        </div>
-        <div class="vembed">
-          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DOQW3g0jPKL/" data-instgrm-version="14"></blockquote>
-        </div>
-      </div>
-      <div class="vcard">
-        <div class="vcard-hdr">
-          <p class="vcard-tag">MirCup</p>
-          <h3>Pre-Race Interview</h3>
-        </div>
-        <div class="vembed">
-          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/C_6Dyoot5iX/" data-instgrm-version="14"></blockquote>
-        </div>
-      </div>
+---
+layout: default
+title: Gallery
+description: Training, race weekends, the Red Bull selection event and the days around them.
+---
+<div class="gallery">
+<section class="gallery-hero" id="top">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Gallery</p>
+      <h1>In the frame</h1>
     </div>
+    <p class="standfirst">Training, race weekends, the Red Bull selection event and the days around them.</p>
   </div>
+</section>
 
-</div>
-
-<footer>
-  <div class="f-logo">Josh <span>#36</span> Wood</div>
-  <p>Season opens Barcelona · 24 May 2026</p>
-  <a href="mailto:Maiteland@belallure.travel">Maiteland@belallure.travel</a>
-</footer>
-
-<div class="lb" id="lb">
-  <div class="lb-inner">
-    <button class="lb-close" id="lbClose">&#x2715; Close</button>
-    <button class="lb-nav lb-prev" id="lbPrev">&#8592;</button>
-    <img src="" alt="" id="lbImg"/>
-    <button class="lb-nav lb-next" id="lbNext">&#8594;</button>
-    <p class="lb-cap" id="lbCap"></p>
+<div class="filters" role="toolbar" aria-label="Filter photographs">
+  <div class="wrap" id="chips">
+    <button class="chip" type="button" data-cat="all" aria-pressed="true">All<span>53</span></button>
+    <button class="chip" type="button" data-cat="training" aria-pressed="false">Training<span>12</span></button>
+    <button class="chip" type="button" data-cat="racing" aria-pressed="false">Racing<span>15</span></button>
+    <button class="chip" type="button" data-cat="redbull" aria-pressed="false">Red Bull selection<span>9</span></button>
+    <button class="chip" type="button" data-cat="behind" aria-pressed="false">Behind the scenes<span>12</span></button>
+    <button class="chip" type="button" data-cat="media" aria-pressed="false">Media<span>5</span></button>
   </div>
 </div>
+<noscript><style>.gallery .filters { display: none; }</style></noscript>
 
-<script>
-  const PHOTOS = [
-    { src:'redbull3.jpeg',           cat:'redbull', title:'Riders Walk',           sub:'Red Bull Rookies' },
-    { src:'race1.jpeg',              cat:'race',    title:'On The Limit',          sub:'Race Day' },
-    { src:'training2.jpeg',          cat:'training',title:'Sunset Session',        sub:'Training' },
-    { src:'redbull5.jpeg',           cat:'redbull', title:'Pit Lane Briefing',     sub:'Red Bull Rookies' },
-    { src:'race5.jpeg',              cat:'race',    title:'Race Start',            sub:'Race Day' },
-    { src:'trackwalk4.jpeg',         cat:'redbull', title:'Track Walk',            sub:'Red Bull Rookies' },
-    { src:'behindscene2.jpeg',       cat:'behind',  title:'Marc Marquez Monument', sub:'Behind The Scenes' },
-    { src:'training4.jpeg',          cat:'training',title:'Corner Speed',          sub:'Training' },
-    { src:'redbull6.jpeg',           cat:'redbull', title:'One of 120',         sub:'Red Bull Rookies' },
-    { src:'behindscene3.jpeg',       cat:'behind',  title:'Garage',                sub:'Behind The Scenes' },
-    { src:'race4.jpeg',              cat:'race',    title:'Pack Racing',           sub:'Race Day' },
-    { src:'trackwalk2.jpeg',         cat:'behind',  title:'Track Walk',            sub:'Portimao' },
-    { src:'media1.png',              cat:'media',   title:'FTV Interview',         sub:'Media' },
-    { src:'media.jpeg',              cat:'media',   title:'Talk Radio Europe',     sub:'Media' },
-    { src:'media2.png',              cat:'media',   title:'FTV Panel',             sub:'Media' },
-    { src:'Interview_Marbella_.jpeg',cat:'media',   title:'Marbella Noticias',     sub:'Media' },
-    { src:'redbull2.jpeg',           cat:'redbull', title:'Selection Day',         sub:'Red Bull Rookies' },
-    { src:'redbull4.jpeg',           cat:'redbull', title:'On Track',              sub:'Red Bull Rookies' },
-    { src:'training1.jpeg',          cat:'training',title:'SPN Academy',           sub:'Training' },
-    { src:'training3.jpeg',          cat:'training',title:'On The Brakes',         sub:'Training' },
-    { src:'training5.jpeg',          cat:'training',title:'Track Time',            sub:'Training' },
-    { src:'race2.jpeg',              cat:'race',    title:'Full Lean',             sub:'Race Day' },
-    { src:'behindscene1.jpeg',       cat:'behind',  title:'Pit Lane',              sub:'Behind The Scenes' },
-    { src:'race3.jpeg',              cat:'race',    title:'Mid Corner',            sub:'Race Day' },
-    { src:'behindscene4.jpeg',       cat:'behind',  title:'Team Debrief',          sub:'Behind The Scenes' },
-    // ADD NEW PHOTOS BELOW THIS LINE
-    { src:'behindscene5.jpeg',       cat:'behind',  title:'Race Day Prep',         sub:'Behind The Scenes' },
-    { src:'behindscene6.jpeg',       cat:'behind',  title:'With The Team',         sub:'Behind The Scenes' },
-    { src:'trackwalk1.jpeg',         cat:'behind',  title:'Track Walk',            sub:'Circuit de Catalunya' },
-    { src:'trackwalk3.jpeg',         cat:'behind',  title:'Track Walk',            sub:'Jerez' },
-  ];
+<div class="wrap">
+  <div class="wall" id="wall">
+    <figure class="ph" data-cat="racing"><button type="button" aria-label="Open Apex at Calafat"><img src="/assets/img/gallery/g-r-calafat.jpg" alt="Apex at Calafat, MIR Racing" width="1400" height="1050" loading="lazy"></button><figcaption><b>Apex at Calafat</b><span>MIR Racing</span></figcaption></figure>
+    <figure class="ph" data-cat="racing"><button type="button" aria-label="Open Max lean"><img src="/assets/img/gallery/g-r-max.jpg" alt="Max lean, MIR Racing" width="1119" height="1400" loading="lazy"></button><figcaption><b>Max lean</b><span>MIR Racing</span></figcaption></figure>
+    <figure class="ph" data-cat="racing"><button type="button" aria-label="Open Final checks on the grid"><img src="/assets/img/gallery/g-r-checks.jpg" alt="Final checks on the grid, Team Quaresma" width="1050" height="1400" loading="lazy"></button><figcaption><b>Final checks on the grid</b><span>Team Quaresma</span></figcaption></figure>
+    <figure class="ph" data-cat="training"><button type="button" aria-label="Open Corner speed"><img src="/assets/img/gallery/g-training2.jpg" alt="Corner speed, Training" width="1200" height="899" loading="lazy"></button><figcaption><b>Corner speed</b><span>Training</span></figcaption></figure>
+    <figure class="ph" data-cat="training"><button type="button" aria-label="Open Start practice"><img src="/assets/img/gallery/g-t-flag.jpg" alt="Start practice, SPN Academy" width="1050" height="1400" loading="lazy"></button><figcaption><b>Start practice</b><span>SPN Academy</span></figcaption></figure>
+    <figure class="ph" data-cat="redbull"><button type="button" aria-label="Open Riders walk out"><img src="/assets/img/gallery/g-redbull3.jpg" alt="Riders walk out, Selection Event, 2024" width="900" height="1200" loading="lazy"></button><figcaption><b>Riders walk out</b><span>Selection Event, 2024</span></figcaption></figure>
+    <figure class="ph" data-cat="racing"><button type="button" aria-label="Open Ready to go out"><img src="/assets/img/gallery/g-r-grid.jpg" alt="Ready to go out, MIR Racing" width="959" height="1200" loading="lazy"></button><figcaption><b>Ready to go out</b><span>MIR Racing</span></figcaption></figure>
+    <figure class="ph" data-cat="training"><button type="button" aria-label="Open Full lean"><img src="/assets/img/gallery/g-t-lean.jpg" alt="Full lean, SPN Academy" width="900" height="1200" loading="lazy"></button><figcaption><b>Full lean</b><span>SPN Academy</span></figcaption></figure>
+    <figure class="ph" data-cat="behind"><button type="button" aria-label="Open Reaction drills"><img src="/assets/img/gallery/g-b-reaction.jpg" alt="Reaction drills, MIR Racing" width="1050" height="1400" loading="lazy"></button><figcaption><b>Reaction drills</b><span>MIR Racing</span></figcaption></figure>
+    <figure class="ph" data-cat="racing"><button type="button" aria-label="Open On the limit"><img src="/assets/img/gallery/g-race4.jpg" alt="On the limit, Racing" width="959" height="1200" loading="lazy"></button><figcaption><b>On the limit</b><span>Racing</span></figcaption></figure>
+    <figure class="ph" data-cat="redbull"><button type="button" aria-label="Open Rider debrief"><img src="/assets/img/gallery/g-rb-debrief.jpg" alt="Rider debrief, Selection Event, 2024" width="1050" height="1400" loading="lazy"></button><figcaption><b>Rider debrief</b><span>Selection Event, 2024</span></figcaption></figure>
+    <figure class="ph" data-cat="racing"><button type="button" aria-label="Open Close racing"><img src="/assets/img/gallery/g-r-close.jpg" alt="Close racing, MIR Racing" width="1200" height="900" loading="lazy"></button><figcaption><b>Close racing</b><span>MIR Racing</span></figcaption></figure>
+    <figure class="ph" data-cat="behind"><button type="button" aria-label="Open The #36 in the garage"><img src="/assets/img/gallery/g-b-bike.jpg" alt="The #36 in the garage, Team Quaresma" width="1050" height="1400" loading="lazy"></button><figcaption><b>The #36 in the garage</b><span>Team Quaresma</span></figcaption></figure>
+    <figure class="ph" data-cat="behind"><button type="button" aria-label="Open Track walk"><img src="/assets/img/gallery/g-trackwalk2.jpg" alt="Track walk, Portimão" width="900" height="1200" loading="lazy"></button><figcaption><b>Track walk</b><span>Portimão</span></figcaption></figure>
+    <figure class="ph" data-cat="racing"><button type="button" aria-label="Open Race start"><img src="/assets/img/gallery/g-race1.jpg" alt="Race start, Racing" width="856" height="1200" loading="lazy"></button><figcaption><b>Race start</b><span>Racing</span></figcaption></figure>
+    <figure class="ph" data-cat="media"><button type="button" aria-label="Open RTV Marbella"><img src="/assets/img/gallery/g-rtv.jpg" alt="RTV Marbella, Television" width="1400" height="845" loading="lazy"></button><figcaption><b>RTV Marbella</b><span>Television</span></figcaption></figure>
+    <figure class="ph" data-cat="training"><button type="button" aria-label="Open Sunset session"><img src="/assets/img/gallery/g-training4.jpg" alt="Sunset session, SPN Academy" width="900" height="1200" loading="lazy"></button><figcaption><b>Sunset session</b><span>SPN Academy</span></figcaption></figure>
+    <figure class="ph" data-cat="redbull"><button type="button" aria-label="Open Pit lane briefing"><img src="/assets/img/gallery/g-redbull5.jpg" alt="Pit lane briefing, Selection Event, 2024" width="790" height="1200" loading="lazy"></button><figcaption><b>Pit lane briefing</b><span>Selection Event, 2024</span></figcaption></figure>
+    <figure class="ph" data-cat="racing"><button type="button" aria-label="Open Full lean"><img src="/assets/img/gallery/g-race5.jpg" alt="Full lean, Racing" width="1200" height="900" loading="lazy"></button><figcaption><b>Full lean</b><span>Racing</span></figcaption></figure>
+    <figure class="ph" data-cat="training"><button type="button" aria-label="Open Session briefing"><img src="/assets/img/gallery/g-t-brief.jpg" alt="Session briefing, SPN Academy" width="900" height="1200" loading="lazy"></button><figcaption><b>Session briefing</b><span>SPN Academy</span></figcaption></figure>
+    <figure class="ph" data-cat="training"><button type="button" aria-label="Open Between sessions"><img src="/assets/img/gallery/g-t-between.jpg" alt="Between sessions, Training" width="1050" height="1400" loading="lazy"></button><figcaption><b>Between sessions</b><span>Training</span></figcaption></figure>
+    <figure class="ph" data-cat="behind"><button type="button" aria-label="Open Pit lane"><img src="/assets/img/gallery/g-behindscene1.jpg" alt="Pit lane, Team Quaresma" width="900" height="1200" loading="lazy"></button><figcaption><b>Pit lane</b><span>Team Quaresma</span></figcaption></figure>
+    <figure class="ph" data-cat="racing"><button type="button" aria-label="Open Turn-in"><img src="/assets/img/gallery/g-r-turnin.jpg" alt="Turn-in, MIR Racing" width="959" height="1200" loading="lazy"></button><figcaption><b>Turn-in</b><span>MIR Racing</span></figcaption></figure>
+    <figure class="ph" data-cat="racing"><button type="button" aria-label="Open Ahead of the group"><img src="/assets/img/gallery/g-r-ahead.jpg" alt="Ahead of the group, MIR Racing" width="1400" height="1050" loading="lazy"></button><figcaption><b>Ahead of the group</b><span>MIR Racing</span></figcaption></figure>
+    <figure class="ph" data-cat="media"><button type="button" aria-label="Open Talk Radio Europe"><img src="/assets/img/gallery/g-media.jpg" alt="Talk Radio Europe, Radio" width="900" height="1200" loading="lazy"></button><figcaption><b>Talk Radio Europe</b><span>Radio</span></figcaption></figure>
+    <figure class="ph" data-cat="training"><button type="button" aria-label="Open On the brakes"><img src="/assets/img/gallery/g-training3.jpg" alt="On the brakes, Training" width="1200" height="900" loading="lazy"></button><figcaption><b>On the brakes</b><span>Training</span></figcaption></figure>
+    <figure class="ph" data-cat="redbull"><button type="button" aria-label="Open Track walk"><img src="/assets/img/gallery/g-trackwalk1.jpg" alt="Track walk, Selection Event, 2024" width="1200" height="953" loading="lazy"></button><figcaption><b>Track walk</b><span>Selection Event, 2024</span></figcaption></figure>
+    <figure class="ph" data-cat="training"><button type="button" aria-label="Open Gloves on"><img src="/assets/img/gallery/g-t-gloves.jpg" alt="Gloves on, Training" width="1050" height="1400" loading="lazy"></button><figcaption><b>Gloves on</b><span>Training</span></figcaption></figure>
+    <figure class="ph" data-cat="behind"><button type="button" aria-label="Open Race-day prep"><img src="/assets/img/gallery/g-behindscene2.jpg" alt="Race-day prep, Behind the scenes" width="900" height="1200" loading="lazy"></button><figcaption><b>Race-day prep</b><span>Behind the scenes</span></figcaption></figure>
+    <figure class="ph" data-cat="behind"><button type="button" aria-label="Open Waiting to go out"><img src="/assets/img/gallery/g-b-box.jpg" alt="Waiting to go out, MIR Racing" width="1050" height="1400" loading="lazy"></button><figcaption><b>Waiting to go out</b><span>MIR Racing</span></figcaption></figure>
+    <figure class="ph" data-cat="racing"><button type="button" aria-label="Open Pack racing"><img src="/assets/img/gallery/g-race2.jpg" alt="Pack racing, Racing" width="1200" height="900" loading="lazy"></button><figcaption><b>Pack racing</b><span>Racing</span></figcaption></figure>
+    <figure class="ph" data-cat="training"><button type="button" aria-label="Open Knee down"><img src="/assets/img/gallery/g-t-knee.jpg" alt="Knee down, SPN Academy" width="943" height="1200" loading="lazy"></button><figcaption><b>Knee down</b><span>SPN Academy</span></figcaption></figure>
+    <figure class="ph" data-cat="media"><button type="button" aria-label="Open Área Costa del Sol"><img src="/assets/img/gallery/g-acs.jpg" alt="Área Costa del Sol, Interview" width="1050" height="1400" loading="lazy"></button><figcaption><b>Área Costa del Sol</b><span>Interview</span></figcaption></figure>
+    <figure class="ph" data-cat="media"><button type="button" aria-label="Open FTV"><img src="/assets/img/gallery/g-ftv.jpg" alt="FTV, Television, March 2025" width="1338" height="600" loading="lazy"></button><figcaption><b>FTV</b><span>Television, March 2025</span></figcaption></figure>
+    <figure class="ph" data-cat="redbull"><button type="button" aria-label="Open On track"><img src="/assets/img/gallery/g-redbull4.jpg" alt="On track, Selection Event, 2024" width="900" height="1200" loading="lazy"></button><figcaption><b>On track</b><span>Selection Event, 2024</span></figcaption></figure>
+    <figure class="ph" data-cat="racing"><button type="button" aria-label="Open Waiting for the start"><img src="/assets/img/gallery/g-r-wait.jpg" alt="Waiting for the start, Team Quaresma" width="1400" height="1279" loading="lazy"></button><figcaption><b>Waiting for the start</b><span>Team Quaresma</span></figcaption></figure>
+    <figure class="ph" data-cat="behind"><button type="button" aria-label="Open In the garage"><img src="/assets/img/gallery/g-behindscene3.jpg" alt="In the garage, Team Quaresma" width="900" height="1200" loading="lazy"></button><figcaption><b>In the garage</b><span>Team Quaresma</span></figcaption></figure>
+    <figure class="ph" data-cat="redbull"><button type="button" aria-label="Open Waiting in pit lane"><img src="/assets/img/gallery/g-rb-pitlane.jpg" alt="Waiting in pit lane, Selection Event, 2024" width="1050" height="1400" loading="lazy"></button><figcaption><b>Waiting in pit lane</b><span>Selection Event, 2024</span></figcaption></figure>
+    <figure class="ph" data-cat="training"><button type="button" aria-label="Open SPN Academy"><img src="/assets/img/gallery/g-training1.jpg" alt="SPN Academy, Training" width="900" height="1200" loading="lazy"></button><figcaption><b>SPN Academy</b><span>Training</span></figcaption></figure>
+    <figure class="ph" data-cat="behind"><button type="button" aria-label="Open Track walk"><img src="/assets/img/gallery/g-trackwalk4.jpg" alt="Track walk, Behind the scenes" width="1200" height="900" loading="lazy"></button><figcaption><b>Track walk</b><span>Behind the scenes</span></figcaption></figure>
+    <figure class="ph" data-cat="redbull"><button type="button" aria-label="Open Selection day"><img src="/assets/img/gallery/g-redbull2.jpg" alt="Selection day, Selection Event, 2024" width="705" height="1200" loading="lazy"></button><figcaption><b>Selection day</b><span>Selection Event, 2024</span></figcaption></figure>
+    <figure class="ph" data-cat="redbull"><button type="button" aria-label="Open Between runs"><img src="/assets/img/gallery/g-rb-between.jpg" alt="Between runs, Selection Event, 2024" width="831" height="1400" loading="lazy"></button><figcaption><b>Between runs</b><span>Selection Event, 2024</span></figcaption></figure>
+    <figure class="ph" data-cat="racing"><button type="button" aria-label="Open Through the pack"><img src="/assets/img/gallery/g-r-pack.jpg" alt="Through the pack, MIR Racing" width="859" height="1200" loading="lazy"></button><figcaption><b>Through the pack</b><span>MIR Racing</span></figcaption></figure>
+    <figure class="ph" data-cat="training"><button type="button" aria-label="Open Before a track session"><img src="/assets/img/gallery/g-t-r6.jpg" alt="Before a track session, R6 track day" width="900" height="1200" loading="lazy"></button><figcaption><b>Before a track session</b><span>R6 track day</span></figcaption></figure>
+    <figure class="ph" data-cat="behind"><button type="button" aria-label="Open Debrief in the garage"><img src="/assets/img/gallery/g-b-debrief.jpg" alt="Debrief in the garage, Team Quaresma" width="1050" height="1400" loading="lazy"></button><figcaption><b>Debrief in the garage</b><span>Team Quaresma</span></figcaption></figure>
+    <figure class="ph" data-cat="behind"><button type="button" aria-label="Open With the bike"><img src="/assets/img/gallery/g-behindscene5.jpg" alt="With the bike, Behind the scenes" width="900" height="1200" loading="lazy"></button><figcaption><b>With the bike</b><span>Behind the scenes</span></figcaption></figure>
+    <figure class="ph" data-cat="training"><button type="button" aria-label="Open SPN Academy riders"><img src="/assets/img/gallery/g-training5.jpg" alt="SPN Academy riders, Málaga" width="1200" height="899" loading="lazy"></button><figcaption><b>SPN Academy riders</b><span>Málaga</span></figcaption></figure>
+    <figure class="ph" data-cat="redbull"><button type="button" aria-label="Open Back in the pit lane"><img src="/assets/img/gallery/g-rb-back.jpg" alt="Back in the pit lane, Selection Event, 2024" width="1050" height="1400" loading="lazy"></button><figcaption><b>Back in the pit lane</b><span>Selection Event, 2024</span></figcaption></figure>
+    <figure class="ph" data-cat="media"><button type="button" aria-label="Open RTV Marbella"><img src="/assets/img/gallery/g-interviewmarbella.jpg" alt="RTV Marbella, English Edition" width="1200" height="900" loading="lazy"></button><figcaption><b>RTV Marbella</b><span>English Edition</span></figcaption></figure>
+    <figure class="ph" data-cat="behind"><button type="button" aria-label="Open Marc Márquez monument"><img src="/assets/img/gallery/g-behindscene4.jpg" alt="Marc Márquez monument, Behind the scenes" width="871" height="1200" loading="lazy"></button><figcaption><b>Marc Márquez monument</b><span>Behind the scenes</span></figcaption></figure>
+    <figure class="ph" data-cat="racing"><button type="button" aria-label="Open Over the kerb"><img src="/assets/img/gallery/g-r-apex.jpg" alt="Over the kerb, MIR Racing" width="857" height="1200" loading="lazy"></button><figcaption><b>Over the kerb</b><span>MIR Racing</span></figcaption></figure>
+    <figure class="ph" data-cat="behind"><button type="button" aria-label="Open Last word before the session"><img src="/assets/img/gallery/g-b-word.jpg" alt="Last word before the session, MIR Racing" width="1050" height="1400" loading="lazy"></button><figcaption><b>Last word before the session</b><span>MIR Racing</span></figcaption></figure>
+    <figure class="ph" data-cat="racing"><button type="button" aria-label="Open Elbow down"><img src="/assets/img/gallery/g-r-knee.jpg" alt="Elbow down, MIR Racing" width="857" height="1200" loading="lazy"></button><figcaption><b>Elbow down</b><span>MIR Racing</span></figcaption></figure>
+  </div>
+</div>
 
-  const INITIAL_COUNT = 24;
-  const PAGE_SIZE = 9;
+<section class="camera">
+  <div class="wrap">
+    <h2>On camera</h2>
+    <ul class="reels">
+      <li><small>Red Bull MotoGP Rookies Cup</small><strong>Selection Event</strong><a href="https://www.instagram.com/reel/DAnf_5TtEoG/">Watch on Instagram</a></li>
+      <li><small>MIR Racing</small><strong>Race footage</strong><a href="https://www.instagram.com/reel/DOQW3g0jPKL/">Watch on Instagram</a></li>
+      <li><small>MIR Racing</small><strong>Pre-race interview</strong><a href="https://www.instagram.com/reel/C_6Dyoot5iX/">Watch on Instagram</a></li>
+    </ul>
+  </div>
+</section>
 
-  const photoGrid    = document.getElementById('photoGrid');
-  const showMoreWrap = document.getElementById('showMoreWrap');
-  const showMoreBtn  = document.getElementById('showMoreBtn');
-  const photoCount   = document.getElementById('photoCount');
-  const lb           = document.getElementById('lb');
-  const lbImg        = document.getElementById('lbImg');
-  const lbCap        = document.getElementById('lbCap');
+<section class="gallery-cta">
+  <div class="wrap">
+    <h2>Back the next step</h2>
+    <a class="btn" href="/work-with-josh/">Work with Josh</a>
+  </div>
+</section>
+</div>
 
-  let activePhotos  = [];
-  let loadedUpTo    = 0;
-  let cur           = 0;
-  let currentFilter = 'all';
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Photograph">
+  <div class="lb-top"><span id="lbCount"></span><button type="button" id="lbClose">Close</button></div>
+  <div class="lb-stage">
+    <button type="button" class="nav-btn" id="lbPrev" aria-label="Previous photograph">←</button>
+    <img id="lbImg" alt="">
+    <button type="button" class="nav-btn" id="lbNext" aria-label="Next photograph">→</button>
+  </div>
+  <p class="lb-cap" id="lbCap"></p>
+</div>
 
-  function getPool(filter) {
-    return filter === 'all' ? PHOTOS : PHOTOS.filter(function(p){ return p.cat === filter; });
-  }
-
-  function makeTile(photo, lbIndex) {
-    var div = document.createElement('div');
-    div.className = 'item';
-    div.innerHTML =
-      '<img src="' + photo.src + '" alt="' + photo.title + '" loading="lazy"/>' +
-      '<div class="cap"><div class="ct">' + photo.title + '</div><div class="cs">' + photo.sub + '</div></div>';
-    div.addEventListener('click', function() {
-      activePhotos = getPool(currentFilter).slice(0, loadedUpTo);
-      openLb(lbIndex);
-    });
-    return div;
-  }
-
-  function updateBtn() {
-    var pool = getPool(currentFilter);
-    var remaining = pool.length - loadedUpTo;
-    if (remaining <= 0) {
-      showMoreWrap.classList.remove('visible');
-    } else {
-      showMoreWrap.classList.add('visible');
-      photoCount.textContent = Math.min(remaining, PAGE_SIZE) + ' of ' + remaining + ' remaining';
-    }
-  }
-
-  function render(filter) {
-    currentFilter = filter;
-    photoGrid.innerHTML = '';
-    loadedUpTo = 0;
-    var pool = getPool(filter);
-    var batch = pool.slice(0, INITIAL_COUNT);
-    loadedUpTo = batch.length;
-    for (var i = 0; i < batch.length; i++) {
-      photoGrid.appendChild(makeTile(batch[i], i));
-    }
-    activePhotos = pool.slice(0, loadedUpTo);
-    updateBtn();
-  }
-
-  render('all');
-
-  showMoreBtn.addEventListener('click', function() {
-    var pool = getPool(currentFilter);
-    var start = loadedUpTo;
-    var batch = pool.slice(start, start + PAGE_SIZE);
-    for (var i = 0; i < batch.length; i++) {
-      photoGrid.appendChild(makeTile(batch[i], start + i));
-    }
-    loadedUpTo = Math.min(start + PAGE_SIZE, pool.length);
-    activePhotos = pool.slice(0, loadedUpTo);
-    updateBtn();
-  });
-
-  document.querySelectorAll('.gf').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      document.querySelectorAll('.gf').forEach(function(b){ b.classList.remove('on'); });
-      btn.classList.add('on');
-      render(btn.dataset.filter);
-    });
-  });
-
-  function openLb(index) {
-    cur = index;
-    lbImg.src = activePhotos[cur].src;
-    lbCap.textContent = activePhotos[cur].title + ' — ' + activePhotos[cur].sub;
-    lb.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeLb() {
-    lb.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  document.getElementById('lbClose').addEventListener('click', closeLb);
-  lb.addEventListener('click', function(e){ if (e.target === lb) closeLb(); });
-
-  document.getElementById('lbPrev').addEventListener('click', function() {
-    cur = (cur - 1 + activePhotos.length) % activePhotos.length;
-    lbImg.src = activePhotos[cur].src;
-    lbCap.textContent = activePhotos[cur].title + ' — ' + activePhotos[cur].sub;
-  });
-
-  document.getElementById('lbNext').addEventListener('click', function() {
-    cur = (cur + 1) % activePhotos.length;
-    lbImg.src = activePhotos[cur].src;
-    lbCap.textContent = activePhotos[cur].title + ' — ' + activePhotos[cur].sub;
-  });
-
-  document.addEventListener('keydown', function(e) {
-    if (!lb.classList.contains('open')) return;
-    if (e.key === 'Escape') closeLb();
-    if (e.key === 'ArrowLeft') document.getElementById('lbPrev').click();
-    if (e.key === 'ArrowRight') document.getElementById('lbNext').click();
-  });
-</script>
-
-<script async src="https://www.instagram.com/embed.js"></script>
-</body>
-</html>
+<script src="/assets/js/gallery.js" defer></script>

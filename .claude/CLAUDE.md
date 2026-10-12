@@ -25,6 +25,7 @@ _includes/footer.html
 _includes/consent.html       # cookie banner
 assets/css/site.css        # tokens + components, one file
 assets/js/consent.js       # loads Google Analytics only after Accept
+assets/js/gallery.js       # gallery filters and photo viewer
 assets/img/                # optimised images, organised by page
 index.html                 # homepage
 story/index.html
@@ -33,13 +34,15 @@ journey/before-the-grid/index.html
 journey/walking-the-track/index.html
 journey/red-bull-selection-event/index.html
 media/index.html           # media kit
+gallery.html               # Gallery (URL stays /gallery.html), 53 photos in assets/img/gallery/
 work-with-josh/index.html  # Partner with Josh
 privacy/index.html         # Privacy, linked from the footer on every page
 ```
 Page content lives in the page files as plain HTML so Maite can find and edit text in the web editor. Do not move copy into data files or front matter beyond titles and descriptions.
 
 ## Navigation (every page)
-Story / Athlete / Journey / Media / Work with Josh.
+Story / Athlete / Journey / Media / Gallery / Work with Josh. Footer Site column: Media kit, Gallery, Work with Josh, Privacy, Cookie settings.
+- Gallery links to `/gallery.html`.
 - Journey links to `/#journey` (the homepage Journey section with the three articles).
 - Media links to `/media/`. Work with Josh links to `/work-with-josh/`.
 - There is no Partners page and no Racing page. Partners appear only as the homepage Partners section and "Already on board" on Work with Josh.
@@ -160,7 +163,7 @@ Outreach-only angles (not on the site): no racing family; a student of the sport
 - Remove pitch decks: `deck.html`, `deck_es.html`, `deck_pt.html`, `deck-old.html`, `request-deck.html`, `slides/`, `Joshua_Wood_2026.pdf`. Redirect the old deck URLs to `/work-with-josh/` with `jekyll-redirect-from`.
 - Remove `shaw_logo.png` and any Shaw reference.
 - Remove the old `partner.html` and redirect it to `/work-with-josh/`.
-- `gallery.html` and unused root images: ask Maite before deleting anything not listed here. (`hero_video.mp4` is now `assets/video/josh-film.mp4`.)
+- Unused root images: ask Maite before deleting anything not listed here. (`hero_video.mp4` is now `assets/video/josh-film.mp4`.)
 
 ## Resolved (12 October 2026)
 - Red Bull walk-out photo (Story) and Red Bull article hero: keep as is, faces unblurred.
@@ -170,8 +173,9 @@ Outreach-only angles (not on the site): no racing family; a student of the sport
 - Athlete flat track photos (both yellow Suzuki photos): Maite approved all photos on 12 October 2026. Both are on the Athlete page.
 - Red Bull article: "selectors" and "selected riders" in the interviewer's questions are approved as written. The ban on "selected" is about Josh and the Red Bull event: never say he was selected.
 - Media kit: the long bio keeps "no racing family" and "a student of the sport", and the Euro Weekly News pull quote stays (attributed to the outlet, no date). Talk Radio Europe and RTV Marbella are listed without dates.
-- Pitch decks and the old `partner.html` are removed and their URLs redirect to `/work-with-josh/`. `gallery.html` stays as it is (old layout and wording, left alone on purpose).
+- Pitch decks and the old `partner.html` are removed and their URLs redirect to `/work-with-josh/`. The gallery was rebuilt in the new style on 12 October 2026 from the approved mock-up (53 photos, filters, photo viewer), at `/gallery.html`. Photos are in `assets/img/gallery/`, in the mock-up's order. The viewer CSS keeps `.lb[hidden] { display: none; }`.
 - Homepage: "racing championships across Europe" and "competes across Europe" stay (Spain and Portugal are Europe). The timeline says "invited to race as a wildcard for Team Quaresma". The Euro Weekly News quote has no date there either. "Racing now" shows "To be announced." The email sign-up is kept and sends to Formspree.
+- Gallery: the photo text (titles, captions, alt text) is approved as it is, including "Television, March 2025" on the FTV photo. The old gallery photos in the repo root were deleted. The partner logo files in the repo root (GoPro, Hyperice, Manta Sleep, VOITED, IrOKO, Narbona, Sanyti, Bel Allure) are kept because they are partners. Only the five approved brands may appear on the site until Maite approves the others.
 - Google Analytics keeps visit data for 2 months (stated on `/privacy/`; the GA account setting must match).
 
 ## Open items (do not resolve by guessing)
