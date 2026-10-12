@@ -61,7 +61,7 @@ Exact copies of the approved pages, with their photos, are in `.claude/reference
 | `journey-walking-the-track/` | Journey article |
 | `journey-red-bull-selection-event/` | Journey article |
 
-Links inside the reference files point to claude.ai artifact URLs; replace them with the site paths in Navigation above. The mock-up enquiry form on Work with Josh does not send; wire it to Formspree on the live site. The film placeholder on Work with Josh stays out until Maite supplies the film.
+Links inside the reference files point to claude.ai artifact URLs; replace them with the site paths in Navigation above. The mock-up enquiry form on Work with Josh does not send; wire it to Formspree on the live site. The film on Work with Josh is `assets/video/josh-film.mp4` (click to play, loads only when played).
 
 `.claude/reference/` is excluded from the published site (Jekyll skips dot-folders) but the repo is public, so the files are visible on GitHub.
 
@@ -159,10 +159,11 @@ Outreach-only angles (not on the site): no racing family; a student of the sport
 - Remove pitch decks: `deck.html`, `deck_es.html`, `deck_pt.html`, `deck-old.html`, `request-deck.html`, `slides/`, `Joshua_Wood_2026.pdf`. Redirect the old deck URLs to `/work-with-josh/` with `jekyll-redirect-from`.
 - Remove `shaw_logo.png` and any Shaw reference.
 - Remove the old `partner.html` and redirect it to `/work-with-josh/`.
-- `gallery.html`, `hero_video.mp4` and unused root images: ask Maite before deleting anything not listed here.
+- `gallery.html` and unused root images: ask Maite before deleting anything not listed here. (`hero_video.mp4` is now `assets/video/josh-film.mp4`.)
 
 ## Resolved (12 October 2026)
 - Red Bull walk-out photo (Story) and Red Bull article hero: keep as is, faces unblurred.
+- The Work with Josh film is approved as it is, on Maite's decision. It is the one exception to the site rules: it shows his age in an opening title card, the name "Joshua Wood", a short shirtless treadmill clip and the wording "Selected for the Red Bull MotoGP Rookies Cup Selection Event". No other page may use any of these.
 - Photos: Maite bought the photos, so no photographer credit is needed on the site (including DBkiller Moment).
 - Partner approvals: GoPro, Hyperice, Manta Sleep, Lumie and VOITED have all approved. List them as shown in the mock-ups (product partners, never "sponsors").
 - Athlete flat track photos (both yellow Suzuki photos): Maite approved all photos on 12 October 2026. Both are on the Athlete page.
