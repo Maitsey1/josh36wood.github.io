@@ -448,8 +448,11 @@ figcaption { font-size: 13px; color: var(--sierra); margin-top: 10px; }
 .wwj * { scroll-behavior: auto !important; }
  }
 
-/* No film yet, so the hero text takes the full width */
-.wwj .wwj-hero .wrap { grid-template-columns: minmax(0, 1fr); }
+/* The film: vertical, loads only when played */
+.wwj .reel { margin: 0; justify-self: end; width: min(100%, 340px); }
+.wwj .reel video { display: block; width: 100%; height: auto; aspect-ratio: 9 / 16; background: #121311; border: 1px solid var(--rule-dark); }
+@media (max-width: 900px) { .wwj .reel { justify-self: start; } }
+@media (max-width: 560px) { .wwj .reel { width: 100%; max-width: 340px; } }
 
 .wwj .markets { margin: 24px 0 0; color: #E4E4DE; font-size: 15px; max-width: 46ch; }
 .wwj .big b { font-size: clamp(30px, 8vw, 52px); white-space: nowrap; }
