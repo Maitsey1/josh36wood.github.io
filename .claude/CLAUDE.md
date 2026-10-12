@@ -161,12 +161,15 @@ Outreach-only angles (not on the site): no racing family; a student of the sport
 
 ## Resolved (12 October 2026)
 - Red Bull walk-out photo (Story) and Red Bull article hero: keep as is, faces unblurred.
-- DBkiller Moment photos: paid for and cleared for use. Credit "Photo: DBkiller Moment" on each of their images.
+- Photos: Maite bought the photos, so no photographer credit is needed on the site (including DBkiller Moment).
 - Partner approvals: GoPro, Hyperice, Manta Sleep, Lumie and VOITED have all approved. List them as shown in the mock-ups (product partners, never "sponsors").
 - Athlete flat track photos (both yellow Suzuki photos): Maite approved all photos on 12 October 2026. Both are on the Athlete page.
+- Red Bull article: "selectors" and "selected riders" in the interviewer's questions are approved as written. This is the only place "selected" may appear.
+- Media kit: the long bio keeps "no racing family" and "a student of the sport", and the Euro Weekly News pull quote stays (attributed to the outlet, no date). Talk Radio Europe and RTV Marbella are listed without dates.
+- Google Analytics keeps visit data for 2 months (stated on `/privacy/`; the GA account setting must match).
 
 ## Open items (do not resolve by guessing)
-1. FTV and Marbella Noticias links once uploaded to YouTube; dates for Talk Radio Europe and RTV Marbella.
+1. FTV and Marbella Noticias links once uploaded to YouTube.
 2. Racing calendar stays "To be confirmed" until announced.
 3. Livery and logo positions to confirm with team and championship before partners sign; tyre categories subject to ESBK and team rules.
 4. Media kit: full-resolution photos and credits on request; confirm whether Josh gives interviews in English and Spanish.
