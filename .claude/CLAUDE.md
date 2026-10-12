@@ -102,7 +102,7 @@ Original artifacts, for reference only:
 - **Championship claims:** do not say he races in JuniorGP or any championship beyond the confirmed facts below. The next objective is the ESBK Talent Cup. Never "two championships".
 - **Safeguarding:** no age, no date of birth, no school, no home location beyond "based in Málaga", no dated weekly schedule (days, times, places), no shirtless photos.
 - **Audience figures** always carry a date and source, exactly as below.
-- **Partners:** product-only partners are never called "sponsors". A brand appears only after Maite confirms its approval (see Open items).
+- **Partners:** product-only partners are never called "sponsors". Only approved brands appear (see Resolved).
 - **Press list:** outlet, format and date only, each linked. No old headlines (several are "help" appeals). Shaw Marketing Services never appears.
 - **Contact address everywhere:** `maiteland@josh36wood.com`. Retire media@, partnerships@, sponsorships@ and any belallure.travel address.
 - **Prices:** tier prices and partnership terms may appear on `/work-with-josh/` only, as shown in the approved mock-up. No prices or cost figures anywhere else (the Athlete costs band lists items, not amounts).
@@ -147,16 +147,18 @@ Outreach-only angles (not on the site): no racing family; a student of the sport
 - Remove the old `partner.html` and redirect it to `/work-with-josh/`.
 - `gallery.html`, `hero_video.mp4` and unused root images: ask Maite before deleting anything not listed here.
 
+## Resolved (12 October 2026)
+- Red Bull walk-out photo (Story) and Red Bull article hero: keep as is, faces unblurred.
+- DBkiller Moment photos: paid for and cleared for use. Credit "Photo: DBkiller Moment" on each of their images.
+- Partner approvals: GoPro, Hyperice, Manta Sleep, Lumie and VOITED have all approved. List them as shown in the mock-ups (product partners, never "sponsors").
+
 ## Open items (do not resolve by guessing)
-1. Red Bull walk-out photo (Story) and Red Bull article hero show other riders' faces: keep or blur.
-2. DBkiller Moment: photographer permission and credit for the 2026 R6 pit-lane photo on Story.
-3. Partner approvals before launch: GoPro, Hyperice, Manta Sleep, Lumie, VOITED. Unapproved brands stay out of the live site.
-4. Yellow Suzuki flat-track photo (Athlete): confirm it was not taken near home.
-5. FTV and Marbella Noticias links once uploaded to YouTube; dates for Talk Radio Europe and RTV Marbella.
-6. Racing calendar stays "To be confirmed" until announced.
-7. Livery and logo positions to confirm with team and championship before partners sign; tyre categories subject to ESBK and team rules.
-8. Media kit: full-resolution photos and credits on request; confirm whether Josh gives interviews in English and Spanish.
-9. Athlete page: more photos to come (clothed strength training); road cycling photo is only 736px wide.
+1. Yellow Suzuki flat-track photo (Athlete): confirm it was not taken near home.
+2. FTV and Marbella Noticias links once uploaded to YouTube; dates for Talk Radio Europe and RTV Marbella.
+3. Racing calendar stays "To be confirmed" until announced.
+4. Livery and logo positions to confirm with team and championship before partners sign; tyre categories subject to ESBK and team rules.
+5. Media kit: full-resolution photos and credits on request; confirm whether Josh gives interviews in English and Spanish.
+6. Athlete page: more photos to come (clothed strength training); road cycling photo is only 736px wide.
 
 ## Build order
 1. Scaffold: `_config.yml`, layouts, nav, footer, `site.css` with tokens. No content changes to live pages yet.
