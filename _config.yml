@@ -1,0 +1,16 @@
+title: Josh Wood
+description: Josh Wood, #36. American road racer based in Málaga, training full time toward 2027.
+url: "https://josh36wood.com"
+lang: en
+
+plugins:
+  - jekyll-redirect-from
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Launch clean-up (step 8) will remove the old files. Until then they are
+# published exactly as they are today.
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
