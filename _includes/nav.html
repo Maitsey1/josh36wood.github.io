@@ -1,0 +1,10 @@
+<header class="site-header">
+  <a class="mark" href="/"><b>36</b><span>Josh Wood</span></a>
+  <nav aria-label="Main">
+    <a href="/story/"{% if page.url contains '/story/' %} aria-current="page"{% endif %}>Story</a>
+    <a href="/athlete/"{% if page.url contains '/athlete/' %} aria-current="page"{% endif %}>Athlete</a>
+    <a href="/#journey"{% if page.url contains '/journey/' %} aria-current="page"{% endif %}>Journey</a>
+    <a href="/media/"{% if page.url contains '/media/' %} aria-current="page"{% endif %}>Media</a>
+    <a class="cta" href="/work-with-josh/"{% if page.url contains '/work-with-josh/' %} aria-current="page"{% endif %}>Work with Josh</a>
+  </nav>
+</header>
