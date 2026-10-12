@@ -330,3 +330,123 @@ figcaption { font-size: 13px; color: var(--sierra); margin-top: 10px; }
   .quotes, .press { grid-template-columns: minmax(0, 1fr); }
   .facts div { grid-template-columns: minmax(0, 1fr); gap: 2px; }
 }
+
+/* Work with Josh page (scoped under .wwj) */
+.wwj .dark { background: var(--asphalt); color: var(--line-white); }
+.wwj .eyebrow { color: var(--sierra); font-size: 15px; margin: 0 0 18px; }
+.wwj h1 { font-size: clamp(44px, 6.4vw, 96px); line-height: .98; letter-spacing: -0.025em; font-weight: 800; font-stretch: 112%; margin: 0 0 24px; text-wrap: balance; }
+.wwj h2 { font-size: clamp(28px, 3.4vw, 46px); line-height: 1.06; letter-spacing: -0.02em; font-weight: 780; font-stretch: 110%; margin: 0; text-wrap: balance; }
+.wwj h3 { margin: 0; font-size: 22px; font-weight: 780; font-stretch: 108%; }
+.wwj .lede { font-size: clamp(19px, 1.9vw, 25px); line-height: 1.4; color: #E4E4DE; margin: 0 0 28px; max-width: 34ch; }
+.wwj .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 24px; border: 0; border-radius: 4px; background: var(--violet); color: #fff; font: 750 17px var(--font-head); text-decoration: none; cursor: pointer; }
+.wwj .btn:hover { background: #6d36a0; }
+.wwj .btn.ghost { background: transparent; border: 1px solid currentColor; color: inherit; }
+.wwj .btn:focus-visible, .wwj a:focus-visible { outline: 2px solid var(--violet-light); outline-offset: 3px; }
+.wwj .wwj-hero .wrap { padding-block: clamp(40px, 6vw, 88px); display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: clamp(28px, 6vw, 96px); align-items: center; }
+.wwj .wwj-hero .cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
+.wwj .band { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px; background: var(--asphalt); }
+.wwj .band img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; }
+.wwj .block { padding-block: clamp(48px, 7vw, 104px); }
+.wwj .split { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(28px, 6vw, 96px); align-items: center; }
+.wwj .split p { margin: 18px 0 0; max-width: 46ch; }
+.wwj .big { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; margin-top: 32px; }
+.wwj .big > div { display: grid; gap: 4px; padding: 20px 20px 20px 0; border-top: 1px solid var(--rule-dark); }
+.wwj .big b { font-size: clamp(40px, 5vw, 72px); font-weight: 800; font-stretch: 114%; line-height: 1; font-variant-numeric: tabular-nums; }
+.wwj .big span { color: #C9C9C2; font-size: 15px; }
+.wwj .big small { color: var(--sierra); font-size: 13px; }
+.wwj .phone { justify-self: center; width: min(100%, 300px); background: #121311; border: 1px solid var(--rule-dark); border-radius: 28px; padding: 18px; display: grid; gap: 14px; }
+.wwj .phone .ph-bar { font-weight: 750; font-size: 16px; text-align: center; }
+.wwj .phone .ph-top { display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: 14px; align-items: center; }
+.wwj .phone .av { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; display: block; border: 1px solid var(--rule-dark); }
+.wwj .phone .ph-nums { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); text-align: center; font-size: 12px; color: var(--sierra); }
+.wwj .phone .ph-nums b { display: block; color: var(--line-white); font-size: 16px; font-variant-numeric: tabular-nums; }
+.wwj .phone .ph-bio { display: grid; gap: 1px; font-size: 13px; line-height: 1.35; }
+.wwj .phone .ph-bio strong { font-weight: 750; }
+.wwj .phone .ph-sub { color: var(--sierra); font-size: 12px; margin: 0; }
+.wwj .phone .ph-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; }
+.wwj .phone .ph-grid figure { margin: 0; display: grid; gap: 4px; }
+.wwj .phone .ph-grid img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; display: block; }
+.wwj .phone .ph-grid figcaption { font-size: 12px; color: var(--sierra); margin: 0; font-variant-numeric: tabular-nums; }
+.wwj .head { display: grid; gap: 14px; margin-bottom: clamp(28px, 4vw, 48px); }
+.wwj .head p { margin: 0; color: var(--muted); max-width: 56ch; }
+.wwj .place { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(24px, 5vw, 80px); align-items: center; }
+.wwj .pins { position: relative; margin: 0; max-width: 460px; }
+.wwj .pins img { display: block; width: 100%; height: auto; }
+.wwj .pin { position: absolute; transform: translate(-6px, -50%); display: flex; align-items: center; gap: 6px; font: 650 13px var(--font-head); color: #fff; }
+.wwj .pin i { width: 12px; height: 12px; border-radius: 50%; background: var(--violet); border: 2px solid #fff; flex: none; }
+.wwj .pin span { background: var(--asphalt); padding: 2px 8px; border-radius: 4px; white-space: nowrap; }
+.wwj .pin.left { flex-direction: row-reverse; transform: translate(calc(-100% + 6px), -50%); }
+.wwj .levels { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.wwj .levels li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 4px 20px; padding: 18px 0; border-top: 1px solid var(--hairline); }
+.wwj .levels li:first-child { border-top: 0; padding-top: 0; }
+.wwj .levels span { color: var(--muted); }
+.wwj .route { display: grid; gap: 24px; padding-block: clamp(28px, 4vw, 48px); border-top: 1px solid var(--hairline); }
+.wwj .route-head { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 12px clamp(20px, 4vw, 64px); align-items: start; }
+.wwj .route-head p { margin: 0; color: var(--muted); max-width: 60ch; }
+.wwj .route .btn { justify-self: start; }
+.wwj .needs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px clamp(20px, 3vw, 40px); }
+.wwj .needs div { display: grid; gap: 6px; align-content: start; border-top: 1px solid var(--hairline); padding-top: 14px; }
+.wwj .needs strong { font-weight: 750; font-stretch: 106%; }
+.wwj .needs span { color: var(--muted); font-size: 15px; }
+.wwj .needs em { font-style: normal; font-weight: 650; font-size: 14px; color: var(--link); }
+.wwj .returns { list-style: none; margin: 0; padding: 20px 0 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; border-top: 2px solid var(--fg); }
+.wwj .returns li { display: grid; gap: 4px; align-content: start; }
+.wwj .returns span { color: var(--muted); font-size: 15px; }
+.wwj .tiers { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.wwj .tier { display: grid; gap: 14px; align-content: start; grid-template-rows: auto auto 1fr auto; padding: 24px; border: 1px solid var(--hairline); background: var(--bg); }
+.wwj .tier.top { background: var(--asphalt); color: var(--line-white); border-color: var(--asphalt); }
+.wwj .price { font-size: clamp(26px, 2.4vw, 34px); font-weight: 800; font-stretch: 112%; margin: 0; font-variant-numeric: tabular-nums; line-height: 1.1; }
+.wwj .tier ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; font-size: 15px; align-content: start; }
+.wwj .tier .btn { width: 100%; }
+.wwj .tier.top .btn { background: var(--violet-light); color: var(--asphalt); }
+.wwj .fine { color: var(--muted); font-size: 14px; margin: 20px 0 0; max-width: 70ch; }
+.wwj .ways { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px clamp(20px, 3vw, 48px); }
+.wwj .ways div { border-top: 1px solid var(--hairline); padding-top: 16px; display: grid; gap: 6px; align-content: start; }
+.wwj .ways strong { font-weight: 750; font-stretch: 106%; }
+.wwj .ways span { color: var(--muted); font-size: 15px; }
+.wwj .partners { display: flex; flex-wrap: wrap; gap: 12px 40px; list-style: none; margin: 0; padding: 0; font-size: clamp(22px, 2.6vw, 34px); font-weight: 780; font-stretch: 110%; }
+.wwj .partners small { display: block; font-size: 13px; font-weight: 400; color: var(--muted); font-stretch: 100%; }
+.wwj .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+.wwj .steps li { display: grid; gap: 6px; align-content: start; border-top: 2px solid var(--fg); padding-top: 14px; }
+.wwj .steps strong { font-weight: 750; font-stretch: 106%; }
+.wwj .steps span { color: var(--muted); font-size: 15px; }
+.wwj form { display: grid; gap: 16px; }
+.wwj label { display: grid; gap: 6px; font-size: 15px; font-weight: 650; }
+.wwj input, .wwj select, .wwj textarea { font: 400 17px var(--font-head); min-height: 48px; padding: 10px 12px; border-radius: 4px; border: 1px solid var(--rule-dark); background: #1B1C1A; color: var(--line-white); width: 100%; }
+.wwj textarea { min-height: 110px; resize: vertical; }
+.wwj input:focus-visible, .wwj select:focus-visible, .wwj textarea:focus-visible { outline: 2px solid var(--violet-light); outline-offset: 2px; }
+.wwj #sent, .wwj .dark .fine { color: var(--sierra); font-size: 14px; margin: 0; }
+.wwj form .btn { justify-self: start; }
+
+@media (max-width: 900px) {
+.wwj .wwj-hero .wrap, .wwj .split { grid-template-columns: minmax(0, 1fr); }
+.wwj .split.aud { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 24px; }
+.wwj .split.aud .big { grid-template-columns: minmax(0, 1fr); }
+.wwj .split.aud .big b { font-size: 40px; }
+.wwj .split.aud .phone { width: 100%; max-width: 300px; }
+.wwj .band { grid-template-columns: 1fr 1fr; }
+.wwj .tiers, .wwj .steps { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.wwj .place { grid-template-columns: minmax(0, 1fr); }
+.wwj .ways, .wwj .route-head { grid-template-columns: minmax(0, 1fr); }
+.wwj .needs { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.wwj .returns { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+
+}
+
+@media (max-width: 520px) {
+.wwj .split.aud { grid-template-columns: minmax(0, 1fr); }
+.wwj .split.aud .big { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+}
+
+@media (max-width: 560px) {
+.wwj .needs, .wwj .returns, .wwj .tiers, .wwj .steps, .wwj .big { grid-template-columns: minmax(0, 1fr); }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+.wwj * { scroll-behavior: auto !important; }
+ }
+
+/* No film yet, so the hero text takes the full width */
+.wwj .wwj-hero .wrap { grid-template-columns: minmax(0, 1fr); }
