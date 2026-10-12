@@ -132,8 +132,8 @@ Original artifacts, for reference only:
 ## Press
 | Outlet | Format | Date | Link |
 |---|---|---|---|
-| Talk Radio Europe | Radio interview | TO CONFIRM | https://www.youtube.com/watch?v=7Y-HCc9knzs |
-| RTV Marbella with Nicole King | Television interview | TO CONFIRM | https://www.youtube.com/watch?v=4qCWz0P031k&t=1875s |
+| Talk Radio Europe | Radio interview | — | https://www.youtube.com/watch?v=7Y-HCc9knzs |
+| RTV Marbella with Nicole King | Television interview | — | https://www.youtube.com/watch?v=4qCWz0P031k&t=1875s |
 | Euro Weekly News | Newspaper | April 2026 | https://euroweeklynews.com/2026/04/22/juniorgp-world-championship-the-race-is-on/ |
 | Essential Magazine | Print feature | June 2025 | https://issuu.com/essentialmagazine/docs/essential_magazine_june_2025 |
 | Planet Marbella | Feature interview | April 2025 | https://www.planetmarbella.com/can-josh-break-into-the-big-time/ |
