@@ -2,30 +2,8 @@
 layout: default
 ---
 {% comment %}
-  Journey article. Front matter used:
-  title, description, standfirst, hero (path), hero_width, hero_height, hero_alt, hero_caption,
-  next_title, next_url
-  The Q&A sections are plain HTML in the page file (see .article, .section, .qa in site.css).
+  Journey article. The hero, the Q&A sections and the "Next in the Journey" link
+  are plain HTML in each page file so they can be edited in the GitHub web editor.
+  Front matter: title and description only. Styles: .hero, .article, .section, .qa, .next in site.css.
 {% endcomment %}
-<section class="hero">
-  <div class="hero-inner">
-    <div>
-      <h1>{{ page.title }}</h1>
-      <p class="standfirst">{{ page.standfirst }}</p>
-    </div>
-    <figure>
-      <img src="{{ page.hero }}" width="{{ page.hero_width }}" height="{{ page.hero_height }}" alt="{{ page.hero_alt }}">
-      <figcaption>{{ page.hero_caption }}</figcaption>
-    </figure>
-  </div>
-</section>
-
-<div class="article">
-  {{ content }}
-</div>
-
-<aside class="next">
-  <div class="next-inner">
-    <p>Next in the Journey: <a href="{{ page.next_url }}">{{ page.next_title }}</a></p>
-  </div>
-</aside>
+{{ content }}
