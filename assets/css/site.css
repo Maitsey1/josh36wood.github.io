@@ -450,3 +450,7 @@ figcaption { font-size: 13px; color: var(--sierra); margin-top: 10px; }
 
 /* No film yet, so the hero text takes the full width */
 .wwj .wwj-hero .wrap { grid-template-columns: minmax(0, 1fr); }
+
+.wwj .markets { margin: 24px 0 0; color: #E4E4DE; font-size: 15px; max-width: 46ch; }
+.wwj .big b { font-size: clamp(30px, 8vw, 52px); white-space: nowrap; }
+@media (max-width: 520px) { .wwj .split.aud .big b { font-size: 30px; } }
