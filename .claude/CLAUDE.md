@@ -127,7 +127,9 @@ Original artifacts, for reference only:
 - 2025: PreMoto3. 2026: finished school, trains full time. Next objective (2027): ESBK Talent Cup. Calendar: "To be confirmed".
 - Training: gym four days a week, track three days a week.
 - Costs (items only): track time, coaching, travel, gym, road bike hire; tyres (a set about every two weeks), brakes, boots (every two to three months), race leathers, cycling kit; two helmets a season (race and training).
-- Instagram @josh.wood36 (https://www.instagram.com/josh.wood36/): 3,200 followers (12 Oct 2026); 9,767 profile visits a month (Instagram Insights, Oct 2026); pinned posts 138K, 43.2K and 31.7K views (8 Oct 2026).
+- Instagram @josh.wood36 (https://www.instagram.com/josh.wood36/): 3,200 followers (12 Oct 2026); pinned posts 138K, 43.2K and 31.7K views (8 Oct 2026).
+- Work with Josh audience band (Instagram Insights): 138K views in 90 days and 46K accounts reached (both to 11 Oct 2026); 72% aged 18 to 34 and 52 / 48 women / men (Oct 2026). Top markets: Spain 29%, Italy 23%, United Kingdom 15%, France 11%, Portugal 10%. Retired: "9,767 profile visits a month" and "138K views on his top pinned post" as a stat.
+- The "aged 18 to 34" figure is the audience, never Josh. The no-age rule is about Josh.
 
 ## Press
 | Outlet | Format | Date | Link |
