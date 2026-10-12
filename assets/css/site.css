@@ -181,3 +181,54 @@ figcaption { font-size: 13px; color: var(--sierra); margin-top: 10px; }
 /* Journey article hero with a landscape photo: stacked instead of side by side */
 .hero-inner.wide { grid-template-columns: minmax(0, 1fr); align-items: start; }
 .hero-inner.wide .standfirst { max-width: 40ch; }
+
+/* Story page */
+.story-hero { background: var(--asphalt); color: var(--line-white); }
+.story-hero .wrap { padding-block: clamp(40px, 6vw, 88px); display: grid; gap: clamp(28px, 4vw, 48px); }
+.story-hero .top { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(24px, 5vw, 72px); align-items: end; }
+.story-hero h1 { font-size: clamp(44px, 6.4vw, 96px); line-height: .98; letter-spacing: -0.025em; font-weight: 800; font-stretch: 112%; margin: 0; text-wrap: balance; }
+.story-hero .standfirst { max-width: 36ch; }
+.story-hero figure { margin: 0; }
+.story-hero img { display: block; width: 100%; height: auto; max-height: 72vh; object-fit: cover; }
+
+.timeline { padding-block: clamp(40px, 6vw, 88px); }
+.timeline figcaption { font-size: 13px; color: var(--muted); margin-top: 8px; }
+.entry { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: clamp(20px, 4vw, 64px); padding-block: clamp(36px, 5vw, 72px); }
+.entry + .entry { border-top: 1px solid var(--hairline); }
+.entry .when { display: grid; gap: 6px; align-content: start; position: sticky; top: 24px; align-self: start; }
+.entry .year { font-size: clamp(44px, 6vw, 88px); line-height: .95; font-weight: 800; font-stretch: 114%; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.entry .tag { font-size: 14px; color: var(--muted); }
+.entry h2 { font-size: clamp(28px, 3.4vw, 46px); line-height: 1.06; letter-spacing: -0.02em; font-weight: 780; font-stretch: 110%; margin: 0 0 18px; text-wrap: balance; }
+.entry .body { min-width: 0; display: grid; gap: 28px; }
+.entry .body p { margin: 0; max-width: 60ch; }
+.entry .sub { font-size: clamp(22px, 2.2vw, 28px); line-height: 1.15; font-weight: 750; font-stretch: 108%; letter-spacing: -0.01em; margin: 0 0 12px; }
+.gal { display: grid; gap: 12px; align-items: start; }
+.gal figure { margin: 0; min-width: 0; }
+.gal img { display: block; width: 100%; height: auto; object-fit: cover; }
+.g-a { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); }
+.g-b { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.g-c { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.g-a .land img, .g-b .land img, .g-s .land img { aspect-ratio: 4 / 3; }
+.g-a .tall img, .g-b .tall img, .g-c .tall img { aspect-ratio: 3 / 4; }
+.g-s { grid-template-columns: minmax(0, 8fr) minmax(0, 9fr); grid-template-rows: auto auto; }
+.g-s .tall { grid-column: 2; grid-row: 1 / 3; display: flex; flex-direction: column; align-self: stretch; }
+.g-s .tall img { flex: 1; min-height: 0; height: 100%; }
+.more { display: flex; flex-wrap: wrap; gap: 8px 28px; font-size: 16px; }
+
+.story-cta { background: var(--asphalt); color: var(--line-white); }
+.story-cta .wrap { padding-block: clamp(40px, 6vw, 80px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px 40px; }
+.story-cta h2 { font-size: clamp(28px, 3.4vw, 46px); line-height: 1.06; letter-spacing: -0.02em; font-weight: 780; font-stretch: 110%; margin: 0; max-width: 18ch; }
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 24px; border: 0; border-radius: 4px; background: var(--violet-light); color: var(--asphalt); font: 750 17px var(--font-head); text-decoration: none; }
+.btn:focus-visible { outline: 2px solid var(--line-white); outline-offset: 3px; }
+
+@media (max-width: 820px) {
+  .story-hero .top, .entry { grid-template-columns: minmax(0, 1fr); }
+  .entry .when { position: static; grid-template-columns: auto 1fr; align-items: baseline; gap: 16px; }
+  .g-a, .g-c { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .g-a .land, .g-c .land { grid-column: 1 / -1; }
+}
+@media (max-width: 480px) {
+  .g-s .tall { grid-column: auto; grid-row: auto; }
+  .g-s .tall img { aspect-ratio: 3 / 4; }
+  .g-b, .g-a, .g-c, .g-s { grid-template-columns: minmax(0, 1fr); }
+}
