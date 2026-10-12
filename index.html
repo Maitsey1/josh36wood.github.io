@@ -81,7 +81,7 @@ image: /og_image.jpg
 <article style="flex: 0 0 clamp(250px, 23cqw, 320px); scroll-snap-align: start">
 <img src="/assets/img/home/timeline-spn-academy.jpg" alt="Evening training session on small bikes at SPN Academy" width="750" height="1000" loading="lazy" style="width: 100%; aspect-ratio: 4 / 5; object-fit: cover">
 <p style="margin: 14px 0 4px; font-size: 15px; font-weight: 750; font-variant-numeric: tabular-nums">2024</p>
-<p style="margin: 0; font-size: 16px; line-height: 1.45">Joins SPN Academy under coach Nico Ferreira, races as a wildcard for Team Quaresma and in MIR Moto5.</p>
+<p style="margin: 0; font-size: 16px; line-height: 1.45">Joins SPN Academy under coach Nico Ferreira, is invited to race as a wildcard for Team Quaresma and races in MIR Moto5 as a wildcard.</p>
 </article>
 <article style="flex: 0 0 clamp(250px, 23cqw, 320px); scroll-snap-align: start">
 <img src="/assets/img/home/timeline-red-bull.jpg" alt="Josh beside a Red Bull bike in the pit lane at the 2024 selection event" width="750" height="1000" loading="lazy" style="width: 100%; aspect-ratio: 4 / 5; object-fit: cover">
@@ -168,7 +168,7 @@ image: /og_image.jpg
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 32px">
 <div style="padding-top: 20px; border-top: 1px solid #4A4C48">
 <p style="margin: 0 0 8px; font-size: 14px; color: #CDBB9E">Next</p>
-<p style="margin: 0; font-size: clamp(22px, 2cqw, 28px); line-height: 1.25; font-weight: 650">To be confirmed. The calendar will be announced soon.</p>
+<p style="margin: 0; font-size: clamp(22px, 2cqw, 28px); line-height: 1.25; font-weight: 650">To be announced.</p>
 </div>
 <div style="padding-top: 20px; border-top: 1px solid #4A4C48">
 <p style="margin: 0 0 8px; font-size: 14px; color: #CDBB9E">2027</p>
@@ -219,7 +219,19 @@ image: /og_image.jpg
 <img src="/assets/img/home/journey-red-bull-pit-lane.jpg" alt="Pit lane at the Red Bull selection event" width="750" height="1000" loading="lazy" style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover">
 <img src="/assets/img/home/journey-track-walk.jpg" alt="Track walk at Portimão" width="1200" height="740" loading="lazy" style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover">
 </div>
-<!-- TO CONFIRM: the "Race-weekend dispatch" email sign-up from the mock-up is left out. It needs an email service and a line in the privacy page. The sentence above mentions the dispatch; keep or reword once decided. -->
+<form id="dispatch" action="https://formspree.io/f/xeenoqyo" method="POST" style="max-width: 560px; margin-top: 40px">
+<label for="dispatch-email" style="display: block; margin-bottom: 10px; font-weight: 650">Race-weekend dispatch</label>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<input id="dispatch-email" name="email" type="email" placeholder="name@example.com" required style="flex: 1 1 260px; min-height: 48px; padding: 0 16px; border: 1px solid #232422; border-radius: 4px; background: #F5F5F1; color: #232422; font: inherit; font-size: 16px">
+<button type="submit" style="min-height: 48px; padding: 0 22px; border: 0; border-radius: 4px; background: #232422; color: #F5F5F1; font: inherit; font-weight: 650">Sign up</button>
+</div>
+<input type="hidden" name="_subject" value="Race-weekend dispatch sign-up">
+<input type="hidden" name="form" value="dispatch sign-up">
+<input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position: absolute; left: -9999px; width: 1px; height: 1px; padding: 0; border: 0">
+<p style="margin: 10px 0 0; font-size: 14px">One short email after each race weekend. Unsubscribe at any time.</p>
+<!-- TO CONFIRM: wording of the two messages shown after sign-up. The mock-up had no confirmation or error text. -->
+<p id="dispatch-status" role="status" hidden style="margin: 10px 0 0; font-size: 14px"></p>
+</form>
 </div>
 </section>
 
@@ -250,3 +262,5 @@ image: /og_image.jpg
 
 
 </div>
+
+<script src="/assets/js/dispatch.js" defer></script>
