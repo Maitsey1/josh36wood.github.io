@@ -13,7 +13,7 @@ Read this file in full before any change. It is the single source of truth for t
 - Plugins: only those GitHub Pages supports (`jekyll-redirect-from`, `jekyll-seo-tag`, `jekyll-sitemap`).
 - No build tools, frameworks or npm. Plain HTML, one shared CSS file, minimal vanilla JS.
 - Fonts from Google Fonts only: Archivo (`wdth,wght@62..125,100..900`) and Newsreader italic (`ital,opsz,wght@1,6..72,300..600`).
-- Google Analytics ID: `G-56M0RX694E`. Formspree form ID `xeenoqyo` if a contact form is used.
+- Google Analytics ID: `G-56M0RX694E`. It loads only after the visitor presses Accept on the cookie banner (`assets/js/consent.js`); never add a `gtag` tag directly to a layout or page. Formspree form ID `xeenoqyo` if a contact form is used.
 
 ## Target structure
 ```
@@ -22,7 +22,9 @@ _layouts/default.html      # shared head, header, nav, footer
 _layouts/article.html      # Journey article: dark hero + editorial Q&A
 _includes/nav.html
 _includes/footer.html
+_includes/consent.html       # cookie banner
 assets/css/site.css        # tokens + components, one file
+assets/js/consent.js       # loads Google Analytics only after Accept
 assets/img/                # optimised images, organised by page
 index.html                 # homepage
 story/index.html
@@ -32,6 +34,7 @@ journey/walking-the-track/index.html
 journey/red-bull-selection-event/index.html
 media/index.html           # media kit
 work-with-josh/index.html  # Partner with Josh
+privacy/index.html         # Privacy, linked from the footer on every page
 ```
 Page content lives in the page files as plain HTML so Maite can find and edit text in the web editor. Do not move copy into data files or front matter beyond titles and descriptions.
 
@@ -92,6 +95,14 @@ Original artifacts, for reference only:
 - Max content width 1296px, side gutters `clamp(20px, 5vw, 72px)`. Must work at 360px wide with no horizontal scroll.
 - Photos are uncropped unless the mock-up crops them. Every image has descriptive alt text, width and height.
 
+## Cookies, privacy and data (decided 12 October 2026)
+- Cookie banner on every page: Accept and Reject styled identically, short plain wording, small and fixed to the bottom of the screen. Choice is stored in `localStorage` (`analytics-consent`). Footer has a "Cookie settings" button that reopens it.
+- Footer links to `/privacy/` and carries the "Cookie settings" button on every page.
+- Enquiry data (name, brand, email, message) goes through Formspree, is used only to reply, and is never shared or sold.
+- Retention: enquiries are kept for 12 months after the last reply, then deleted.
+- Deletion requests go to `maiteland@josh36wood.com`.
+- If tracking or forms change, update `privacy/index.html` in the same pull request.
+
 ## Content rules (non-negotiable)
 - Direct, factual, peer-to-peer. No exclamation marks. No filler.
 - **Retired phrases, never use:** rising star, elite, prestigious, act now, limited slots, "investing in". Also never: future champion, the next JuniorGP star, exclusive.
@@ -104,6 +115,7 @@ Original artifacts, for reference only:
 - **Audience figures** always carry a date and source, exactly as below.
 - **Partners:** product-only partners are never called "sponsors". Only approved brands appear (see Resolved).
 - **Press list:** outlet, format and date only, each linked. No old headlines (several are "help" appeals). Shaw Marketing Services never appears.
+- **Footer:** no YouTube link until the channel is live (TO CONFIRM comment sits in `_includes/footer.html`).
 - **Contact address everywhere:** `maiteland@josh36wood.com`. Retire media@, partnerships@, sponsorships@ and any belallure.travel address.
 - **Prices:** tier prices and partnership terms may appear on `/work-with-josh/` only, as shown in the approved mock-up. No prices or cost figures anywhere else (the Athlete costs band lists items, not amounts).
 - No PDFs of pages unless Maite asks.
