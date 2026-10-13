@@ -183,7 +183,7 @@ Outreach-only angles (not on the site): no racing family; a student of the sport
 2. Racing calendar stays "To be announced" until it is published.
 3. Livery and logo positions to confirm with team and championship before partners sign; tyre categories subject to ESBK and team rules.
 4. Media kit: full-resolution photos and credits on request; confirm whether Josh gives interviews in English and Spanish.
-5. Athlete page: more photos to come (clothed strength training); road cycling photo is only 736px wide.
+5. Athlete page: road cycling photo is only 736px wide.
 
 ## Build order
 1. Scaffold: `_config.yml`, layouts, nav, footer, `site.css` with tokens. No content changes to live pages yet.
