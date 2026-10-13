@@ -255,6 +255,8 @@ figcaption { font-size: 13px; color: var(--sierra); margin-top: 10px; }
 .g-port .wide img { aspect-ratio: 16 / 9; object-position: 50% 60%; }
 .g-tall { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .g-tall img { aspect-ratio: 3 / 4; }
+.g-three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.g-three img { aspect-ratio: 3 / 4; }
 
 .uses { background: var(--band); }
 .uses .wrap { padding-block: clamp(48px, 7vw, 96px); display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: clamp(20px, 4vw, 64px); }
@@ -271,7 +273,11 @@ figcaption { font-size: 13px; color: var(--sierra); margin-top: 10px; }
   .athlete-hero .wrap, .row, .uses .wrap, .cost-cols { grid-template-columns: minmax(0, 1fr); }
   .row .label, .uses .label { position: static; }
 }
-@media (max-width: 480px) { .g-port { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 480px) {
+  .g-port { grid-template-columns: minmax(0, 1fr); }
+  .g-three { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .g-three figure:first-child { grid-column: 1 / -1; }
+}
 
 /* Media kit page */
 .media-hero { background: var(--asphalt); color: var(--line-white); }
